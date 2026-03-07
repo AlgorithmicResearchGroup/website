@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block title %}{{ article.title }} — {{ SITENAME }}{% endblock %}
+{% block description %}{{ article.summary|striptags|truncate(160) }}{% endblock %}
+{% block og_type %}article{% endblock %}
+{% block og_title %}{{ article.title }}{% endblock %}
+{% block og_description %}{{ article.summary|striptags|truncate(200) }}{% endblock %}
+{% block og_url %}{{ SITEURL }}/{{ article.url }}{% endblock %}
+
+{% block jsonld %}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "{{ article.title }}",
+    "author": {
+        "@type": "Organization",
+        "name": "{{ AUTHOR }}"
+    },
+    "datePublished": "{{ article.date.strftime('%Y-%m-%d') }}",
+    {% if article.modified %}
+    "dateModified": "{{ article.modified.strftime('%Y-%m-%d') }}",
+    {% endif %}
+    "publisher": {
+        "@type": "Organization",
+        "name": "{{ AUTHOR }}"
+    }
+}
+</script>
+{% endblock %}
+
+{% block content %}
+    <article class="full-article">
+        <header>
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="{{ SITEURL }}/">Home</a>
+                <span class="separator">/</span>
+                <a href="{{ SITEURL }}/blog/">Writing</a>
+                <span class="separator">/</span>
+                <span aria-current="page">{{ article.title }}</span>
+            </nav>
+            <h1 class="article-title">{{ article.title }}</h1>
+            <div class="article-meta">
+                <time class="post-date" datetime="{{ article.date.strftime('%Y-%m-%d') }}">{{ article.date.strftime('%B %d, %Y') }}</time>
+                {% if article.tags %}
+                <span class="post-tags">
+                    {% for tag in article.tags %}
+                    <a href="{{ SITEURL }}/tag/{{ tag.slug }}.html">#{{ tag }}</a>
+                    {% endfor %}
+                </span>
+                {% endif %}
+            </div>
+        </header>
+
+        <div class="article-content">
+            {{ article.content }}
+        </div>
+
+        <nav class="article-footer" aria-label="Article navigation">
+            {% if article.prev_article %}
+            <div class="prev">
+                <span class="nav-label">Previous</span>
+                <a href="{{ SITEURL }}/{{ article.prev_article.url }}">{{ article.prev_article.title }}</a>
+            </div>
+            {% else %}
+            <div class="prev"></div>
+            {% endif %}
+            {% if article.next_article %}
+            <div class="next">
+                <span class="nav-label">Next</span>
+                <a href="{{ SITEURL }}/{{ article.next_article.url }}">{{ article.next_article.title }}</a>
+            </div>
+            {% endif %}
+        </nav>
+    </article>
+{% endblock %}

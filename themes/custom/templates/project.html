@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %}{{ article.title }} — {{ SITENAME }}{% endblock %}
+{% block description %}{{ article.summary|striptags|truncate(160) }}{% endblock %}
+{% block og_type %}article{% endblock %}
+{% block og_title %}{{ article.title }}{% endblock %}
+{% block og_description %}{{ article.summary|striptags|truncate(200) }}{% endblock %}
+{% block og_url %}{{ SITEURL }}/{{ article.url }}{% endblock %}
+
+{% block jsonld %}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "SoftwareSourceCode",
+    "name": "{{ article.title }}",
+    "author": {
+        "@type": "Organization",
+        "name": "{{ AUTHOR }}"
+    },
+    "description": "{{ article.summary|striptags|truncate(200) }}"
+}
+</script>
+{% endblock %}
+
+{% block content %}
+    <article class="full-article project-detail">
+        <header>
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="{{ SITEURL }}/">Home</a>
+                <span class="separator">/</span>
+                <a href="{{ SITEURL }}/projects.html">Research</a>
+                <span class="separator">/</span>
+                <span aria-current="page">{{ article.title }}</span>
+            </nav>
+
+            {% if article.image %}
+            <div class="project-hero">
+                <img src="{{ SITEURL }}/images/{{ article.image }}" alt="{{ article.title }}">
+            </div>
+            {% endif %}
+
+            <h1 class="article-title">{{ article.title }}</h1>
+
+            <div class="project-links">
+                {% if article.repo %}
+                <a href="{{ article.repo }}" target="_blank" rel="noopener" class="project-link">GitHub &rarr;</a>
+                {% endif %}
+                {% if article.demo %}
+                <a href="{{ article.demo }}" target="_blank" rel="noopener" class="project-link">Demo &rarr;</a>
+                {% endif %}
+                {% if article.paper %}
+                <a href="{{ article.paper }}" target="_blank" rel="noopener" class="project-link">Paper &rarr;</a>
+                {% endif %}
+                {% if article.huggingface %}
+                <a href="{{ article.huggingface }}" target="_blank" rel="noopener" class="project-link">HuggingFace &rarr;</a>
+                {% endif %}
+            </div>
+
+            {% if article.tags %}
+            <div class="article-meta">
+                <span class="post-tags">
+                    {% for tag in article.tags %}
+                    <a href="{{ SITEURL }}/tag/{{ tag.slug }}.html">#{{ tag }}</a>
+                    {% endfor %}
+                </span>
+            </div>
+            {% endif %}
+        </header>
+
+        <div class="article-content">
+            {{ article.content }}
+        </div>
+    </article>
+{% endblock %}

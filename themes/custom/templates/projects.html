@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Research — {{ SITENAME }}{% endblock %}
+
+{% block body %}
+<main>
+    <section class="section section--bg">
+        <div class="section-inner">
+            <div class="page-header">
+                <h1 class="page-title">Research</h1>
+                <nav class="page-nav" aria-label="Site navigation">
+                    <a href="{{ SITEURL }}/">&larr; Home</a>
+                </nav>
+            </div>
+
+            <div class="project-grid">
+                {% for article in articles|sort(attribute='date', reverse=true) %}
+                {% if article.category.name == 'projects' %}
+                <a href="{{ SITEURL }}/{{ article.url }}" class="project-card{% if article.featured %} project-card--featured{% endif %}">
+                    {% if article.image %}
+                    <div class="project-card-image">
+                        <img src="{{ SITEURL }}/images/{{ article.image }}" alt="{{ article.title }}">
+                    </div>
+                    {% endif %}
+                    <h3 class="project-title">{{ article.title }}</h3>
+                    <p class="project-desc">{{ article.summary|striptags|truncate(160) }}</p>
+                    {% if article.tags %}
+                    <span class="project-meta">{{ article.tags|join(' / ') }}</span>
+                    {% endif %}
+                </a>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

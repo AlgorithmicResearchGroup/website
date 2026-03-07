@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArXiv Research Code Dataset: 129K Research Repositories — Algorithmic Research Group</title>
+    <meta name="description" content="A benchmark suite for evaluating AI agents on real machine learning research tasks — including task definitions, a baseline agent, and evaluation infrastructure.">
+    <meta name="author" content="Algorithmic Research Group">
+
+    <!-- Open Graph -->
+    <meta property="og:site_name" content="Algorithmic Research Group">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="ArXiv Research Code Dataset: 129K Research Repositories">
+    <meta property="og:description" content="A benchmark suite for evaluating AI agents on real machine learning research tasks — including task definitions, a baseline agent, and evaluation infrastructure.">
+    <meta property="og:url" content="../projects/arxiv-research-code-dataset-129k-research-repositories.html">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="ArXiv Research Code Dataset: 129K Research Repositories">
+    <meta name="twitter:description" content="A benchmark suite for evaluating AI agents on real machine learning research tasks — including task definitions, a baseline agent, and evaluation infrastructure.">
+
+    <!-- Feeds -->
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../theme/favicon.svg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../theme/css/style.css">
+
+    <!-- JSON-LD -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "SoftwareSourceCode",
+    "name": "ArXiv Research Code Dataset: 129K Research Repositories",
+    "author": {
+        "@type": "Organization",
+        "name": "Algorithmic Research Group"
+    },
+    "description": "A benchmark suite for evaluating AI agents on real machine learning research tasks — including task definitions, a baseline agent, and evaluation infrastructure."
+}
+</script>
+
+    <!-- Analytics -->
+    <script async src="https://plausible.io/js/script.js" data-domain="arg.example.com"></script>
+</head>
+<body>
+    <header class="site-nav">
+        <div class="nav-inner">
+            <a href="../" class="nav-logo"><img src="../theme/logo-white.png" alt="ARG" class="nav-logo-img"></a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="../#research">Research</a></li>
+                    <li><a href="../opensource.html">Open Source</a></li>
+                    <li><a href="../blog/">Writing</a></li>
+                    <li><a href="https://github.com/AlgorithmicResearchGroup" target="_blank" rel="noopener">GitHub</a></li>
+                    <li><a href="https://huggingface.co/AlgorithmicResearchGroup" target="_blank" rel="noopener">HuggingFace</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="inner-page">
+    <article class="full-article project-detail">
+        <header>
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="../">Home</a>
+                <span class="separator">/</span>
+                <a href="../projects.html">Research</a>
+                <span class="separator">/</span>
+                <span aria-current="page">ArXiv Research Code Dataset: 129K Research Repositories</span>
+            </nav>
+
+
+            <h1 class="article-title">ArXiv Research Code Dataset: 129K Research Repositories</h1>
+
+            <div class="project-links">
+                <a href="https://github.com/AlgorithmicResearchGroup/ArXivResearchCode" target="_blank" rel="noopener" class="project-link">GitHub &rarr;</a>
+            </div>
+
+            <div class="article-meta">
+                <span class="post-tags">
+                    <a href="../tag/agent-evaluation.html">#agent-evaluation</a>
+                    <a href="../tag/benchmarks.html">#benchmarks</a>
+                    <a href="../tag/python.html">#python</a>
+                </span>
+            </div>
+        </header>
+
+        <div class="article-content">
+            <h1>The ArXiv Research Code Dataset: 4.7 Million Files from 129K Research Repositories</h1>
+<p>Most code datasets are built from the general population of open-source software — web apps, CLI tools, infrastructure code. That's useful for training general-purpose code models, but it doesn't capture how researchers actually write code. Research code has its own conventions, its own library ecosystem, and its own structural patterns. If you want models that understand and generate research code, you need training data drawn from research repositories.</p>
+<p>The ArXiv Research Code Dataset is a collection of <strong>4,716,175 code files from 129,232 unique repositories</strong> linked to computer science papers on arXiv. The full dataset is 21.6 GB and is available on <a href="https://huggingface.co/datasets/AlgorithmicResearchGroup/arxiv_research_code">HuggingFace</a>.</p>
+<h2>How We Built It</h2>
+<p>The dataset was created through a multi-stage pipeline:</p>
+<ol>
+<li><strong>Extract GitHub URLs from arXiv papers.</strong> We parsed metadata and full text from CS arXiv papers to identify those with linked GitHub repositories.</li>
+<li><strong>Clone and process repositories.</strong> Each repository was downloaded and decomposed into individual code files, focusing on common research-oriented programming languages.</li>
+<li><strong>Compute file-level metrics.</strong> For each file, we derived structural metadata including file length, average line length, and maximum line length.</li>
+</ol>
+<p>The result is a snapshot of the code that accompanies published computer science research — not synthetic benchmarks or toy examples, but the actual implementations behind peer-reviewed work.</p>
+<h2>What's in the Dataset</h2>
+<p>Each entry contains:</p>
+<ul>
+<li><strong>repo</strong> — the repository name</li>
+<li><strong>file</strong> — the file path within the repository</li>
+<li><strong>code</strong> — the full file contents</li>
+<li><strong>file_length</strong> — total number of lines</li>
+<li><strong>avg_line_length</strong> — average characters per line</li>
+<li><strong>max_line_length</strong> — longest line in the file</li>
+<li><strong>extension_type</strong> — the file extension</li>
+</ul>
+<h2>Language Distribution</h2>
+<p>The dataset reflects the programming language preferences of the CS research community. Python dominates at 17.5% of all files (827,135 files), followed by C/C++ at 15.8% (743,207 files) and Java at 13.0% (615,191 files). The full breakdown:</p>
+<table>
+<thead>
+<tr>
+<th>Language</th>
+<th style="text-align: right;">Files</th>
+<th style="text-align: right;">Share</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Python</td>
+<td style="text-align: right;">827,135</td>
+<td style="text-align: right;">17.54%</td>
+</tr>
+<tr>
+<td>C/C++</td>
+<td style="text-align: right;">743,207</td>
+<td style="text-align: right;">15.76%</td>
+</tr>
+<tr>
+<td>Java</td>
+<td style="text-align: right;">615,191</td>
+<td style="text-align: right;">13.04%</td>
+</tr>
+<tr>
+<td>HTML</td>
+<td style="text-align: right;">359,375</td>
+<td style="text-align: right;">7.62%</td>
+</tr>
+<tr>
+<td>C</td>
+<td style="text-align: right;">302,533</td>
+<td style="text-align: right;">6.41%</td>
+</tr>
+<tr>
+<td>Markdown</td>
+<td style="text-align: right;">201,196</td>
+<td style="text-align: right;">4.27%</td>
+</tr>
+<tr>
+<td>Objective-C</td>
+<td style="text-align: right;">170,582</td>
+<td style="text-align: right;">3.62%</td>
+</tr>
+<tr>
+<td>C++</td>
+<td style="text-align: right;">162,715</td>
+<td style="text-align: right;">3.45%</td>
+</tr>
+<tr>
+<td>YAML</td>
+<td style="text-align: right;">142,877</td>
+<td style="text-align: right;">3.03%</td>
+</tr>
+<tr>
+<td>Go</td>
+<td style="text-align: right;">125,270</td>
+<td style="text-align: right;">2.66%</td>
+</tr>
+<tr>
+<td>Shell</td>
+<td style="text-align: right;">88,581</td>
+<td style="text-align: right;">1.88%</td>
+</tr>
+<tr>
+<td>TypeScript</td>
+<td style="text-align: right;">50,907</td>
+<td style="text-align: right;">1.08%</td>
+</tr>
+<tr>
+<td>Ruby</td>
+<td style="text-align: right;">34,739</td>
+<td style="text-align: right;">0.74%</td>
+</tr>
+<tr>
+<td>R</td>
+<td style="text-align: right;">25,311</td>
+<td style="text-align: right;">0.54%</td>
+</tr>
+<tr>
+<td>Rust</td>
+<td style="text-align: right;">24,026</td>
+<td style="text-align: right;">0.51%</td>
+</tr>
+<tr>
+<td>Scala</td>
+<td style="text-align: right;">23,478</td>
+<td style="text-align: right;">0.50%</td>
+</tr>
+</tbody>
+</table>
+<p>The remaining languages (CSS, PHP, Perl, SQL, Lua, C#, Swift, JavaScript) each account for less than 0.4%.</p>
+<h2>Deep Dive: The Python Subset</h2>
+<p>Given Python's central role in ML research, we did a focused analysis on the Python subset — roughly 827K files across 23,874 repositories. Some highlights:</p>
+<p><strong>Library usage tells you what researchers actually depend on.</strong> NumPy appears in 30.4% of all Python files, confirming its role as the bedrock of scientific computing. PyTorch follows at 19.8%, well ahead of TensorFlow at 3.9%. Pandas (4.3%), matplotlib (1.5%), and SciPy (1.2%) round out the top tier. About 24% of Python files use at least one ML/DL library.</p>
+<table>
+<thead>
+<tr>
+<th>Library</th>
+<th style="text-align: right;">Files</th>
+<th style="text-align: right;">Share</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NumPy</td>
+<td style="text-align: right;">417,793</td>
+<td style="text-align: right;">30.38%</td>
+</tr>
+<tr>
+<td>PyTorch</td>
+<td style="text-align: right;">272,330</td>
+<td style="text-align: right;">19.80%</td>
+</tr>
+<tr>
+<td>Pandas</td>
+<td style="text-align: right;">59,505</td>
+<td style="text-align: right;">4.33%</td>
+</tr>
+<tr>
+<td>TensorFlow</td>
+<td style="text-align: right;">52,918</td>
+<td style="text-align: right;">3.85%</td>
+</tr>
+<tr>
+<td>Matplotlib</td>
+<td style="text-align: right;">20,844</td>
+<td style="text-align: right;">1.52%</td>
+</tr>
+<tr>
+<td>SciPy</td>
+<td style="text-align: right;">16,143</td>
+<td style="text-align: right;">1.17%</td>
+</tr>
+<tr>
+<td>Scikit-learn</td>
+<td style="text-align: right;">6,005</td>
+<td style="text-align: right;">0.44%</td>
+</tr>
+<tr>
+<td>Keras</td>
+<td style="text-align: right;">3,773</td>
+<td style="text-align: right;">0.27%</td>
+</tr>
+<tr>
+<td>NLTK</td>
+<td style="text-align: right;">2,970</td>
+<td style="text-align: right;">0.22%</td>
+</tr>
+<tr>
+<td>SpaCy</td>
+<td style="text-align: right;">1,362</td>
+<td style="text-align: right;">0.10%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Code structure is modular and function-heavy.</strong> The average Python file contains 7.6 import statements, 8.3 function definitions, and 1.3 class definitions. Files average 220 lines of code, with 2.9 for-loops and about 1 list comprehension per file. Error handling is moderate (0.46 try-except blocks per file), and there's light use of functional patterns (0.37 lambdas per file). The overall picture is modular, function-oriented code — which makes sense for research that needs to be iterated on quickly.</p>
+<p><strong>Code quality is high.</strong> 97.15% of Python files in the dataset are syntactically valid (1,375,548 valid out of 1,415,924 total). Average cyclomatic complexity across all repositories is 23.88, though the range is enormous — from single-function scripts to massive monolithic modules with complexity scores above 20,000.</p>
+<p><strong>Repository sizes vary dramatically.</strong> The largest repository (catboost) contains 22,994 Python files, while many repositories contain just a handful. This reflects the full spectrum of research software, from large collaborative frameworks to single-paper implementations.</p>
+<h2>Limitations</h2>
+<p>A few things to keep in mind:</p>
+<p><strong>ArXiv bias.</strong> The dataset only covers papers posted to arXiv, which skews toward fields that use it as a primary preprint server (ML, AI, theoretical CS, physics-adjacent work). Research code from communities that publish elsewhere is underrepresented.</p>
+<p><strong>GitHub only.</strong> We collected code exclusively from GitHub. Repositories hosted on GitLab, Bitbucket, institutional servers, or kept private aren't captured.</p>
+<p><strong>Static snapshot.</strong> The dataset represents repositories at a single point in time. Research code evolves — bugs get fixed, experiments get added, dependencies change. The dataset doesn't capture that trajectory.</p>
+<h2>Use Cases</h2>
+<p>The ArXiv Research Code Dataset is designed to support several downstream applications: LLM pretraining and fine-tuning on research code, retrieval-augmented generation for coding assistants, code completion models specialized for scientific computing, and training data for autonomous research agents. The combination of scale (4.7M files), domain specificity (CS research), and metadata (structural metrics per file) makes it a useful complement to general-purpose code datasets.</p>
+<p>The dataset is available at <a href="https://huggingface.co/datasets/AlgorithmicResearchGroup/arxiv_research_code">huggingface.co/datasets/AlgorithmicResearchGroup/arxiv_research_code</a>.</p>
+        </div>
+    </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-mega">
+            <div class="footer-brand">
+                <a href="../" class="footer-logo"><img src="../theme/logo-white.png" alt="ARG" class="footer-logo-img"></a>
+                <p class="footer-tagline">Studying how software and industrial systems recursively improve themselves in real-world settings.</p>
+                <div class="footer-social">
+                    <a href="https://github.com/AlgorithmicResearchGroup" target="_blank" rel="noopener" aria-label="GitHub">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
+                    <a href="https://huggingface.co/AlgorithmicResearchGroup" target="_blank" rel="noopener" aria-label="HuggingFace">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 1.5c4.694 0 8.5 3.806 8.5 8.5s-3.806 8.5-8.5 8.5S3.5 16.694 3.5 12 7.306 3.5 12 3.5zM8.5 9a1.5 1.5 0 100 3 1.5 1.5 0 000-3zm7 0a1.5 1.5 0 100 3 1.5 1.5 0 000-3zm-8.387 5.21a.75.75 0 011.05-.148c1.12.832 2.382 1.438 3.837 1.438s2.717-.606 3.837-1.438a.75.75 0 01.902 1.198C15.467 16.236 13.9 17 12 17s-3.467-.764-4.739-1.74a.75.75 0 01-.148-1.05z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-columns">
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Research</h4>
+                    <ul>
+                        <li><a href="../projects.html">All Research</a></li>
+                        <li><a href="../opensource.html">Open Source</a></li>
+                        <li><a href="../tags.html">By Topic</a></li>
+                        <li><a href="https://huggingface.co/AlgorithmicResearchGroup" target="_blank" rel="noopener">Datasets</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Writing</h4>
+                    <ul>
+                        <li><a href="../blog/">Latest</a></li>
+                        <li><a href="../archives.html">Archives</a></li>
+                        <li><a href="../categories.html">Categories</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Company</h4>
+                    <ul>
+                        <li><a href="../#about">About</a></li>
+                        <li><a href="https://github.com/AlgorithmicResearchGroup" target="_blank" rel="noopener">GitHub</a></li>
+                        <li><a href="https://huggingface.co/AlgorithmicResearchGroup" target="_blank" rel="noopener">HuggingFace</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 Algorithmic Research Group</span>
+        </div>
+    </footer>
+</body>
+</html>

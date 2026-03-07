@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block title %}Open Source — {{ SITENAME }}{% endblock %}
+
+{% block body %}
+<main>
+    <!-- Hero -->
+    <section class="os-hero">
+        <div class="section-inner">
+            <h1 class="os-hero-title">Open Source</h1>
+            <p class="os-hero-desc">We publish datasets, models, code, and evaluation resources to support research on how AI systems behave in practice.</p>
+            <p class="os-hero-desc">These artifacts are designed to surface failure modes that emerge when models interact with tools, operate over time, and rely on retrieval, compression, and imperfect objectives.</p>
+        </div>
+    </section>
+
+    <!-- Artifacts -->
+    <section class="section section--bg">
+        <div class="section-inner">
+            <h2 class="section-label">// Code &amp; Benchmarks</h2>
+            <div class="artifact-grid">
+                <div class="artifact-card">
+                    <h3 class="artifact-title">ML Research Benchmark</h3>
+                    <p class="artifact-desc">A benchmark suite for evaluating AI agents on real machine learning research tasks — 7 competition-level challenges from NeurIPS, ICML, and CoNLL with task definitions, a baseline agent, and evaluation infrastructure.</p>
+                    <ul class="artifact-links">
+                        <li><a href="https://github.com/AlgorithmicResearchGroup/ML-Research-Agent">AlgorithmicResearchGroup/ML-Research-Agent</a></li>
+                    </ul>
+                </div>
+                <div class="artifact-card">
+                    <h3 class="artifact-title">ARIA Benchmark</h3>
+                    <p class="artifact-desc">Five closed-book benchmarks probing the ML knowledge that frontier models have internalized during training. Tests dataset recognition, model classification, and metric recall across the ML landscape.</p>
+                    <ul class="artifact-links">
+                        <li><a href="https://github.com/AlgorithmicResearchGroup/ARIA">AlgorithmicResearchGroup/ARIA</a></li>
+                    </ul>
+                </div>
+                <div class="artifact-card">
+                    <h3 class="artifact-title">DeltaMLBench</h3>
+                    <p class="artifact-desc">A benchmark for measuring whether AI agents can improve on published ML research. Tests the gap between implementing known approaches and discovering better ones.</p>
+                    <ul class="artifact-links">
+                        <li><a href="https://github.com/AlgorithmicResearchGroup/DeltaMLBench">AlgorithmicResearchGroup/DeltaMLBench</a></li>
+                    </ul>
+                </div>
+                <div class="artifact-card">
+                    <h3 class="artifact-title">Neural Architecture Search</h3>
+                    <p class="artifact-desc">A recursive reasoning model that ranks architectures by predicted performance and guides search. Achieves 8-10x sample efficiency over random search with zero-shot transfer across datasets.</p>
+                    <ul class="artifact-links">
+                        <li><a href="https://github.com/AlgorithmicResearchGroup/NAS-public">AlgorithmicResearchGroup/NAS-public</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2 class="section-label" style="margin-top: 64px;">// Datasets</h2>
+            <div class="artifact-grid">
+                <div class="artifact-card">
+                    <h3 class="artifact-title">ArXiv DL Instruct Dataset</h3>
+                    <p class="artifact-desc">778K research code functions for instruction tuning. A dataset for studying how models interpret, follow, and generalize technical instructions derived from real research code.</p>
+                    <ul class="artifact-links">
+                        <li><a href="https://github.com/AlgorithmicResearchGroup/ArXivDLInstruct">AlgorithmicResearchGroup/ArXivDLInstruct</a></li>
+                        <li><a href="https://huggingface.co/AlgorithmicResearchGroup">HuggingFace datasets</a></li>
+                    </ul>
+                </div>
+                <div class="artifact-card">
+                    <h3 class="artifact-title">ArXiv Research Code Dataset</h3>
+                    <p class="artifact-desc">129K research repositories. A large corpus of research code referenced directly in scientific papers, designed to study how models reason about, modify, and execute real-world code.</p>
+                    <ul class="artifact-links">
+                        <li><a href="https://github.com/AlgorithmicResearchGroup/ArXivResearchCode">AlgorithmicResearchGroup/ArXivResearchCode</a></li>
+                        <li><a href="https://huggingface.co/AlgorithmicResearchGroup">HuggingFace datasets</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

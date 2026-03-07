@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML Research Benchmark: Can AI Agents Do Real ML Research? — Algorithmic Research Group</title>
+    <meta name="description" content="A benchmark suite for evaluating AI agents on real machine learning research tasks — including task definitions, a baseline agent, and evaluation infrastructure.">
+    <meta name="author" content="Algorithmic Research Group">
+
+    <!-- Open Graph -->
+    <meta property="og:site_name" content="Algorithmic Research Group">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="ML Research Benchmark: Can AI Agents Do Real ML Research?">
+    <meta property="og:description" content="A benchmark suite for evaluating AI agents on real machine learning research tasks — including task definitions, a baseline agent, and evaluation infrastructure.">
+    <meta property="og:url" content="../projects/ml-research-benchmark-can-ai-agents-do-real-ml-research.html">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="ML Research Benchmark: Can AI Agents Do Real ML Research?">
+    <meta name="twitter:description" content="A benchmark suite for evaluating AI agents on real machine learning research tasks — including task definitions, a baseline agent, and evaluation infrastructure.">
+
+    <!-- Feeds -->
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../theme/favicon.svg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../theme/css/style.css">
+
+    <!-- JSON-LD -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "SoftwareSourceCode",
+    "name": "ML Research Benchmark: Can AI Agents Do Real ML Research?",
+    "author": {
+        "@type": "Organization",
+        "name": "Algorithmic Research Group"
+    },
+    "description": "A benchmark suite for evaluating AI agents on real machine learning research tasks — including task definitions, a baseline agent, and evaluation infrastructure."
+}
+</script>
+
+    <!-- Analytics -->
+    <script async src="https://plausible.io/js/script.js" data-domain="arg.example.com"></script>
+</head>
+<body>
+    <header class="site-nav">
+        <div class="nav-inner">
+            <a href="../" class="nav-logo"><img src="../theme/logo-white.png" alt="ARG" class="nav-logo-img"></a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="../#research">Research</a></li>
+                    <li><a href="../opensource.html">Open Source</a></li>
+                    <li><a href="../blog/">Writing</a></li>
+                    <li><a href="https://github.com/AlgorithmicResearchGroup" target="_blank" rel="noopener">GitHub</a></li>
+                    <li><a href="https://huggingface.co/AlgorithmicResearchGroup" target="_blank" rel="noopener">HuggingFace</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="inner-page">
+    <article class="full-article project-detail">
+        <header>
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="../">Home</a>
+                <span class="separator">/</span>
+                <a href="../projects.html">Research</a>
+                <span class="separator">/</span>
+                <span aria-current="page">ML Research Benchmark: Can AI Agents Do Real ML Research?</span>
+            </nav>
+
+
+            <h1 class="article-title">ML Research Benchmark: Can AI Agents Do Real ML Research?</h1>
+
+            <div class="project-links">
+                <a href="https://github.com/AlgorithmicResearchGroup/ML-Research-Agent" target="_blank" rel="noopener" class="project-link">GitHub &rarr;</a>
+            </div>
+
+            <div class="article-meta">
+                <span class="post-tags">
+                    <a href="../tag/agent-evaluation.html">#agent-evaluation</a>
+                    <a href="../tag/benchmarks.html">#benchmarks</a>
+                    <a href="../tag/python.html">#python</a>
+                </span>
+            </div>
+        </header>
+
+        <div class="article-content">
+            <h1>Can AI Agents Do Real ML Research? We Built a Benchmark to Find Out</h1>
+<p>AI agents are getting remarkably good at writing code, browsing the web, and completing complex tasks. But can they do something harder — can they actually <em>do machine learning research</em>? Not just run a training script, but make the kinds of decisions a researcher makes: choosing architectures, tuning hyperparameters, iterating on failed experiments, and pushing toward state-of-the-art results?</p>
+<p>To answer that question, we built the <strong>ML Research Benchmark (MLRB)</strong> — a suite of 7 competition-level challenges drawn directly from recent ML conference tracks at NeurIPS, ICML, and CoNLL. We then pointed two frontier AI agents at them and watched what happened.</p>
+<h2>Why Conference Competitions?</h2>
+<p>Existing agent benchmarks like MLAgentBench focus on canonical ML tasks — CIFAR-10 classification, Kaggle regression challenges, and the like. These are useful, but they don't capture the difficulty of the work that capabilities researchers actually do day-to-day.</p>
+<p>Conference competition tracks are different. They represent the current frontier of applied ML research: training efficient models under strict compute budgets, compressing large language models for edge devices, translating informal math proofs into formal verification languages. These are hard problems where top human researchers compete, and winning solutions often get published.</p>
+<p>Crucially, competition tasks also resist the saturation problem that plagues binary benchmarks. There's always room for improvement, which means the benchmark can grow with agent capabilities rather than becoming obsolete.</p>
+<h2>The Seven Challenges</h2>
+<p>MLRB spans the core activities of ML research:</p>
+<p><strong>Pretraining:</strong> The <em>MiniPile Challenge</em> asks agents to pretrain the best possible language model on a moderate-sized dataset and evaluate on SuperGLUE. The <em>BabyLM Challenge</em> goes further — train from scratch on just ~10 million words and evaluate on BLiMP.</p>
+<p><strong>Fine-tuning under constraints:</strong> The <em>LLM Efficiency Challenge</em> (1 LLM + 1 GPU + 1 Day) requires fine-tuning an approved base model to maximize MMLU performance within 24 hours on a single A100.</p>
+<p><strong>Model compression:</strong> The <em>Edge LLM Compression</em> track tasks agents with compressing Microsoft's Phi-2 model to fit in 12GB DRAM — no quantization allowed, only structural compression techniques like pruning.</p>
+<p><strong>Training from scratch for edge:</strong> The <em>Edge LLM Training</em> track demands training a model from scratch that fits in just 1GB of DRAM while performing well on SuperGLUE.</p>
+<p><strong>Model merging:</strong> The <em>LLM Merging Competition</em> challenges agents to combine multiple expert models into a single generalist that performs well on MMLU.</p>
+<p><strong>Domain-specific reasoning:</strong> The <em>Auto-Formalization</em> track requires training a model to translate natural language mathematical proofs into formal Lean 3 code — bridging informal reasoning and machine-verifiable proofs.</p>
+<p>All tasks share the same constraints: a single A100 40GB GPU, 24-hour time limit, and no starter code provided. Agents must figure out the approach from the task description alone.</p>
+<h2>The Agent Setup</h2>
+<p>We built a baseline agent with a supervisor-worker architecture. The supervisor manages task instructions and progress; the worker executes using a modular toolkit including Python/Bash execution, file management, GitHub access, and academic paper search. The agent uses a ReAct-style reasoning loop, recording intermediate thoughts and actions.</p>
+<p>We evaluated two configurations: one powered by <strong>GPT-4o</strong> and one by <strong>Claude 3.5 Sonnet</strong>, running each agent 5 times per task.</p>
+<h2>Results: Baseline Success, Research Failure</h2>
+<p>The headline finding is a clear gap between <em>producing baselines</em> and <em>doing research</em>.</p>
+<p>Both agents could follow complex multi-step instructions, set up training pipelines, and produce working models. The Claude 3.5 Sonnet agent was more consistent overall, outperforming GPT-4o on 5 of 7 tasks. On MiniPile, Claude succeeded in 4 of 5 runs (averaging 0.541 on SuperGLUE) versus GPT-4o's single successful run (0.457). On Edge LLM Compression, Claude's pruning approach pushed MMLU to 0.551 in its best run.</p>
+<p>But neither agent demonstrated what we'd call non-trivial research iteration. They didn't explore multiple architectural approaches, ablate their design choices, or meaningfully improve upon their initial solutions. When the Claude agent trained a custom GPT-2 variant for the BabyLM challenge — 6 layers, 12 heads, 768-dim embeddings, ~82M parameters — it arrived at reasonable hyperparameters, but it didn't experiment with alternatives or iterate based on evaluation feedback.</p>
+<p>The Math Reasoning task was especially revealing. Both agents failed to produce any compilable Lean 3 code across all runs. GPT-4o's fine-tuned Flan-T5 achieved marginally better BLEU/ROUGE scores, while Claude's LoRA fine-tuning of Mistral-7B showed more ambition but no better results. The task requires bridging informal and formal mathematical reasoning — something that demands genuine research insight, not just pipeline assembly.</p>
+<p>Time management was another weak point. Agents frequently chose models or training configurations that couldn't converge within the 24-hour window, and sometimes failed to checkpoint their work, losing hours of compute to a single error.</p>
+<h2>What This Tells Us</h2>
+<p>MLRB makes visible a capability threshold that matters enormously for AI safety and acceleration: the difference between an agent that can <em>implement</em> a known approach and one that can <em>discover</em> a better one.</p>
+<p>Current frontier agents sit firmly on the implementation side. They're remarkably good at translating a task description into a working pipeline — choosing a model, writing training code, handling tokenization edge cases, running evaluation. That's valuable. But the research loop — hypothesize, experiment, analyze, iterate — remains out of reach.</p>
+<p>At roughly $43 per run and $300 per full benchmark evaluation, the economics are also worth noting. As agents improve, the cost-performance tradeoff of automated ML research will become increasingly important.</p>
+<h2>What's Next</h2>
+<p>Five runs per task limits statistical confidence, and both the agent scaffolds and underlying models are rapidly evolving. The benchmark itself will need to expand — more tasks, more diverse ML subfields, and eventually tasks that require longer research horizons.</p>
+<p>But the framework is in place. MLRB provides a gradient of difficulty that won't saturate quickly, grounded in the actual work of ML research rather than synthetic tasks. As agents get better, we'll be able to measure exactly <em>how</em> they're getting better — and where the remaining gaps lie.</p>
+<p>The code is available at <a href="https://github.com/AlgorithmicResearchGroup/ML-Research-Agent">github.com/AlgorithmicResearchGroup/ML-Research-Agent</a>.</p>
+<hr>
+<p><em>This work was supported by Open Philanthropy, with valuable feedback from Ajeya Cotra, Tom Davidson, and Eli Lifland.</em></p>
+        </div>
+    </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-mega">
+            <div class="footer-brand">
+                <a href="../" class="footer-logo"><img src="../theme/logo-white.png" alt="ARG" class="footer-logo-img"></a>
+                <p class="footer-tagline">Studying how software and industrial systems recursively improve themselves in real-world settings.</p>
+                <div class="footer-social">
+                    <a href="https://github.com/AlgorithmicResearchGroup" target="_blank" rel="noopener" aria-label="GitHub">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
+                    <a href="https://huggingface.co/AlgorithmicResearchGroup" target="_blank" rel="noopener" aria-label="HuggingFace">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 1.5c4.694 0 8.5 3.806 8.5 8.5s-3.806 8.5-8.5 8.5S3.5 16.694 3.5 12 7.306 3.5 12 3.5zM8.5 9a1.5 1.5 0 100 3 1.5 1.5 0 000-3zm7 0a1.5 1.5 0 100 3 1.5 1.5 0 000-3zm-8.387 5.21a.75.75 0 011.05-.148c1.12.832 2.382 1.438 3.837 1.438s2.717-.606 3.837-1.438a.75.75 0 01.902 1.198C15.467 16.236 13.9 17 12 17s-3.467-.764-4.739-1.74a.75.75 0 01-.148-1.05z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-columns">
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Research</h4>
+                    <ul>
+                        <li><a href="../projects.html">All Research</a></li>
+                        <li><a href="../opensource.html">Open Source</a></li>
+                        <li><a href="../tags.html">By Topic</a></li>
+                        <li><a href="https://huggingface.co/AlgorithmicResearchGroup" target="_blank" rel="noopener">Datasets</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Writing</h4>
+                    <ul>
+                        <li><a href="../blog/">Latest</a></li>
+                        <li><a href="../archives.html">Archives</a></li>
+                        <li><a href="../categories.html">Categories</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Company</h4>
+                    <ul>
+                        <li><a href="../#about">About</a></li>
+                        <li><a href="https://github.com/AlgorithmicResearchGroup" target="_blank" rel="noopener">GitHub</a></li>
+                        <li><a href="https://huggingface.co/AlgorithmicResearchGroup" target="_blank" rel="noopener">HuggingFace</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 Algorithmic Research Group</span>
+        </div>
+    </footer>
+</body>
+</html>

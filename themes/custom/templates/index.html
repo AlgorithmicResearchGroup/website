@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block title %}{{ SITENAME }}{% endblock %}
+
+{% block body %}
+<main>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-inner">
+            <h1 class="hero-title">Algorithmic<br>Research Group</h1>
+            {% for page in pages if page.slug == 'bio' %}
+            <p class="hero-tagline">{{ page.summary|striptags }}</p>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- Research -->
+    {% set project_articles = [] %}
+    {% for a in articles if a.category.name == 'projects' %}
+        {% if project_articles.append(a) %}{% endif %}
+    {% endfor %}
+    {% if project_articles %}
+    <section class="section section--surface" id="research">
+        <div class="section-inner">
+            <h2 class="section-label">// Research</h2>
+            <div class="research-grid">
+                {% for project in project_articles %}
+                <a href="{{ SITEURL }}/{{ project.url }}" class="research-card{% if project.featured %} research-card--featured{% endif %}">
+                    <h3 class="research-card-title">{{ project.title }}</h3>
+                    <p class="research-card-summary">{{ project.summary|striptags|truncate(140) }}</p>
+                    {% if project.tags %}
+                    <span class="research-card-tags">{{ project.tags|join(' / ') }}</span>
+                    {% endif %}
+                </a>
+                {% endfor %}
+            </div>
+            <div class="research-section-footer">
+                <a href="{{ SITEURL }}/projects.html" class="see-all">All research &rarr;</a>
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+    <!-- About -->
+    {% for page in pages if page.slug == 'bio' %}
+    <section class="section section--bg" id="about">
+        <div class="section-inner">
+            <h2 class="section-label">// About</h2>
+            <div class="about-content">
+                {{ page.content }}
+            </div>
+        </div>
+    </section>
+    {% endfor %}
+
+    <!-- Writing -->
+    {% set writing_articles = [] %}
+    {% for a in articles if a.category.name != 'projects' %}
+        {% if writing_articles.append(a) %}{% endif %}
+    {% endfor %}
+    {% if writing_articles %}
+    <section class="section section--surface">
+        <div class="section-inner">
+            <h2 class="section-label">// Writing</h2>
+            <ul class="writing-list">
+            {% for article in writing_articles[:5] %}
+                <li>
+                    <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
+                    <time class="writing-date" datetime="{{ article.date.strftime('%Y-%m-%d') }}">{{ article.date.strftime('%B %d, %Y') }}</time>
+                </li>
+            {% endfor %}
+            </ul>
+            <div class="writing-section-footer">
+                <a href="{{ SITEURL }}/blog/" class="see-all">All writing &rarr;</a>
+            </div>
+        </div>
+    </section>
+    {% endif %}
+</main>
+{% endblock %}

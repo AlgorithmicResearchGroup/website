@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Archives — {{ SITENAME }}{% endblock %}
+{% block content %}
+    <div class="page-header">
+        <h1 class="page-title">Archives</h1>
+        <nav class="page-nav" aria-label="Site navigation">
+            <a href="{{ SITEURL }}/">&larr; Home</a>
+            <span class="separator">/</span>
+            <a href="{{ SITEURL }}/blog/">Writing</a>
+        </nav>
+    </div>
+
+    <div class="archives">
+        {% for article in dates %}
+        <div class="archive-entry">
+            <time class="post-date" datetime="{{ article.date.strftime('%Y-%m-%d') }}">{{ article.date.strftime('%B %d, %Y') }}</time>
+            <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}
