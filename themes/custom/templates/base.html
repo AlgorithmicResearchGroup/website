@@ -54,13 +54,19 @@
     <header class="site-nav">
         <div class="nav-inner">
             <a href="{{ SITEURL }}/" class="nav-logo"><img src="{{ SITEURL }}/theme/logo-white.png" alt="ARG" class="nav-logo-img"></a>
-            <nav>
+            <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+            <nav class="nav-menu">
                 <ul class="nav-links">
                     <li><a href="{{ SITEURL }}/#research">Research</a></li>
                     <li><a href="{{ SITEURL }}/opensource.html">Open Source</a></li>
                     <li><a href="{{ SITEURL }}/blog/">Writing</a></li>
                     <li><a href="https://github.com/AlgorithmicResearchGroup" target="_blank" rel="noopener">GitHub</a></li>
                     <li><a href="https://huggingface.co/AlgorithmicResearchGroup" target="_blank" rel="noopener">HuggingFace</a></li>
+                    <li><a href="{{ SITEURL }}/contact.html">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -108,6 +114,7 @@
                     <h4 class="footer-col-title">Company</h4>
                     <ul>
                         <li><a href="{{ SITEURL }}/#about">About</a></li>
+                        <li><a href="{{ SITEURL }}/contact.html">Contact</a></li>
                         <li><a href="https://github.com/AlgorithmicResearchGroup" target="_blank" rel="noopener">GitHub</a></li>
                         <li><a href="https://huggingface.co/AlgorithmicResearchGroup" target="_blank" rel="noopener">HuggingFace</a></li>
                     </ul>
@@ -118,5 +125,23 @@
             <span>&copy; {{ CURRENT_YEAR|default('2026') }} {{ AUTHOR }}</span>
         </div>
     </footer>
+    <script>
+    (function() {
+        var toggle = document.querySelector('.nav-toggle');
+        var menu = document.querySelector('.nav-menu');
+        toggle.addEventListener('click', function() {
+            var open = menu.classList.toggle('nav-menu--open');
+            toggle.classList.toggle('nav-toggle--open');
+            toggle.setAttribute('aria-expanded', open);
+        });
+        menu.addEventListener('click', function(e) {
+            if (e.target.tagName === 'A') {
+                menu.classList.remove('nav-menu--open');
+                toggle.classList.remove('nav-toggle--open');
+                toggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+    })();
+    </script>
 </body>
 </html>

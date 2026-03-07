@@ -20,7 +20,6 @@
     <meta name="twitter:description" content="Algorithmic Research Group — AI safety research lab.">
 
     <!-- Feeds -->
-    <link rel="alternate" type="application/atom+xml" title="Algorithmic Research Group — Atom Feed" href="https://arg.example.com/feeds/all.atom.xml">
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="./theme/favicon.svg">
@@ -50,13 +49,19 @@
     <header class="site-nav">
         <div class="nav-inner">
             <a href="./" class="nav-logo"><img src="./theme/logo-white.png" alt="ARG" class="nav-logo-img"></a>
-            <nav>
+            <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+            <nav class="nav-menu">
                 <ul class="nav-links">
                     <li><a href="./#research">Research</a></li>
                     <li><a href="./opensource.html">Open Source</a></li>
                     <li><a href="./blog/">Writing</a></li>
                     <li><a href="https://github.com/AlgorithmicResearchGroup" target="_blank" rel="noopener">GitHub</a></li>
                     <li><a href="https://huggingface.co/AlgorithmicResearchGroup" target="_blank" rel="noopener">HuggingFace</a></li>
+                    <li><a href="./contact.html">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -111,18 +116,53 @@
             <div class="artifact-grid">
                 <div class="artifact-card">
                     <h3 class="artifact-title">ArXiv DL Instruct Dataset</h3>
-                    <p class="artifact-desc">778K research code functions for instruction tuning. A dataset for studying how models interpret, follow, and generalize technical instructions derived from real research code.</p>
+                    <p class="artifact-desc">A dataset for studying how models interpret, follow, and generalize technical instructions derived from real research code. Useful for analyzing brittleness, overconfidence, and instruction misgeneralization in technical domains — especially when models are embedded in research or agentic workflows.</p>
                     <ul class="artifact-links">
-                        <li><a href="https://github.com/AlgorithmicResearchGroup/ArXivDLInstruct">AlgorithmicResearchGroup/ArXivDLInstruct</a></li>
-                        <li><a href="https://huggingface.co/AlgorithmicResearchGroup">HuggingFace datasets</a></li>
+                        <li><a href="https://huggingface.co/datasets/AlgorithmicResearchGroup/ArXivDLInstruct">AlgorithmicResearchGroup/ArXivDLInstruct</a> (2.26 GB)</li>
                     </ul>
                 </div>
                 <div class="artifact-card">
                     <h3 class="artifact-title">ArXiv Research Code Dataset</h3>
-                    <p class="artifact-desc">129K research repositories. A large corpus of research code referenced directly in scientific papers, designed to study how models reason about, modify, and execute real-world code.</p>
+                    <p class="artifact-desc">A large corpus of research code referenced directly in scientific papers, designed to study how models reason about, modify, and execute real-world code. This dataset supports research into tool-use errors, hallucinated affordances, and silent failure modes when agents interact with complex software systems.</p>
                     <ul class="artifact-links">
-                        <li><a href="https://github.com/AlgorithmicResearchGroup/ArXivResearchCode">AlgorithmicResearchGroup/ArXivResearchCode</a></li>
-                        <li><a href="https://huggingface.co/AlgorithmicResearchGroup">HuggingFace datasets</a></li>
+                        <li><a href="https://huggingface.co/datasets/AlgorithmicResearchGroup/arxiv_research_code">AlgorithmicResearchGroup/arxiv_research_code</a> (21 GB)</li>
+                    </ul>
+                </div>
+                <div class="artifact-card">
+                    <h3 class="artifact-title">ArXiv Instruct Tuning Dataset</h3>
+                    <p class="artifact-desc">A collection of instruction-tuning datasets derived from scientific abstracts. These datasets are useful for studying how synthetic supervision shapes model behavior, including overfitting to surface patterns and failures to generalize under distribution shift.</p>
+                    <ul class="artifact-links">
+                        <li><a href="https://huggingface.co/datasets/AlgorithmicResearchGroup/arxiv-math-instruct-50k">AlgorithmicResearchGroup/arxiv-math-instruct-50k</a></li>
+                        <li><a href="https://huggingface.co/datasets/AlgorithmicResearchGroup/arxiv-cs-ml-instruct-tune-50k">AlgorithmicResearchGroup/arxiv-cs-ml-instruct-tune-50k</a></li>
+                        <li><a href="https://huggingface.co/datasets/AlgorithmicResearchGroup/arxiv-physics-instruct-tune-30k">AlgorithmicResearchGroup/arxiv-physics-instruct-tune-30k</a></li>
+                    </ul>
+                </div>
+                <div class="artifact-card">
+                    <h3 class="artifact-title">ArXiv QA BEIR Datasets</h3>
+                    <p class="artifact-desc">Question-answer datasets derived from ArXiv, designed for evaluating retrieval and search behavior in technical domains. These datasets support analysis of retrieval failures, false confidence, and compounding errors in RAG and agentic systems that depend on external knowledge.</p>
+                    <ul class="artifact-links">
+                        <li><a href="https://huggingface.co/datasets/AlgorithmicResearchGroup/arxiv-beir-500k-generated-queries">AlgorithmicResearchGroup/arxiv-beir-500k-generated-queries</a></li>
+                        <li><a href="https://huggingface.co/datasets/AlgorithmicResearchGroup/arxiv-beir-100k-generated-queries">AlgorithmicResearchGroup/arxiv-beir-100k-generated-queries</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2 class="section-label" style="margin-top: 64px;">// Models</h2>
+            <div class="artifact-grid">
+                <div class="artifact-card">
+                    <h3 class="artifact-title">ArXiv Semantic Search Models</h3>
+                    <p class="artifact-desc">Semantic search models trained on large-scale scientific corpora. Intended for studying how retrieval quality, query formulation, and embedding behavior affect downstream agent decisions — particularly in systems where retrieval errors propagate silently.</p>
+                    <ul class="artifact-links">
+                        <li><a href="https://huggingface.co/AlgorithmicResearchGroup/arxiv-distilbert-base-v3-GenQ">AlgorithmicResearchGroup/arxiv-distilbert-base-v3-GenQ</a></li>
+                        <li><a href="https://huggingface.co/AlgorithmicResearchGroup/arxiv-distilroberta-base-GenQ">AlgorithmicResearchGroup/arxiv-distilroberta-base-GenQ</a></li>
+                    </ul>
+                </div>
+                <div class="artifact-card">
+                    <h3 class="artifact-title">ArXiv LED Summarization Models</h3>
+                    <p class="artifact-desc">Models for summarizing full-length scientific papers from abstracts and source documents. Useful for analyzing information loss, misrepresentation, and overconfidence introduced by compression — especially when summaries are used as inputs to downstream decision-making agents.</p>
+                    <ul class="artifact-links">
+                        <li><a href="https://huggingface.co/AlgorithmicResearchGroup/led_large_16384_arxiv_summarization">AlgorithmicResearchGroup/led_large_16384_arxiv_summarization</a></li>
+                        <li><a href="https://huggingface.co/AlgorithmicResearchGroup/led_base_16384_arxiv_summarization">AlgorithmicResearchGroup/led_base_16384_arxiv_summarization</a></li>
                     </ul>
                 </div>
             </div>
@@ -166,6 +206,7 @@
                     <h4 class="footer-col-title">Company</h4>
                     <ul>
                         <li><a href="./#about">About</a></li>
+                        <li><a href="./contact.html">Contact</a></li>
                         <li><a href="https://github.com/AlgorithmicResearchGroup" target="_blank" rel="noopener">GitHub</a></li>
                         <li><a href="https://huggingface.co/AlgorithmicResearchGroup" target="_blank" rel="noopener">HuggingFace</a></li>
                     </ul>
@@ -176,5 +217,23 @@
             <span>&copy; 2026 Algorithmic Research Group</span>
         </div>
     </footer>
+    <script>
+    (function() {
+        var toggle = document.querySelector('.nav-toggle');
+        var menu = document.querySelector('.nav-menu');
+        toggle.addEventListener('click', function() {
+            var open = menu.classList.toggle('nav-menu--open');
+            toggle.classList.toggle('nav-toggle--open');
+            toggle.setAttribute('aria-expanded', open);
+        });
+        menu.addEventListener('click', function(e) {
+            if (e.target.tagName === 'A') {
+                menu.classList.remove('nav-menu--open');
+                toggle.classList.remove('nav-toggle--open');
+                toggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+    })();
+    </script>
 </body>
 </html>
