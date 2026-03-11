@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ArXivDLInstruct: 778K Research Code Functions for Instruction Tuning — Algorithmic Research Group</title>
-    <meta name="description" content="A benchmark suite for evaluating AI agents on real machine learning research tasks — including task definitions, a baseline agent, and evaluation infrastructure.">
+    <meta name="description" content="A dataset of 778,152 functions extracted from arXiv-linked research code, each paired with instruction prompts, for training ML-specialized code generation models.">
     <meta name="author" content="Algorithmic Research Group">
 
     <!-- Open Graph -->
     <meta property="og:site_name" content="Algorithmic Research Group">
     <meta property="og:type" content="article">
     <meta property="og:title" content="ArXivDLInstruct: 778K Research Code Functions for Instruction Tuning">
-    <meta property="og:description" content="A benchmark suite for evaluating AI agents on real machine learning research tasks — including task definitions, a baseline agent, and evaluation infrastructure.">
+    <meta property="og:description" content="A dataset of 778,152 functions extracted from arXiv-linked research code, each paired with instruction prompts, for training ML-specialized code generation models.">
     <meta property="og:url" content="../projects/arxivdlinstruct-778k-research-code-functions-for-instruction-tuning.html">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="ArXivDLInstruct: 778K Research Code Functions for Instruction Tuning">
-    <meta name="twitter:description" content="A benchmark suite for evaluating AI agents on real machine learning research tasks — including task definitions, a baseline agent, and evaluation infrastructure.">
+    <meta name="twitter:description" content="A dataset of 778,152 functions extracted from arXiv-linked research code, each paired with instruction prompts, for training ML-specialized code generation models.">
 
     <!-- Feeds -->
 
@@ -42,7 +42,7 @@
         "@type": "Organization",
         "name": "Algorithmic Research Group"
     },
-    "description": "A benchmark suite for evaluating AI agents on real machine learning research tasks — including task definitions, a baseline agent, and evaluation infrastructure."
+    "description": "A dataset of 778,152 functions extracted from arXiv-linked research code, each paired with instruction prompts, for training ML-specialized code generation models."
 }
 </script>
 
@@ -103,43 +103,43 @@
         </header>
 
         <div class="article-content">
-            <h1>Introducing ArXivDLInstruct: 778K Research Code Functions for Instruction Tuning</h1>
-<p>There's a scarcity of high-quality, deep learning-specific datasets for training language models on code generation. General code datasets like The Stack are massive but dilute — most functions have nothing to do with ML research. If you want a model that can write PyTorch training loops, implement custom loss functions, or build neural network architectures, you need data that's concentrated in that domain.</p>
-<p>ArXivDLInstruct is our answer: <strong>778,152 functions extracted from research code published on arXiv</strong>, each paired with a detailed instruction prompt and a short description. The full dataset is 2.26 GB of prompt-response pairs, released under an MIT license on <a href="https://huggingface.co/datasets/AlgorithmicResearchGroup/ArXivDLInstruct">HuggingFace</a>.</p>
-<h2>What's in the Dataset</h2>
+            <h1>ArXivDLInstruct: 778K Research Code Functions for Instruction Tuning</h1>
+<p>High-quality, deep learning-specific datasets for training language models on code generation remain scarce. General code datasets like The Stack are massive but dilute: most functions have no relationship to ML research. Training a model that can write PyTorch training loops, implement custom loss functions, or build neural network architectures requires data concentrated in that domain.</p>
+<p>ArXivDLInstruct addresses this gap: <strong>778,152 functions extracted from research code published on arXiv</strong>, each paired with a detailed instruction prompt and a short description. The full dataset is 2.26 GB of prompt-response pairs, released under an MIT license on <a href="https://huggingface.co/datasets/AlgorithmicResearchGroup/ArXivDLInstruct">HuggingFace</a>.</p>
+<h2>Dataset Contents</h2>
 <p>Each entry contains:</p>
 <ul>
-<li><strong>prompt</strong> — a detailed instruction for generating the function</li>
-<li><strong>description</strong> — a short summary of what the function does</li>
-<li><strong>function</strong> — the actual source code</li>
-<li><strong>function_name</strong> — the name of the function or class</li>
-<li><strong>function_summary</strong> — a 2-3 sentence explanation</li>
-<li><strong>repo</strong> — the source repository name</li>
-<li><strong>file</strong> — the file path within the repository</li>
+<li><strong>prompt</strong>: a detailed instruction for generating the function</li>
+<li><strong>description</strong>: a short summary of what the function does</li>
+<li><strong>function</strong>: the actual source code</li>
+<li><strong>function_name</strong>: the name of the function or class</li>
+<li><strong>function_summary</strong>: a 2-3 sentence explanation</li>
+<li><strong>repo</strong>: the source repository name</li>
+<li><strong>file</strong>: the file path within the repository</li>
 </ul>
-<p>The functions range from simple utilities (version parsing, config loading) to complex neural network modules (policy networks with recurrent layers, custom distribution classes, multi-layer perceptrons with configurable initialization). The code comes from real research repositories — the kind of code that actually gets used in published papers.</p>
-<h2>How We Built It</h2>
+<p>The functions range from simple utilities (version parsing, config loading) to complex neural network modules (policy networks with recurrent layers, custom distribution classes, multi-layer perceptrons with configurable initialization). All code comes from real research repositories associated with published papers.</p>
+<h2>Construction Pipeline</h2>
 <p>The dataset was created through a multi-step pipeline:</p>
 <ol>
 <li><strong>Parse GitHub links from arXiv papers.</strong> We extracted all repository URLs referenced in arXiv publications.</li>
 <li><strong>Download and parse repositories.</strong> Each repository was cloned and parsed into individual functions and classes.</li>
-<li><strong>Filter for ML/DL library usage.</strong> We kept only functions that use machine learning and deep learning libraries — PyTorch, TensorFlow, and related tools.</li>
+<li><strong>Filter for ML/DL library usage.</strong> We retained only functions that use machine learning and deep learning libraries (PyTorch, TensorFlow, and related tools).</li>
 <li><strong>Generate instruction prompts.</strong> Using GPT-4o-mini, we generated detailed prompts based on the ground truth code, creating natural instruction-response pairs suitable for fine-tuning.</li>
 </ol>
 <p>This pipeline ensures that every function in the dataset is grounded in real research code rather than synthetic examples, and that the instruction prompts accurately describe what the code does.</p>
 <h2>Use Cases</h2>
-<p>ArXivDLInstruct is designed for several applications:</p>
+<p>ArXivDLInstruct supports several applications:</p>
 <p><strong>Instruction tuning.</strong> Fine-tune language models to follow natural language instructions for writing research-grade ML code. The prompt-response format maps directly to the instruction tuning paradigm.</p>
-<p><strong>Retrieval-Augmented Generation.</strong> Use the dataset as a retrieval corpus for RAG systems that help researchers write code. The function summaries and descriptions provide natural language anchors for semantic search.</p>
-<p><strong>Code completion.</strong> Train or evaluate code completion models on research-specific code patterns — architectures, training loops, data processing pipelines, and evaluation scripts.</p>
+<p><strong>Retrieval-Augmented Generation.</strong> Use the dataset as a retrieval corpus for RAG systems that assist researchers in writing code. The function summaries and descriptions provide natural language anchors for semantic search.</p>
+<p><strong>Code completion.</strong> Train or evaluate code completion models on research-specific code patterns: architectures, training loops, data processing pipelines, and evaluation scripts.</p>
 <p><strong>R&amp;D coding agents.</strong> Build agents that can write and modify ML research code by training on the patterns and conventions found in published research repositories.</p>
-<h2>Get the Data</h2>
+<h2>Availability</h2>
 <p>The dataset is available now:</p>
 <ul>
 <li><strong>Full dataset:</strong> <a href="https://huggingface.co/datasets/AlgorithmicResearchGroup/ArXivDLInstruct">huggingface.co/datasets/AlgorithmicResearchGroup/ArXivDLInstruct</a></li>
 <li><strong>Intermediate pipeline datasets:</strong> <a href="https://huggingface.co/AlgorithmicResearchGroup">huggingface.co/AlgorithmicResearchGroup</a></li>
 </ul>
-<p>We're excited to see what the community builds with this. If you're working on code generation, research agents, or ML-specific language models, ArXivDLInstruct gives you a concentrated, high-quality training signal that general code datasets can't match.</p>
+<p>For researchers working on code generation, research agents, or ML-specific language models, ArXivDLInstruct provides a concentrated, high-quality training signal that general code datasets cannot match.</p>
         </div>
     </article>
     </main>

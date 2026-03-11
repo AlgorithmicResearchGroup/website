@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ArXiv Research Code Dataset: 129K Research Repositories — Algorithmic Research Group</title>
-    <meta name="description" content="A benchmark suite for evaluating AI agents on real machine learning research tasks — including task definitions, a baseline agent, and evaluation infrastructure.">
+    <meta name="description" content="A collection of 4.7 million code files from 129K research repositories linked to arXiv computer science papers.">
     <meta name="author" content="Algorithmic Research Group">
 
     <!-- Open Graph -->
     <meta property="og:site_name" content="Algorithmic Research Group">
     <meta property="og:type" content="article">
     <meta property="og:title" content="ArXiv Research Code Dataset: 129K Research Repositories">
-    <meta property="og:description" content="A benchmark suite for evaluating AI agents on real machine learning research tasks — including task definitions, a baseline agent, and evaluation infrastructure.">
+    <meta property="og:description" content="A collection of 4.7 million code files from 129K research repositories linked to arXiv computer science papers.">
     <meta property="og:url" content="../projects/arxiv-research-code-dataset-129k-research-repositories.html">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="ArXiv Research Code Dataset: 129K Research Repositories">
-    <meta name="twitter:description" content="A benchmark suite for evaluating AI agents on real machine learning research tasks — including task definitions, a baseline agent, and evaluation infrastructure.">
+    <meta name="twitter:description" content="A collection of 4.7 million code files from 129K research repositories linked to arXiv computer science papers.">
 
     <!-- Feeds -->
 
@@ -42,7 +42,7 @@
         "@type": "Organization",
         "name": "Algorithmic Research Group"
     },
-    "description": "A benchmark suite for evaluating AI agents on real machine learning research tasks — including task definitions, a baseline agent, and evaluation infrastructure."
+    "description": "A collection of 4.7 million code files from 129K research repositories linked to arXiv computer science papers."
 }
 </script>
 
@@ -104,26 +104,26 @@
 
         <div class="article-content">
             <h1>The ArXiv Research Code Dataset: 4.7 Million Files from 129K Research Repositories</h1>
-<p>Most code datasets are built from the general population of open-source software — web apps, CLI tools, infrastructure code. That's useful for training general-purpose code models, but it doesn't capture how researchers actually write code. Research code has its own conventions, its own library ecosystem, and its own structural patterns. If you want models that understand and generate research code, you need training data drawn from research repositories.</p>
+<p>Most code datasets are built from the general population of open-source software: web apps, CLI tools, infrastructure code. These are useful for training general-purpose code models, but they do not capture how researchers actually write code. Research code has its own conventions, its own library ecosystem, and its own structural patterns. Training models that understand and generate research code requires training data drawn from research repositories.</p>
 <p>The ArXiv Research Code Dataset is a collection of <strong>4,716,175 code files from 129,232 unique repositories</strong> linked to computer science papers on arXiv. The full dataset is 21.6 GB and is available on <a href="https://huggingface.co/datasets/AlgorithmicResearchGroup/arxiv_research_code">HuggingFace</a>.</p>
-<h2>How We Built It</h2>
+<h2>Construction Pipeline</h2>
 <p>The dataset was created through a multi-stage pipeline:</p>
 <ol>
 <li><strong>Extract GitHub URLs from arXiv papers.</strong> We parsed metadata and full text from CS arXiv papers to identify those with linked GitHub repositories.</li>
 <li><strong>Clone and process repositories.</strong> Each repository was downloaded and decomposed into individual code files, focusing on common research-oriented programming languages.</li>
 <li><strong>Compute file-level metrics.</strong> For each file, we derived structural metadata including file length, average line length, and maximum line length.</li>
 </ol>
-<p>The result is a snapshot of the code that accompanies published computer science research — not synthetic benchmarks or toy examples, but the actual implementations behind peer-reviewed work.</p>
-<h2>What's in the Dataset</h2>
+<p>The result is a snapshot of the code that accompanies published computer science research: the actual implementations behind peer-reviewed work, not synthetic benchmarks or toy examples.</p>
+<h2>Dataset Schema</h2>
 <p>Each entry contains:</p>
 <ul>
-<li><strong>repo</strong> — the repository name</li>
-<li><strong>file</strong> — the file path within the repository</li>
-<li><strong>code</strong> — the full file contents</li>
-<li><strong>file_length</strong> — total number of lines</li>
-<li><strong>avg_line_length</strong> — average characters per line</li>
-<li><strong>max_line_length</strong> — longest line in the file</li>
-<li><strong>extension_type</strong> — the file extension</li>
+<li><strong>repo</strong>: the repository name</li>
+<li><strong>file</strong>: the file path within the repository</li>
+<li><strong>code</strong>: the full file contents</li>
+<li><strong>file_length</strong>: total number of lines</li>
+<li><strong>avg_line_length</strong>: average characters per line</li>
+<li><strong>max_line_length</strong>: longest line in the file</li>
+<li><strong>extension_type</strong>: the file extension</li>
 </ul>
 <h2>Language Distribution</h2>
 <p>The dataset reflects the programming language preferences of the CS research community. Python dominates at 17.5% of all files (827,135 files), followed by C/C++ at 15.8% (743,207 files) and Java at 13.0% (615,191 files). The full breakdown:</p>
@@ -219,9 +219,9 @@
 </tbody>
 </table>
 <p>The remaining languages (CSS, PHP, Perl, SQL, Lua, C#, Swift, JavaScript) each account for less than 0.4%.</p>
-<h2>Deep Dive: The Python Subset</h2>
-<p>Given Python's central role in ML research, we did a focused analysis on the Python subset — roughly 827K files across 23,874 repositories. Some highlights:</p>
-<p><strong>Library usage tells you what researchers actually depend on.</strong> NumPy appears in 30.4% of all Python files, confirming its role as the bedrock of scientific computing. PyTorch follows at 19.8%, well ahead of TensorFlow at 3.9%. Pandas (4.3%), matplotlib (1.5%), and SciPy (1.2%) round out the top tier. About 24% of Python files use at least one ML/DL library.</p>
+<h2>Python Subset Analysis</h2>
+<p>Given Python's central role in ML research, we conducted a focused analysis on the Python subset: approximately 827K files across 23,874 repositories.</p>
+<p><strong>Library usage reflects what researchers actually depend on.</strong> NumPy appears in 30.4% of all Python files, confirming its role as the foundation of scientific computing. PyTorch follows at 19.8%, well ahead of TensorFlow at 3.9%. Pandas (4.3%), matplotlib (1.5%), and SciPy (1.2%) round out the top tier. About 24% of Python files use at least one ML/DL library.</p>
 <table>
 <thead>
 <tr>
@@ -283,16 +283,15 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Code structure is modular and function-heavy.</strong> The average Python file contains 7.6 import statements, 8.3 function definitions, and 1.3 class definitions. Files average 220 lines of code, with 2.9 for-loops and about 1 list comprehension per file. Error handling is moderate (0.46 try-except blocks per file), and there's light use of functional patterns (0.37 lambdas per file). The overall picture is modular, function-oriented code — which makes sense for research that needs to be iterated on quickly.</p>
-<p><strong>Code quality is high.</strong> 97.15% of Python files in the dataset are syntactically valid (1,375,548 valid out of 1,415,924 total). Average cyclomatic complexity across all repositories is 23.88, though the range is enormous — from single-function scripts to massive monolithic modules with complexity scores above 20,000.</p>
+<p><strong>Code structure is modular and function-heavy.</strong> The average Python file contains 7.6 import statements, 8.3 function definitions, and 1.3 class definitions. Files average 220 lines of code, with 2.9 for-loops and about 1 list comprehension per file. Error handling is moderate (0.46 try-except blocks per file), and there is light use of functional patterns (0.37 lambdas per file). The overall picture is modular, function-oriented code, consistent with research that needs to be iterated on quickly.</p>
+<p><strong>Code quality is high.</strong> 97.15% of Python files in the dataset are syntactically valid (1,375,548 valid out of 1,415,924 total). Average cyclomatic complexity across all repositories is 23.88, though the range is large: from single-function scripts to massive monolithic modules with complexity scores above 20,000.</p>
 <p><strong>Repository sizes vary dramatically.</strong> The largest repository (catboost) contains 22,994 Python files, while many repositories contain just a handful. This reflects the full spectrum of research software, from large collaborative frameworks to single-paper implementations.</p>
 <h2>Limitations</h2>
-<p>A few things to keep in mind:</p>
 <p><strong>ArXiv bias.</strong> The dataset only covers papers posted to arXiv, which skews toward fields that use it as a primary preprint server (ML, AI, theoretical CS, physics-adjacent work). Research code from communities that publish elsewhere is underrepresented.</p>
-<p><strong>GitHub only.</strong> We collected code exclusively from GitHub. Repositories hosted on GitLab, Bitbucket, institutional servers, or kept private aren't captured.</p>
-<p><strong>Static snapshot.</strong> The dataset represents repositories at a single point in time. Research code evolves — bugs get fixed, experiments get added, dependencies change. The dataset doesn't capture that trajectory.</p>
+<p><strong>GitHub only.</strong> We collected code exclusively from GitHub. Repositories hosted on GitLab, Bitbucket, institutional servers, or kept private are not captured.</p>
+<p><strong>Static snapshot.</strong> The dataset represents repositories at a single point in time. Research code evolves: bugs get fixed, experiments get added, dependencies change. The dataset does not capture that trajectory.</p>
 <h2>Use Cases</h2>
-<p>The ArXiv Research Code Dataset is designed to support several downstream applications: LLM pretraining and fine-tuning on research code, retrieval-augmented generation for coding assistants, code completion models specialized for scientific computing, and training data for autonomous research agents. The combination of scale (4.7M files), domain specificity (CS research), and metadata (structural metrics per file) makes it a useful complement to general-purpose code datasets.</p>
+<p>The ArXiv Research Code Dataset supports several downstream applications: LLM pretraining and fine-tuning on research code, retrieval-augmented generation for coding assistants, code completion models specialized for scientific computing, and training data for autonomous research agents. The combination of scale (4.7M files), domain specificity (CS research), and metadata (structural metrics per file) makes it a useful complement to general-purpose code datasets.</p>
 <p>The dataset is available at <a href="https://huggingface.co/datasets/AlgorithmicResearchGroup/arxiv_research_code">huggingface.co/datasets/AlgorithmicResearchGroup/arxiv_research_code</a>.</p>
         </div>
     </article>

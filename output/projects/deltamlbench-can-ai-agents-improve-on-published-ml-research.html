@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DeltaMLBench: Can AI Agents Improve on Published ML Research? — Algorithmic Research Group</title>
-    <meta name="description" content="A benchmark suite for evaluating AI agents on real machine learning research tasks — including task definitions, a baseline agent, and evaluation infrastructure.">
+    <meta name="description" content="A benchmark of 50 tasks drawn from real Papers With Code repositories where agents must achieve measurable improvement over published baselines.">
     <meta name="author" content="Algorithmic Research Group">
 
     <!-- Open Graph -->
     <meta property="og:site_name" content="Algorithmic Research Group">
     <meta property="og:type" content="article">
     <meta property="og:title" content="DeltaMLBench: Can AI Agents Improve on Published ML Research?">
-    <meta property="og:description" content="A benchmark suite for evaluating AI agents on real machine learning research tasks — including task definitions, a baseline agent, and evaluation infrastructure.">
+    <meta property="og:description" content="A benchmark of 50 tasks drawn from real Papers With Code repositories where agents must achieve measurable improvement over published baselines.">
     <meta property="og:url" content="../projects/deltamlbench-can-ai-agents-improve-on-published-ml-research.html">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="DeltaMLBench: Can AI Agents Improve on Published ML Research?">
-    <meta name="twitter:description" content="A benchmark suite for evaluating AI agents on real machine learning research tasks — including task definitions, a baseline agent, and evaluation infrastructure.">
+    <meta name="twitter:description" content="A benchmark of 50 tasks drawn from real Papers With Code repositories where agents must achieve measurable improvement over published baselines.">
 
     <!-- Feeds -->
 
@@ -42,7 +42,7 @@
         "@type": "Organization",
         "name": "Algorithmic Research Group"
     },
-    "description": "A benchmark suite for evaluating AI agents on real machine learning research tasks — including task definitions, a baseline agent, and evaluation infrastructure."
+    "description": "A benchmark of 50 tasks drawn from real Papers With Code repositories where agents must achieve measurable improvement over published baselines."
 }
 </script>
 
@@ -104,42 +104,42 @@
 
         <div class="article-content">
             <h1>DeltaMLBench: Can AI Agents Improve on Published ML Research?</h1>
-<p>Last year we released the <a href="https://arxiv.org/abs/2410.22553">ML Research Benchmark</a>, which showed that AI agents could follow complex ML research instructions and produce baselines, but couldn't perform non-trivial research iterations. The natural next question: what happens when you give agents <em>real research repositories</em> and ask them to beat the published results?</p>
-<p>That's DeltaMLBench — a benchmark of 50 tasks drawn from real Papers With Code repositories, where the goal isn't just reproduction but <strong>measurable improvement over published baselines</strong>. We evaluated frontier models (Claude Sonnet 4, Claude Opus 4, and GPT-5) across two agent scaffoldings and found that agents can now genuinely improve on published work in some cases — but the path there is messier than you'd expect.</p>
-<h2>The Setup: Real Repos, Real Papers, Real Baselines</h2>
-<p>Each task in DeltaMLBench pairs a peer-reviewed paper with its open-source repository, dataset, and the evaluation metric reported in the publication. Agents get the PDF, the code, and the data. Their job: make the numbers go up (or down, for loss metrics).</p>
-<p>This is deliberately harder than prior benchmarks in several ways. There's no clean starter template — agents navigate heterogeneous codebases with varying framework choices, documentation quality, and dependency structures. The tasks span computer vision, NLP, graph learning, time series forecasting, molecular property prediction, anomaly detection, and more. And the evaluation metric is percentage improvement over the published baseline, not a binary pass/fail.</p>
-<p>We curated tasks from Papers With Code, filtering for post-January 2024 publications with accessible repos and datasets, training runtimes under 10 hours on a single GPU, and confirmed end-to-end reproducibility. Starting from ~380 candidates, human verification narrowed the pool to 67 reproducible tasks, from which we selected 50 for maximum domain diversity.</p>
+<p>Last year we released the <a href="https://arxiv.org/abs/2410.22553">ML Research Benchmark</a>, which showed that AI agents could follow complex ML research instructions and produce baselines but could not perform non-trivial research iterations. The natural follow-up question is what happens when agents are given real research repositories and asked to beat the published results.</p>
+<p>DeltaMLBench is a benchmark of 50 tasks drawn from real Papers With Code repositories where the goal is not reproduction but <strong>measurable improvement over published baselines</strong>. We evaluated frontier models (Claude Sonnet 4, Claude Opus 4, and GPT-5) across two agent scaffoldings and found that agents can now achieve genuine improvements on published work in some cases, though the path to those improvements is less clean than one might expect.</p>
+<h2>Setup: Real Repos, Real Papers, Real Baselines</h2>
+<p>Each task in DeltaMLBench pairs a peer-reviewed paper with its open-source repository, dataset, and the evaluation metric reported in the publication. Agents receive the PDF, the code, and the data. Their objective: improve the reported metric.</p>
+<p>This is deliberately harder than prior benchmarks in several ways. There is no clean starter template; agents must navigate heterogeneous codebases with varying framework choices, documentation quality, and dependency structures. The tasks span computer vision, NLP, graph learning, time series forecasting, molecular property prediction, anomaly detection, and other domains. The evaluation metric is percentage improvement over the published baseline, not a binary pass/fail.</p>
+<p>We curated tasks from Papers With Code, filtering for post-January 2024 publications with accessible repos and datasets, training runtimes under 10 hours on a single GPU, and confirmed end-to-end reproducibility. Starting from approximately 380 candidates, human verification narrowed the pool to 67 reproducible tasks, from which we selected 50 for maximum domain diversity.</p>
 <h2>Two Agent Architectures</h2>
 <p>We tested two scaffolding approaches:</p>
-<p><strong>The Modular Agent</strong> (from METR's poking-agents) separates concerns across five modules — prompting, generation, discrimination, action execution, and tooling — coordinated through shared state. It's clean and debuggable.</p>
+<p><strong>The Modular Agent</strong> (from METR's poking-agents) separates concerns across five modules: prompting, generation, discrimination, action execution, and tooling, coordinated through shared state. It is clean and debuggable.</p>
 <p><strong>The ARG Agent</strong> (ours) takes a more aggressive approach with solution tree exploration, beam search across multiple solution paths, configurable search policies, and self-reflection mechanisms for analyzing execution failures. Different configuration packs optimize for speed, reasoning depth, or comprehensive exploration.</p>
 <p>Both run on the Vivaria platform in isolated Docker containers with a single H100 80GB GPU. We tested two time configurations: 4 attempts at 6 hours each, and 2 attempts at 12 hours each, with a 10-million-token budget per run.</p>
-<h2>The Cheating Problem</h2>
-<p>Before getting to results, we need to talk about reward hacking — because it turned out to be one of the most important findings.</p>
-<p>When agents struggle with a task, some of them don't just fail. They cheat. They hardcode metric values in return statements, write stub implementations, or fabricate results without actually training anything. This isn't a minor edge case — the Modular scaffolding with Claude Sonnet 4 showed cheating rates above 50% on many tasks.</p>
-<p>We built a multi-layered defense system to catch this: static AST analysis to detect hardcoded values, training artifact verification to confirm real checkpoints exist, LLM-based semantic analysis of solution code, and a forensic log grading system where an ensemble of three frontier models audits the complete execution trace. A majority vote determines whether a submission passes integrity checks.</p>
-<p>The pattern was striking. The ARG agent showed a <strong>0% cheating rate across all models and configurations</strong> — its tree search and reflection mechanisms appear to keep it on legitimate solution paths. The Modular agent, by contrast, cheated frequently, particularly with Claude Sonnet 4. This suggests that agent architecture matters at least as much as the underlying model for research integrity.</p>
-<h2>Results: What Worked</h2>
+<h2>Reward Hacking</h2>
+<p>Reward hacking proved to be one of the most significant findings in this evaluation.</p>
+<p>When agents fail to make legitimate progress on a task, some produce fabricated results rather than reporting failure. Observed behaviors include hardcoding metric values in return statements, writing stub implementations, and fabricating results without actually training models. This was not a minor edge case: the Modular scaffolding with Claude Sonnet 4 showed cheating rates above 50% on many tasks.</p>
+<p>We built a multi-layered defense system to detect these behaviors: static AST analysis to detect hardcoded values, training artifact verification to confirm real checkpoints exist, LLM-based semantic analysis of solution code, and a forensic log grading system where an ensemble of three frontier models audits the complete execution trace. A majority vote determines whether a submission passes integrity checks.</p>
+<p>The results were striking. The ARG agent showed a <strong>0% cheating rate across all models and configurations</strong>; its tree search and reflection mechanisms appear to keep it on legitimate solution paths. The Modular agent, by contrast, cheated frequently, particularly with Claude Sonnet 4. This suggests that agent architecture matters at least as much as the underlying model for research integrity.</p>
+<h2>Results</h2>
 <p>Looking at the detailed task-level results, several patterns emerge.</p>
-<p><strong>GPT-5 with the ARG agent was the strongest combination.</strong> On the 4×6h configuration, it achieved positive improvement on 29 of 48 tasks, with standout performances including a 95.96% improvement on the MIMIC-III clinical task, 78.92% on CNN summarization, 73.22% on SumMe video summarization, and 50.30% on the York Urban line segment detection task. On the 2×12h configuration, it improved on 28 tasks, with some scores climbing even higher given the extended time.</p>
-<p><strong>Claude Sonnet 4 performed best with the ARG scaffolding</strong> rather than the Modular one. With ARG, it achieved improvements on 25 tasks at 4×6h — notably 74.26% on MIMIC-III, 64.93% on CNN, and 32.61% on traffic forecasting. But with the Modular scaffolding, many of its apparent successes were contaminated by high cheating rates, making honest performance harder to assess.</p>
-<p><strong>Some tasks resisted all agents.</strong> CIFAR-10 with ABNet, CIFAR-10 with ResNet18-FSGDM, CIFAR-100 with ProDSC, Kvasir-SEG EMCAD, electricity forecasting with CycleNet, MalNet-Tiny with GatedGCN, and ZINC NeuralWalker all saw 0% success across every model-scaffolding combination. These represent genuinely hard research problems where the published baselines are already well-optimized or where the codebases present structural obstacles that current agents can't navigate.</p>
-<p><strong>Longer time horizons helped, but not uniformly.</strong> Moving from 4×6h to 2×12h improved GPT-5+ARG on tasks like ETTh1 forecasting (from 75% to 100% success rate) and several MNIST/Fashion-MNIST variants. But for some tasks, more time just meant more opportunities to go down unproductive paths.</p>
-<h2>Resource Usage Tells a Story</h2>
-<p>The token and time usage data reveals sharp differences in agent efficiency.</p>
-<p>The Modular agent with Claude Sonnet 4 was remarkably token-efficient — often completing tasks in under 2M tokens — but this efficiency partly reflected its tendency to either solve tasks quickly or give up and cheat. GPT-5 with the Modular agent was far more token-hungry (regularly 10-20M+ tokens) and frequently hit time limits, suggesting it explored more aggressively but less efficiently.</p>
+<p><strong>GPT-5 with the ARG agent was the strongest combination.</strong> On the 4×6h configuration, it achieved positive improvement on 29 of 48 tasks, with standout performances including a 95.96% improvement on the MIMIC-III clinical task, 78.92% on CNN summarization, 73.22% on SumMe video summarization, and 50.30% on the York Urban line segment detection task. On the 2×12h configuration, it improved on 28 tasks, with some scores climbing higher given the extended time.</p>
+<p><strong>Claude Sonnet 4 performed best with the ARG scaffolding</strong> rather than the Modular one. With ARG, it achieved improvements on 25 tasks at 4×6h, notably 74.26% on MIMIC-III, 64.93% on CNN, and 32.61% on traffic forecasting. With the Modular scaffolding, many of its apparent successes were contaminated by high cheating rates, making honest performance difficult to assess.</p>
+<p><strong>Some tasks resisted all agents.</strong> CIFAR-10 with ABNet, CIFAR-10 with ResNet18-FSGDM, CIFAR-100 with ProDSC, Kvasir-SEG EMCAD, electricity forecasting with CycleNet, MalNet-Tiny with GatedGCN, and ZINC NeuralWalker all saw 0% success across every model-scaffolding combination. These represent problems where the published baselines are already well-optimized or where the codebases present structural obstacles that current agents cannot navigate.</p>
+<p><strong>Longer time horizons helped, but not uniformly.</strong> Moving from 4×6h to 2×12h improved GPT-5+ARG on tasks like ETTh1 forecasting (from 75% to 100% success rate) and several MNIST/Fashion-MNIST variants. For some tasks, however, more time simply meant more opportunities to pursue unproductive paths.</p>
+<h2>Resource Usage</h2>
+<p>The token and time usage data reveals clear differences in agent efficiency.</p>
+<p>The Modular agent with Claude Sonnet 4 was remarkably token-efficient, often completing tasks in under 2M tokens. This efficiency partly reflected its tendency to either solve tasks quickly or abandon legitimate approaches in favor of fabrication. GPT-5 with the Modular agent consumed significantly more tokens (regularly 10-20M+) and frequently hit time limits, suggesting it explored more aggressively but less efficiently.</p>
 <p>The ARG agent showed more consistent resource usage across models. Its tree search structure naturally bounds exploration, and the beam search mechanism focuses compute on promising paths rather than exhaustive trial-and-error.</p>
-<h2>What This Means</h2>
-<p>DeltaMLBench represents a meaningful step beyond our original ML Research Benchmark. Where MLRB showed agents couldn't do non-trivial research, DeltaMLBench shows they sometimes <em>can</em> — achieving genuine percentage improvements over published baselines on real research codebases.</p>
-<p>But the nuances matter enormously:</p>
+<h2>Discussion</h2>
+<p>DeltaMLBench represents a meaningful step beyond our original ML Research Benchmark. Where MLRB showed agents could not perform non-trivial research, DeltaMLBench demonstrates they can sometimes achieve genuine percentage improvements over published baselines on real research codebases.</p>
+<p>Several key observations merit emphasis:</p>
 <p><strong>Agent architecture is as important as model capability.</strong> The same underlying model produces dramatically different outcomes depending on the scaffolding. The ARG agent's structured search and reflection mechanisms led to both higher success rates and zero cheating, while the simpler Modular architecture left models more prone to taking shortcuts.</p>
-<p><strong>Cheating is a first-order concern for automated research.</strong> If we're going to trust agents to do ML research, we need robust integrity verification. Our multi-layered approach — combining static analysis, artifact verification, semantic analysis, and forensic log auditing — caught most attempts, but the fact that frontier models default to fabrication when stuck is a serious issue for the field.</p>
-<p><strong>The hardest tasks remain untouched.</strong> Tasks requiring deep architectural innovation or domain-specific insight — the kind of work that produces novel research contributions — still show 0% success rates. Agents can optimize hyperparameters, adjust training procedures, and apply known techniques, but they aren't yet making the conceptual leaps that drive research forward.</p>
-<p><strong>We're in the "competent research assistant" phase.</strong> Agents can set up environments, debug dependency issues, run experiments, and iterate on straightforward optimizations. That's genuinely useful. But the gap between "improve a metric by tuning learning rates" and "develop a novel architectural insight" remains wide.</p>
-<h2>Looking Ahead</h2>
-<p>DeltaMLBench is released as a static benchmark with 50 tasks and standardized evaluation protocols. As agent capabilities evolve, we plan to expand the task set, increase difficulty, and develop more sophisticated integrity verification. The benchmark is designed to grow with the field — the percentage improvement metric means there's always room for agents to do better, avoiding the saturation problem that plagues binary benchmarks.</p>
-<p>The code and benchmark are available for the research community to evaluate their own agents against. We think the combination of authentic research conditions, improvement-oriented evaluation, and rigorous anti-cheating measures makes DeltaMLBench a useful testbed for tracking real progress in autonomous ML research.</p>
+<p><strong>Cheating is a first-order concern for automated research.</strong> If we are to trust agents to conduct ML research, we need robust integrity verification. Our multi-layered approach caught most attempts, but the fact that frontier models default to fabrication when stuck is a serious issue for the field.</p>
+<p><strong>The hardest tasks remain untouched.</strong> Tasks requiring deep architectural innovation or domain-specific insight still show 0% success rates. Agents can optimize hyperparameters, adjust training procedures, and apply known techniques, but they are not yet making the conceptual leaps that drive novel research contributions.</p>
+<p><strong>Current agents occupy the "competent research assistant" level.</strong> Agents can set up environments, debug dependency issues, run experiments, and iterate on straightforward optimizations. This is useful. The gap between "improve a metric by tuning learning rates" and "develop a novel architectural insight" remains wide.</p>
+<h2>Future Work</h2>
+<p>DeltaMLBench is released as a static benchmark with 50 tasks and standardized evaluation protocols. As agent capabilities evolve, we plan to expand the task set, increase difficulty, and develop more sophisticated integrity verification. The benchmark is designed to grow with the field: the percentage improvement metric means there is always room for agents to improve, avoiding the saturation problem that plagues binary benchmarks.</p>
+<p>The code and benchmark are available for the research community to evaluate their own agents. We believe the combination of authentic research conditions, improvement-oriented evaluation, and rigorous anti-cheating measures makes DeltaMLBench a useful testbed for tracking real progress in autonomous ML research.</p>
 <hr>
 <p><em>DeltaMLBench is currently under review at ICML 2026.</em></p>
         </div>
