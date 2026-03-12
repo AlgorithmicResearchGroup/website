@@ -1,5 +1,5 @@
 Title: Introducing Algorithmic Research Group
-Date: 2026-03-06
+Date: 2024-10-06
 Tags: announcements
 Summary: We're building tools and benchmarks to understand recursive self-improvement in AI systems.
 
