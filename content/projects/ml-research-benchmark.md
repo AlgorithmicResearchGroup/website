@@ -3,7 +3,7 @@ Date: 2025-01-01
 Tags: agent-evaluation, benchmarks, python
 Summary: A benchmark suite of 7 competition-level ML challenges for evaluating whether AI agents can perform genuine research iteration beyond baseline reproduction.
 Template: project
-Repo: https://github.com/AlgorithmicResearchGroup/ML-Research-Agent
+Repo: https://github.com/AlgorithmicResearchGroup/mlrb-agent-public
 Featured: true
 
 # Can AI Agents Do Real ML Research? We Built a Benchmark to Find Out
