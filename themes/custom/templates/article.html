@@ -6,6 +6,10 @@
 {% block og_title %}{{ article.title }}{% endblock %}
 {% block og_description %}{{ article.summary|striptags|truncate(200) }}{% endblock %}
 {% block og_url %}{{ SITEURL }}/{{ article.url }}{% endblock %}
+{% block canonical_url %}{{ SITEURL }}/{{ article.url }}{% endblock %}
+{% block og_image %}{% if article.image %}<meta property="og:image" content="{{ SITEURL }}/images/{{ article.image }}">{% endif %}{% endblock %}
+{% block twitter_card %}{% if article.image %}summary_large_image{% else %}summary{% endif %}{% endblock %}
+{% block twitter_image %}{% if article.image %}<meta name="twitter:image" content="{{ SITEURL }}/images/{{ article.image }}">{% endif %}{% endblock %}
 
 {% block jsonld %}
 <script type="application/ld+json">
@@ -13,18 +17,22 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "{{ article.title }}",
+    "description": "{{ article.summary|striptags|truncate(200) }}",
+    "url": "{{ SITEURL }}/{{ article.url }}",
     "author": {
         "@type": "Organization",
-        "name": "{{ AUTHOR }}"
+        "name": "{{ AUTHOR }}",
+        "url": "{{ SITEURL }}"
     },
     "datePublished": "{{ article.date.strftime('%Y-%m-%d') }}",
-    {% if article.modified %}
-    "dateModified": "{{ article.modified.strftime('%Y-%m-%d') }}",
-    {% endif %}
+    "dateModified": "{{ article.modified.strftime('%Y-%m-%d') if article.modified else article.date.strftime('%Y-%m-%d') }}",
     "publisher": {
         "@type": "Organization",
-        "name": "{{ AUTHOR }}"
-    }
+        "name": "{{ AUTHOR }}",
+        "url": "{{ SITEURL }}"
+    }{% if article.image %},
+    "image": "{{ SITEURL }}/images/{{ article.image }}"
+    {% endif %}
 }
 </script>
 {% endblock %}

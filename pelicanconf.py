@@ -35,8 +35,11 @@ DEFAULT_PAGINATION = 10
 RELATIVE_URLS = True
 
 # Static paths
-STATIC_PATHS = ['images', 'extra/CNAME']
-EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'}}
+STATIC_PATHS = ['images', 'extra/CNAME', 'extra/robots.txt']
+EXTRA_PATH_METADATA = {
+    'extra/CNAME': {'path': 'CNAME'},
+    'extra/robots.txt': {'path': 'robots.txt'},
+}
 
 # Page paths
 PAGE_PATHS = ['pages']
@@ -50,7 +53,8 @@ DISPLAY_PAGES_ON_MENU = False
 DISPLAY_CATEGORIES_ON_MENU = False
 
 # Direct templates
-DIRECT_TEMPLATES = ['index', 'tags', 'categories', 'archives', 'blog', 'projects']
+DIRECT_TEMPLATES = ['index', 'tags', 'categories', 'archives', 'blog', 'projects', 'sitemap']
+SITEMAP_SAVE_AS = 'sitemap.xml'
 PAGINATED_TEMPLATES = {
     'blog': None,
     'index': None,

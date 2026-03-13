@@ -3,7 +3,7 @@ Date: 2026-03-01
 Tags: agent-evaluation, benchmarks, python
 Summary: A benchmark of 50 tasks drawn from real Papers With Code repositories where agents must achieve measurable improvement over published baselines.
 Template: project
-Repo: https://github.com/AlgorithmicResearchGroup/DeltaMLBench
+Repo: https://github.com/AlgorithmicResearchGroup/deltaml-bench-public
 Featured: true
 
 # DeltaMLBench: Can AI Agents Improve on Published ML Research?

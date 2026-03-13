@@ -3,7 +3,7 @@ Date: 2026-03-01
 Tags: agent-evaluation, benchmarks, python
 Summary: A suite of five closed-book benchmarks probing the ML knowledge that frontier language models have internalized during training.
 Template: project
-Repo: https://github.com/AlgorithmicResearchGroup/ARIA
+Repo: https://github.com/AlgorithmicResearchGroup/aria-public
 Featured: true
 
 # ARIA Benchmarks: How Much Machine Learning Do AI Models Actually Know?

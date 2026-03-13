@@ -3,7 +3,7 @@ Date: 2026-03-04
 Tags: nas, architecture search, machine learning
 Template: project
 Summary: A tiny recursive reasoning model trained to rank architectures by predicted performance achieves 8-10x sample efficiency over random search and transfers zero-shot across datasets with minimal loss in ranking quality.
-Repo: https://github.com/AlgorithmicResearchGroup/NAS-public 
+Repo: https://github.com/AlgorithmicResearchGroup/nas-public
 Featured: true
 
 # Learning to Rank Architectures: A Small Model That Guides Neural Architecture Search
