@@ -7,9 +7,9 @@
 {% block og_description %}{{ article.summary|striptags|truncate(200) }}{% endblock %}
 {% block og_url %}{{ SITEURL }}/{{ article.url }}{% endblock %}
 {% block canonical_url %}{{ SITEURL }}/{{ article.url }}{% endblock %}
-{% block og_image %}{% if article.image %}<meta property="og:image" content="{{ SITEURL }}/images/{{ article.image }}">{% endif %}{% endblock %}
-{% block twitter_card %}{% if article.image %}summary_large_image{% else %}summary{% endif %}{% endblock %}
-{% block twitter_image %}{% if article.image %}<meta name="twitter:image" content="{{ SITEURL }}/images/{{ article.image }}">{% endif %}{% endblock %}
+{% block og_image %}{% if article.image %}<meta property="og:image" content="{{ SITEURL }}/images/{{ article.image }}">{% else %}<meta property="og:image" content="{{ SITEURL }}/images/og-default.png">{% endif %}{% endblock %}
+{% block twitter_card %}summary_large_image{% endblock %}
+{% block twitter_image %}{% if article.image %}<meta name="twitter:image" content="{{ SITEURL }}/images/{{ article.image }}">{% else %}<meta name="twitter:image" content="{{ SITEURL }}/images/og-default.png">{% endif %}{% endblock %}
 
 {% block jsonld %}
 <script type="application/ld+json">
