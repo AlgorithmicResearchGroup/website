@@ -1,0 +1,85 @@
+Title: S2ORC CS Enriched: 1.1 Million Computer Science Papers with Structured Metadata
+Date: 2026-03-30
+Tags: datasets, scientific-papers, machine learning
+Template: project
+Summary: A filtered and LLM-enriched version of Allen AI's S2ORC corpus containing 1.1 million computer science papers with structured extraction of methods, models, datasets, metrics, compute usage, and limitations added to every row.
+Repo: https://huggingface.co/datasets/AlgorithmicResearchGroup/s2orc-cs-enriched
+Featured: true
+
+# S2ORC CS Enriched: 1.1 Million Computer Science Papers with Structured Metadata
+
+[HuggingFace →](https://huggingface.co/datasets/AlgorithmicResearchGroup/s2orc-cs-enriched)
+
+\#datasets \#scientific-papers \#machine-learning
+
+# S2ORC CS Enriched: 1.1 Million Computer Science Papers with Structured Metadata
+
+Allen AI's Semantic Scholar Open Research Corpus (S2ORC) is one of the largest open collections of academic papers, with full text, abstracts, citation graphs, and venue metadata across all fields. It is an extraordinary resource. It is also enormous and undifferentiated. If you want to study computer science specifically, or if you need structured information about what methods a paper uses, what models it trains, what compute it reports, or what its limitations are, you have to extract that yourself from raw text.
+
+S2ORC CS Enriched is the result of doing that extraction at scale. We filtered S2ORC to its computer science subset and ran LLM-based enrichment across the full corpus, producing **1,117,706 rows** with structured metadata that does not exist in the original dataset.
+
+The full dataset is 54.7 GB across 1,118 parquet files, available on [HuggingFace](https://huggingface.co/datasets/AlgorithmicResearchGroup/s2orc-cs-enriched).
+
+## What Changed
+
+The base S2ORC columns are preserved: corpus ID, parsed title, authors, abstract, full text, sections, figures, references, external identifiers (DOI, ArXiv, DBLP, ACL, PubMed), citation counts, venue metadata, publication date, open access status, and license information. Everything upstream provides, we keep.
+
+On top of that, we added 14 enrichment columns derived from the paper text:
+
+| Column | Description |
+| --- | --- |
+| `summary` | A concise summary of the paper's contribution |
+| `classification` | Paper type (Original Research, Methods Paper, Application Paper, Survey, etc.) |
+| `methods` | Methods and techniques used |
+| `results` | Key findings and reported outcomes |
+| `models` | Models trained or evaluated |
+| `datasets` | Datasets used |
+| `metrics` | Evaluation metrics reported |
+| `limitations` | Stated or inferred limitations |
+| `explicit_gpu_hours` | GPU hours as reported in the paper |
+| `estimated_gpu_hours` | Estimated GPU hours where not explicitly stated |
+| `number_gpu` | Number of GPUs used |
+| `gpu_type` | GPU hardware (A100, V100, H100, etc.) |
+| `training_details` | Training configuration details |
+| `reasoning` | Chain-of-thought reasoning behind the enrichment |
+
+These columns turn unstructured paper text into queryable, filterable structured data.
+
+## Why This Matters
+
+Raw paper text is hard to work with programmatically. If you want to answer questions like "which papers trained models on ImageNet using more than 8 GPUs" or "what fraction of NLP papers from 2023 report compute budgets," you need structured fields, not a full-text search over abstracts.
+
+The enrichment makes several things practical that were previously expensive or manual:
+
+**Filtering by method or model.** Find all papers that use a specific architecture, training technique, or evaluation protocol without reading abstracts.
+
+**Compute analysis.** The GPU columns enable large-scale analysis of compute trends across CS research: who reports compute, how much they use, and how that has changed over time. This is relevant to understanding the resource dynamics of the field and to studying the economics of AI research.
+
+**Training data for research-aware models.** The structured columns provide supervision signal for models that need to understand the internal structure of papers, not just their text. A model fine-tuned on this data could learn to extract methods, results, and limitations from new papers.
+
+**Benchmark and leaderboard construction.** The `models`, `datasets`, and `metrics` columns, combined with `results`, provide the raw material for building structured benchmark comparisons across the literature.
+
+**Meta-research.** The classification and limitation columns support large-scale bibliometric analysis: what kinds of papers dominate, what methods are trending, and where the field acknowledges its own gaps.
+
+## Scope and Coverage
+
+The dataset covers 1,117,706 computer science papers. All rows are labeled `Computer Science` in the `fieldofstudy_category` column. This is not an ArXiv-only dataset: it includes papers from conferences, journals, and other venues indexed by Semantic Scholar. Of the full set, 44,053 rows have a non-null ArXiv identifier.
+
+The enrichment was generated by running LLM extraction over the full text of each paper. Where a paper's text was empty or too short to extract meaningful information, the enrichment columns reflect that (typically with "None specified" values). The `reasoning` column preserves the chain-of-thought behind each enrichment, which is useful for auditing extraction quality and for understanding edge cases.
+
+## Limitations
+
+The enrichment is LLM-generated and therefore imperfect. Extraction quality varies with paper length, writing style, and domain. Papers with unusual formatting, very short text, or heavily mathematical content may have lower-quality enrichment. The `reasoning` column exists partly to make these failure modes visible.
+
+The compute columns (`explicit_gpu_hours`, `estimated_gpu_hours`, `number_gpu`, `gpu_type`) are only as good as what papers report. Most papers do not report compute at all. Where compute is not mentioned, these fields are empty or marked as unspecified. The dataset does not hallucinate compute figures; it extracts what is stated or makes conservative estimates where enough information exists.
+
+The `classification` field is a coarse categorization. Papers that span multiple types (e.g., a methods paper that also includes an application study) are assigned a single label based on the primary contribution as assessed by the enrichment model.
+
+## Availability
+
+The dataset is available now:
+
+- **Full dataset:** [huggingface.co/datasets/AlgorithmicResearchGroup/s2orc-cs-enriched](https://huggingface.co/datasets/AlgorithmicResearchGroup/s2orc-cs-enriched)
+- **Parent organization:** [huggingface.co/AlgorithmicResearchGroup](https://huggingface.co/AlgorithmicResearchGroup)
+
+This is a strict subset of the companion S2ORC Computer Science parquet set by `corpus_id`, with the enrichment columns added. The parquet format supports efficient column-level access, so you can load only the columns you need without pulling the full 54.7 GB.
