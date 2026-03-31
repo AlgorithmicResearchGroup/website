@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Epsilon: Infrastructure for Structured Agent Workloads — Algorithmic Research Group</title>
+    <meta name="description" content="An open-source runtime for structured agent workloads with seven orchestration topologies, ZeroMQ-backed task brokering, deterministic reducers, and a...">
+    <meta name="author" content="Algorithmic Research Group">
+    <link rel="canonical" href="../projects/epsilon-infrastructure-for-structured-agent-workloads.html">
+
+    <!-- Open Graph -->
+    <meta property="og:site_name" content="Algorithmic Research Group">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Epsilon: Infrastructure for Structured Agent Workloads">
+    <meta property="og:description" content="An open-source runtime for structured agent workloads with seven orchestration topologies, ZeroMQ-backed task brokering, deterministic reducers, and a population search mode for recursive...">
+    <meta property="og:url" content="../projects/epsilon-infrastructure-for-structured-agent-workloads.html">
+<meta property="og:image" content="../images/og-default.jpg">    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Epsilon: Infrastructure for Structured Agent Workloads">
+    <meta name="twitter:description" content="An open-source runtime for structured agent workloads with seven orchestration topologies, ZeroMQ-backed task brokering, deterministic reducers, and a population search mode for recursive...">
+<meta name="twitter:image" content="../images/og-default.jpg">
+    <!-- Feeds -->
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../theme/favicon.svg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../theme/css/style.css">
+
+    <!-- JSON-LD -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "SoftwareSourceCode",
+    "name": "Epsilon: Infrastructure for Structured Agent Workloads",
+    "description": "An open-source runtime for structured agent workloads with seven orchestration topologies, ZeroMQ-backed task brokering, deterministic reducers, and a population search mode for recursive...",
+    "url": "../projects/epsilon-infrastructure-for-structured-agent-workloads.html",
+    "author": {
+        "@type": "Organization",
+        "name": "Algorithmic Research Group",
+        "url": ".."
+    },
+    "datePublished": "2026-03-30",
+    "codeRepository": "https://github.com/AlgorithmicResearchGroup/epsilon"
+}
+</script>
+
+    <!-- Analytics -->
+    <script async src="https://plausible.io/js/pa-ygtiEFvphM1dhd8t2DTpH.js"></script>
+    <script>
+      window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+      plausible.init()
+    </script>
+</head>
+<body>
+    <header class="site-nav">
+        <div class="nav-inner">
+            <a href="../" class="nav-logo"><img src="../theme/logo-white.png" alt="ARG" class="nav-logo-img"></a>
+            <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+            <nav class="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="../#research">Research</a></li>
+                    <li class="nav-item nav-item--has-dropdown">
+                        <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="products-menu">
+                            Products
+                            <span class="nav-dropdown-caret" aria-hidden="true"></span>
+                        </button>
+                        <ul class="nav-dropdown-menu" id="products-menu">
+                            <li><a href="https://scoutml.com/" target="_blank" rel="noopener">ScoutML</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../opensource.html">Open Source</a></li>
+                    <li><a href="../blog/">Writing</a></li>
+                    <li><a href="https://github.com/AlgorithmicResearchGroup" target="_blank" rel="noopener">GitHub</a></li>
+                    <li><a href="https://huggingface.co/AlgorithmicResearchGroup" target="_blank" rel="noopener">HuggingFace</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="inner-page">
+    <article class="full-article project-detail">
+        <header>
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="../">Home</a>
+                <span class="separator">/</span>
+                <a href="../projects.html">Research</a>
+                <span class="separator">/</span>
+                <span aria-current="page">Epsilon: Infrastructure for Structured Agent Workloads</span>
+            </nav>
+
+
+            <h1 class="article-title">Epsilon: Infrastructure for Structured Agent Workloads</h1>
+
+            <div class="project-links">
+                <a href="https://github.com/AlgorithmicResearchGroup/epsilon" target="_blank" rel="noopener" class="project-link">GitHub &rarr;</a>
+            </div>
+
+            <div class="article-meta">
+                <span class="post-tags">
+                    <a href="../tag/agents.html">#agents</a>
+                    <a href="../tag/orchestration.html">#orchestration</a>
+                    <a href="../tag/infrastructure.html">#infrastructure</a>
+                </span>
+            </div>
+        </header>
+
+        <div class="article-content">
+            <h1>Epsilon: Infrastructure for Structured Agent Workloads</h1>
+<p><a href="https://github.com/AlgorithmicResearchGroup/epsilon">GitHub →</a></p>
+<p>#agents #orchestration #infrastructure</p>
+<h1>Epsilon: Infrastructure for Structured Agent Workloads</h1>
+<p>Most AI agent tooling is built around one prompt, one model call, and one output. That works for demos. It breaks down when you need to split work across many agents, retry failures without restarting the whole job, keep intermediate artifacts machine-readable, selectively escalate only the cases that need deeper reasoning, or mix LLM steps with deterministic aggregation and validation.</p>
+<p>Epsilon is a runtime for workloads that are too structured for a chat app and too judgment-heavy for a plain data pipeline. It gives you explicit orchestration topologies, a real message broker with leases and heartbeats, deterministic reducers for the parts of your pipeline where consistency matters more than open-ended reasoning, and a population search mode for recursive improvement loops.</p>
+<p>We built it to run our own research. Now it is open source under Apache 2.0.</p>
+<h2>The Core Idea</h2>
+<p>The architecture is a clean split between four components:</p>
+<p><strong>Orchestrators</strong> decide how work gets decomposed and coordinated. They select a topology, manage dependencies between tasks, and decide when to retry, reduce, or escalate follow-up work.</p>
+<p><strong>Workers</strong> execute the leaves of a topology. Depending on the workload, a leaf can be an LLM-driven agent task, a deterministic reducer, a local executor, or a custom agent plugged in via the BYOA (Bring Your Own Agent) adapter path.</p>
+<p><strong>The broker</strong> handles task assignment, lease management, heartbeats, renewals, redelivery, and dead-letter protection. It is built on ZeroMQ and provides at-least-once delivery semantics. This is real distributed systems infrastructure, not "hope the API call works."</p>
+<p><strong>Shared workspace artifacts</strong> keep intermediate state on disk rather than hiding it in an internal state machine. Every intermediate output is explicit and inspectable. This matters for reproducibility, for reducer and finalizer handoff, and for post-run debugging.</p>
+<h2>Eight Orchestration Topologies</h2>
+<p>Epsilon ships with eight topology patterns, each designed for a different class of workload:</p>
+<p><strong>dag.</strong> Parallel build work with QA and fix loops. The orchestrator decomposes a task into a typed DAG, executes nodes in dependency-ordered waves, runs a QA agent, assigns failures back to responsible agents, and repeats until QA passes or the wave budget is exhausted.</p>
+<p><strong>tree.</strong> Hierarchical team-style decomposition. Large tasks get broken into 2-8 teams, each with its own sub-orchestrator and git branch. Teams run in parallel, branches merge, and an integration QA pass runs on the merged result.</p>
+<p><strong>pipeline.</strong> Staged delivery. Work flows through sequential stages with gates between them.</p>
+<p><strong>supervisor.</strong> Adaptive retries and task splitting. The supervisor monitors progress and can dynamically split failing tasks into smaller pieces or reassign them.</p>
+<p><strong>work_queue.</strong> Flat pull-based worker execution. Workers pull tasks from a shared queue and execute them independently. Simple and effective for embarrassingly parallel workloads.</p>
+<p><strong>sharded_queue.</strong> Very large independent item sets. Manifest-backed: you provide a list of items and Epsilon fans them out across workers. Designed for workloads with tens of thousands of independent tasks.</p>
+<p><strong>map_reduce.</strong> Hierarchical aggregation. Fan-out to many workers, then structured reduction of results. Also manifest-backed, designed for workloads where the aggregation step matters as much as the individual task execution.</p>
+<p><strong>population_search.</strong> Recursive improvement loops. Multiple agents optimize the same task in parallel, a deterministic scorer evaluates every candidate, a generation brief captures what worked, and the next generation gets the best solutions as context. This is the topology most directly relevant to studying recursive self-improvement.</p>
+<p>The <code>sharded_queue</code>, <code>map_reduce</code>, and <code>population_search</code> topologies are intentionally manifest-backed. They are designed for explicit high-scale workloads, not free-form decomposition from a single natural-language prompt.</p>
+<h2>Why The Split Matters</h2>
+<p>Epsilon is not just "many agents." The useful architectural properties are:</p>
+<p><strong>Topology is explicit.</strong> You choose how work gets decomposed. The system does not guess at structure from a natural language prompt. This makes behavior predictable and debuggable.</p>
+<p><strong>Agent work and deterministic work can be mixed.</strong> In the same job, some leaves can be LLM-driven and others can be pure functions. Use agents where judgment helps. Use reducers where you need consistency.</p>
+<p><strong>Failure handling is isolated.</strong> When a leaf fails, only that leaf gets retried or reassigned. The rest of the job continues. This is essential for workloads with hundreds or thousands of tasks where individual failures are expected.</p>
+<p><strong>Second-pass reasoning is targeted.</strong> Instead of rerunning everything, you can identify the ambiguous or failed cases and send only those to a second wave of agents. This is how our Benchmark Scout and Entity Graph demos work: agents extract, reducers flag problems, a second wave adjudicates only the flagged cases.</p>
+<p><strong>Intermediate artifacts are inspectable.</strong> Because everything goes to disk in structured form, you can pause a run, inspect what happened, and resume or reprocess. No black-box internal state.</p>
+<h2>The Broker</h2>
+<p>The messaging layer provides the reliability semantics that real workloads require:</p>
+<p>At-least-once delivery for work queue tasks. Lease-based task ownership so that if a worker dies mid-task, the work gets reassigned. Heartbeat-driven liveness eviction for detecting dead workers. Dead-letter protection for poison tasks that fail repeatedly. Bounded retries for explicit task failure. Broadcast and directed messaging between agents. Last-value cache replay for topic state.</p>
+<p>The protocol is split into three planes: a transport plane (ZeroMQ sockets move bytes), a topology plane (routing policy decides delivery), and a coordination plane (heartbeats, leases, renewals, and redelivery).</p>
+<h2>BYOA: Bring Your Own Agent</h2>
+<p>You do not have to use Epsilon's built-in agent runtime. The BYOA adapter path lets you plug in your own agent process without changing orchestrators. This works two ways:</p>
+<p>A function-entrypoint path where you point Epsilon at a Python function and it handles the rest. Or a stdin/stdout action-protocol path where your agent communicates through a simple JSON action protocol (log, send_message, check_messages, done, fail).</p>
+<p>This means you can use Epsilon's orchestration, brokering, and topology management with whatever agent implementation you already have.</p>
+<h2>Demos</h2>
+<p>Epsilon ships with working demos that exercise the system at realistic scale:</p>
+<p><strong>Population Search CSV.</strong> Multiple agents optimize the same CSV aggregation function in parallel. Epsilon scores every candidate deterministically, captures what worked in a generation brief, and feeds the best solutions as context to the next generation. This is recursive improvement in miniature: a small, self-contained loop where you can watch the system improve across generations.</p>
+<p><strong>HF Entity Graph.</strong> Agents summarize and extract entities from raw document clusters. Reducers detect ambiguous entities across documents. A second wave of agents adjudicates only the ambiguous cases. This demonstrates the two-pass pattern that makes Epsilon practical for noisy, real-world extraction tasks.</p>
+<p>Additional demos exist for benchmark harvesting across paper corpora and other research workflows. Some rely on local research data and are not featured in the top-level README.</p>
+<h2>What You Can Build</h2>
+<p>The system is general enough to support a range of workloads:</p>
+<p>Software builds with decomposition, QA, and fix loops. Document extraction and curation workflows. Benchmark and result harvesting across large corpora. Manifest-backed workloads that fan out to hundreds or thousands of agent tasks. Recursive improvement experiments with population search. Custom agent systems using the BYOA adapter path.</p>
+<h2>Configuration</h2>
+<p>Epsilon is configured through a combination of <code>manifest.json</code> (model selection, iteration budgets, delegate LLM allowlists) and environment variables (API keys, broker addresses, executor backend, wave budgets). It supports OpenAI, Anthropic, and any provider accessible through LiteLLM. Docker execution is supported as an alternative to host-based execution, with published images available via GHCR.</p>
+<h2>Availability</h2>
+<p>Epsilon is available now under Apache 2.0:</p>
+<ul>
+<li><strong>Repository:</strong> <a href="https://github.com/AlgorithmicResearchGroup/epsilon">github.com/AlgorithmicResearchGroup/epsilon</a></li>
+<li><strong>Documentation:</strong> Architecture overview, technical reference, and release notes are in the <code>docs/</code> directory.</li>
+</ul>
+<p>This is the infrastructure we use to run our own research. The population search topology is directly relevant to our work on recursive self-improvement. The sharded queue and map reduce topologies are what we use to process large corpora for our datasets. The DAG and tree topologies are what we use for multi-agent software builds and evaluation runs.</p>
+<p>We are releasing it because infrastructure for structured agent workloads should not be something every team builds from scratch.</p>
+        </div>
+    </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-mega">
+            <div class="footer-brand">
+                <a href="../" class="footer-logo"><img src="../theme/logo-white.png" alt="ARG" class="footer-logo-img"></a>
+                <p class="footer-tagline">Studying how software and industrial systems recursively improve themselves in real-world settings.</p>
+                <div class="footer-social">
+                    <a href="https://github.com/AlgorithmicResearchGroup" target="_blank" rel="noopener" aria-label="GitHub">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
+                    <a href="https://huggingface.co/AlgorithmicResearchGroup" target="_blank" rel="noopener" aria-label="HuggingFace">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 1.5c4.694 0 8.5 3.806 8.5 8.5s-3.806 8.5-8.5 8.5S3.5 16.694 3.5 12 7.306 3.5 12 3.5zM8.5 9a1.5 1.5 0 100 3 1.5 1.5 0 000-3zm7 0a1.5 1.5 0 100 3 1.5 1.5 0 000-3zm-8.387 5.21a.75.75 0 011.05-.148c1.12.832 2.382 1.438 3.837 1.438s2.717-.606 3.837-1.438a.75.75 0 01.902 1.198C15.467 16.236 13.9 17 12 17s-3.467-.764-4.739-1.74a.75.75 0 01-.148-1.05z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-columns">
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Research</h4>
+                    <ul>
+                        <li><a href="../projects.html">All Research</a></li>
+                        <li><a href="../opensource.html">Open Source</a></li>
+                        <li><a href="../tags.html">By Topic</a></li>
+                        <li><a href="https://huggingface.co/AlgorithmicResearchGroup" target="_blank" rel="noopener">Datasets</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Writing</h4>
+                    <ul>
+                        <li><a href="../blog/">Latest</a></li>
+                        <li><a href="../archives.html">Archives</a></li>
+                        <li><a href="../categories.html">Categories</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Company</h4>
+                    <ul>
+                        <li><a href="../#about">About</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                        <li><a href="https://github.com/AlgorithmicResearchGroup" target="_blank" rel="noopener">GitHub</a></li>
+                        <li><a href="https://huggingface.co/AlgorithmicResearchGroup" target="_blank" rel="noopener">HuggingFace</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 Algorithmic Research Group</span>
+        </div>
+    </footer>
+    <script>
+    (function() {
+        var toggle = document.querySelector('.nav-toggle');
+        var menu = document.querySelector('.nav-menu');
+        var dropdownItem = document.querySelector('.nav-item--has-dropdown');
+        var dropdownToggle = document.querySelector('.nav-dropdown-toggle');
+
+        function closeDropdown() {
+            if (!dropdownItem || !dropdownToggle) {
+                return;
+            }
+
+            dropdownItem.classList.remove('nav-item--open');
+            dropdownToggle.setAttribute('aria-expanded', 'false');
+        }
+
+        toggle.addEventListener('click', function() {
+            var open = menu.classList.toggle('nav-menu--open');
+            toggle.classList.toggle('nav-toggle--open');
+            toggle.setAttribute('aria-expanded', open);
+            if (!open) {
+                closeDropdown();
+            }
+        });
+
+        if (dropdownItem && dropdownToggle) {
+            dropdownToggle.addEventListener('click', function() {
+                var open = dropdownItem.classList.toggle('nav-item--open');
+                dropdownToggle.setAttribute('aria-expanded', open);
+            });
+
+            document.addEventListener('click', function(e) {
+                if (!dropdownItem.contains(e.target)) {
+                    closeDropdown();
+                }
+            });
+        }
+
+        menu.addEventListener('click', function(e) {
+            if (e.target.tagName === 'A') {
+                menu.classList.remove('nav-menu--open');
+                toggle.classList.remove('nav-toggle--open');
+                toggle.setAttribute('aria-expanded', 'false');
+                closeDropdown();
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeDropdown();
+            }
+        });
+    })();
+    </script>
+</body>
+</html>

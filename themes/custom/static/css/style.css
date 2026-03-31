@@ -465,6 +465,17 @@ a:hover {
     margin-bottom: 8px;
 }
 
+.os-hero-copy {
+    max-width: 720px;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.os-hero-copy p + p {
+    margin-top: 12px;
+}
+
 /* ---------- Artifact grid ---------- */
 
 .artifact-grid {
@@ -517,6 +528,40 @@ a:hover {
 .artifact-links a:hover {
     color: var(--accent-hover);
     text-decoration-color: var(--accent-hover);
+}
+
+.artifact-card-body {
+    margin-top: auto;
+}
+
+.artifact-card-body p + p,
+.artifact-card-body ul + p,
+.artifact-card-body p + ul {
+    margin-top: 12px;
+}
+
+.artifact-card-body ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding-left: 0;
+}
+
+.artifact-card-body li {
+    margin: 0;
+}
+
+.artifact-card-body a {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(59, 130, 246, 0.3);
+}
+
+.section-label--spaced {
+    margin-top: 64px;
 }
 
 /* ---------- Writing list ---------- */

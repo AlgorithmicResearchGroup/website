@@ -36,6 +36,18 @@
         <priority>0.4</priority>
     </url>
     <url>
+        <loc>./projects/epsilon-infrastructure-for-structured-agent-workloads.html</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>./projects/s2orc-cs-enriched-11-million-computer-science-papers-with-structured-metadata.html</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>./projects/study-failure-ai-driven-gpu-kernel-optimization.html</loc>
         <lastmod>2026-03-05</lastmod>
         <changefreq>monthly</changefreq>

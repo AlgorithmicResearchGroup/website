@@ -3,104 +3,45 @@
 
 {% block body %}
 <main>
+    {% set section_groups = ['Code & Benchmarks', 'Datasets', 'Models'] %}
     <!-- Hero -->
     <section class="os-hero">
         <div class="section-inner">
-            <h1 class="os-hero-title">Open Source</h1>
-            <p class="os-hero-desc">We publish datasets, models, code, and evaluation resources to support research on how AI systems behave in practice.</p>
-            <p class="os-hero-desc">These artifacts are designed to surface failure modes that emerge when models interact with tools, operate over time, and rely on retrieval, compression, and imperfect objectives.</p>
+            <h1 class="os-hero-title">{{ page.title }}</h1>
+            <p class="os-hero-desc">{{ page.summary|striptags }}</p>
+            {% if page.content %}
+            <div class="os-hero-copy">{{ page.content }}</div>
+            {% endif %}
         </div>
     </section>
 
     <!-- Artifacts -->
     <section class="section section--bg">
         <div class="section-inner">
-            <h2 class="section-label">// Code &amp; Benchmarks</h2>
+            {% for group_name in section_groups %}
+            {% set section_artifacts = pages
+                |selectattr('artifact_group', 'defined')
+                |selectattr('artifact_group', 'equalto', group_name)
+                |sort(attribute='artifact_order') %}
+            {% if section_artifacts %}
+            <h2 class="section-label{% if not loop.first %} section-label--spaced{% endif %}">// {{ group_name }}</h2>
             <div class="artifact-grid">
-                <div class="artifact-card">
-                    <h3 class="artifact-title">ML Research Benchmark</h3>
-                    <p class="artifact-desc">A benchmark suite for evaluating AI agents on real machine learning research tasks — 7 competition-level challenges from NeurIPS, ICML, and CoNLL with task definitions, a baseline agent, and evaluation infrastructure.</p>
-                    <ul class="artifact-links">
-                        <li><a href="https://github.com/AlgorithmicResearchGroup/ML-Research-Agent">AlgorithmicResearchGroup/ML-Research-Agent</a></li>
-                    </ul>
-                </div>
-                <div class="artifact-card">
-                    <h3 class="artifact-title">ARIA Benchmark</h3>
-                    <p class="artifact-desc">Five closed-book benchmarks probing the ML knowledge that frontier models have internalized during training. Tests dataset recognition, model classification, and metric recall across the ML landscape.</p>
-                    <ul class="artifact-links">
-                        <li><a href="https://github.com/AlgorithmicResearchGroup/ARIA">AlgorithmicResearchGroup/ARIA</a></li>
-                    </ul>
-                </div>
-                <div class="artifact-card">
-                    <h3 class="artifact-title">DeltaMLBench</h3>
-                    <p class="artifact-desc">A benchmark for measuring whether AI agents can improve on published ML research. Tests the gap between implementing known approaches and discovering better ones.</p>
-                    <ul class="artifact-links">
-                        <li><a href="https://github.com/AlgorithmicResearchGroup/DeltaMLBench">AlgorithmicResearchGroup/DeltaMLBench</a></li>
-                    </ul>
-                </div>
-                <div class="artifact-card">
-                    <h3 class="artifact-title">Neural Architecture Search</h3>
-                    <p class="artifact-desc">A recursive reasoning model that ranks architectures by predicted performance and guides search. Achieves 8-10x sample efficiency over random search with zero-shot transfer across datasets.</p>
-                    <ul class="artifact-links">
-                        <li><a href="https://github.com/AlgorithmicResearchGroup/NAS-public">AlgorithmicResearchGroup/NAS-public</a></li>
-                    </ul>
-                </div>
+                {% for artifact in section_artifacts %}
+                <article class="artifact-card">
+                    <h3 class="artifact-title">{{ artifact.title }}</h3>
+                    {% if artifact.summary %}
+                    <p class="artifact-desc">{{ artifact.summary|striptags }}</p>
+                    {% endif %}
+                    {% if artifact.content %}
+                    <div class="artifact-card-body">
+                        {{ artifact.content }}
+                    </div>
+                    {% endif %}
+                </article>
+                {% endfor %}
             </div>
-
-            <h2 class="section-label" style="margin-top: 64px;">// Datasets</h2>
-            <div class="artifact-grid">
-                <div class="artifact-card">
-                    <h3 class="artifact-title">ArXiv DL Instruct Dataset</h3>
-                    <p class="artifact-desc">A dataset for studying how models interpret, follow, and generalize technical instructions derived from real research code. Useful for analyzing brittleness, overconfidence, and instruction misgeneralization in technical domains — especially when models are embedded in research or agentic workflows.</p>
-                    <ul class="artifact-links">
-                        <li><a href="https://huggingface.co/datasets/AlgorithmicResearchGroup/ArXivDLInstruct">AlgorithmicResearchGroup/ArXivDLInstruct</a> (2.26 GB)</li>
-                    </ul>
-                </div>
-                <div class="artifact-card">
-                    <h3 class="artifact-title">ArXiv Research Code Dataset</h3>
-                    <p class="artifact-desc">A large corpus of research code referenced directly in scientific papers, designed to study how models reason about, modify, and execute real-world code. This dataset supports research into tool-use errors, hallucinated affordances, and silent failure modes when agents interact with complex software systems.</p>
-                    <ul class="artifact-links">
-                        <li><a href="https://huggingface.co/datasets/AlgorithmicResearchGroup/arxiv_research_code">AlgorithmicResearchGroup/arxiv_research_code</a> (21 GB)</li>
-                    </ul>
-                </div>
-                <div class="artifact-card">
-                    <h3 class="artifact-title">ArXiv Instruct Tuning Dataset</h3>
-                    <p class="artifact-desc">A collection of instruction-tuning datasets derived from scientific abstracts. These datasets are useful for studying how synthetic supervision shapes model behavior, including overfitting to surface patterns and failures to generalize under distribution shift.</p>
-                    <ul class="artifact-links">
-                        <li><a href="https://huggingface.co/datasets/AlgorithmicResearchGroup/arxiv-math-instruct-50k">AlgorithmicResearchGroup/arxiv-math-instruct-50k</a></li>
-                        <li><a href="https://huggingface.co/datasets/AlgorithmicResearchGroup/arxiv-cs-ml-instruct-tune-50k">AlgorithmicResearchGroup/arxiv-cs-ml-instruct-tune-50k</a></li>
-                        <li><a href="https://huggingface.co/datasets/AlgorithmicResearchGroup/arxiv-physics-instruct-tune-30k">AlgorithmicResearchGroup/arxiv-physics-instruct-tune-30k</a></li>
-                    </ul>
-                </div>
-                <div class="artifact-card">
-                    <h3 class="artifact-title">ArXiv QA BEIR Datasets</h3>
-                    <p class="artifact-desc">Question-answer datasets derived from ArXiv, designed for evaluating retrieval and search behavior in technical domains. These datasets support analysis of retrieval failures, false confidence, and compounding errors in RAG and agentic systems that depend on external knowledge.</p>
-                    <ul class="artifact-links">
-                        <li><a href="https://huggingface.co/datasets/AlgorithmicResearchGroup/arxiv-beir-500k-generated-queries">AlgorithmicResearchGroup/arxiv-beir-500k-generated-queries</a></li>
-                        <li><a href="https://huggingface.co/datasets/AlgorithmicResearchGroup/arxiv-beir-100k-generated-queries">AlgorithmicResearchGroup/arxiv-beir-100k-generated-queries</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <h2 class="section-label" style="margin-top: 64px;">// Models</h2>
-            <div class="artifact-grid">
-                <div class="artifact-card">
-                    <h3 class="artifact-title">ArXiv Semantic Search Models</h3>
-                    <p class="artifact-desc">Semantic search models trained on large-scale scientific corpora. Intended for studying how retrieval quality, query formulation, and embedding behavior affect downstream agent decisions — particularly in systems where retrieval errors propagate silently.</p>
-                    <ul class="artifact-links">
-                        <li><a href="https://huggingface.co/AlgorithmicResearchGroup/arxiv-distilbert-base-v3-GenQ">AlgorithmicResearchGroup/arxiv-distilbert-base-v3-GenQ</a></li>
-                        <li><a href="https://huggingface.co/AlgorithmicResearchGroup/arxiv-distilroberta-base-GenQ">AlgorithmicResearchGroup/arxiv-distilroberta-base-GenQ</a></li>
-                    </ul>
-                </div>
-                <div class="artifact-card">
-                    <h3 class="artifact-title">ArXiv LED Summarization Models</h3>
-                    <p class="artifact-desc">Models for summarizing full-length scientific papers from abstracts and source documents. Useful for analyzing information loss, misrepresentation, and overconfidence introduced by compression — especially when summaries are used as inputs to downstream decision-making agents.</p>
-                    <ul class="artifact-links">
-                        <li><a href="https://huggingface.co/AlgorithmicResearchGroup/led_large_16384_arxiv_summarization">AlgorithmicResearchGroup/led_large_16384_arxiv_summarization</a></li>
-                        <li><a href="https://huggingface.co/AlgorithmicResearchGroup/led_base_16384_arxiv_summarization">AlgorithmicResearchGroup/led_base_16384_arxiv_summarization</a></li>
-                    </ul>
-                </div>
-            </div>
+            {% endif %}
+            {% endfor %}
         </div>
     </section>
 </main>

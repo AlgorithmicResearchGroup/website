@@ -124,6 +124,99 @@ body::before {
     color: var(--accent);
 }
 
+.nav-item {
+    position: relative;
+}
+
+.nav-dropdown-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: 0;
+    padding: 0;
+    color: var(--text-secondary);
+    font: inherit;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.nav-dropdown-toggle:hover,
+.nav-item--has-dropdown:hover .nav-dropdown-toggle,
+.nav-item--has-dropdown:focus-within .nav-dropdown-toggle,
+.nav-item--has-dropdown.nav-item--open .nav-dropdown-toggle {
+    color: var(--accent);
+}
+
+.nav-dropdown-caret {
+    width: 7px;
+    height: 7px;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: rotate(45deg) translateY(-1px);
+    transition: transform 0.2s ease;
+}
+
+.nav-item--has-dropdown.nav-item--open .nav-dropdown-caret,
+.nav-item--has-dropdown:hover .nav-dropdown-caret,
+.nav-item--has-dropdown:focus-within .nav-dropdown-caret {
+    transform: rotate(-135deg) translateY(-1px);
+}
+
+.nav-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 18px);
+    left: 50%;
+    min-width: 180px;
+    padding: 10px 0;
+    list-style: none;
+    background: rgba(17, 24, 39, 0.98);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateX(-50%) translateY(-6px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+}
+
+.nav-dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: -7px;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    background: rgba(17, 24, 39, 0.98);
+    border-top: 1px solid var(--border);
+    border-left: 1px solid var(--border);
+    transform: translateX(-50%) rotate(45deg);
+}
+
+.nav-item--has-dropdown:hover .nav-dropdown-menu,
+.nav-item--has-dropdown:focus-within .nav-dropdown-menu,
+.nav-item--has-dropdown.nav-item--open .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+}
+
+.nav-dropdown-menu a {
+    display: block;
+    padding: 10px 16px;
+    color: var(--text);
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.nav-dropdown-menu a:hover {
+    color: var(--accent);
+    background: rgba(59, 130, 246, 0.08);
+}
+
 /* Hamburger toggle — hidden on desktop */
 .nav-toggle {
     display: none;
@@ -372,6 +465,17 @@ a:hover {
     margin-bottom: 8px;
 }
 
+.os-hero-copy {
+    max-width: 720px;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.os-hero-copy p + p {
+    margin-top: 12px;
+}
+
 /* ---------- Artifact grid ---------- */
 
 .artifact-grid {
@@ -424,6 +528,40 @@ a:hover {
 .artifact-links a:hover {
     color: var(--accent-hover);
     text-decoration-color: var(--accent-hover);
+}
+
+.artifact-card-body {
+    margin-top: auto;
+}
+
+.artifact-card-body p + p,
+.artifact-card-body ul + p,
+.artifact-card-body p + ul {
+    margin-top: 12px;
+}
+
+.artifact-card-body ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding-left: 0;
+}
+
+.artifact-card-body li {
+    margin: 0;
+}
+
+.artifact-card-body a {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(59, 130, 246, 0.3);
+}
+
+.section-label--spaced {
+    margin-top: 64px;
 }
 
 /* ---------- Writing list ---------- */
@@ -1112,10 +1250,47 @@ a:hover {
         border-bottom: 1px solid var(--border);
     }
 
-    .site-nav .nav-links a {
+    .site-nav .nav-links a,
+    .nav-dropdown-toggle {
         display: block;
         padding: 16px 0;
         color: var(--text);
+    }
+
+    .nav-dropdown-toggle {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .nav-dropdown-menu {
+        position: static;
+        min-width: 0;
+        margin: 0 0 12px;
+        padding: 0;
+        background: transparent;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+        max-height: 0;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        overflow: hidden;
+        transform: none;
+        transition: max-height 0.25s ease;
+    }
+
+    .nav-dropdown-menu::before {
+        content: none;
+    }
+
+    .nav-item--has-dropdown.nav-item--open .nav-dropdown-menu {
+        max-height: 120px;
+    }
+
+    .nav-dropdown-menu a {
+        padding: 12px 0 12px 16px;
+        color: var(--text-secondary);
     }
 
     .hero {

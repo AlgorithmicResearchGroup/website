@@ -70,6 +70,15 @@
             <nav class="nav-menu">
                 <ul class="nav-links">
                     <li><a href="../#research">Research</a></li>
+                    <li class="nav-item nav-item--has-dropdown">
+                        <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="products-menu">
+                            Products
+                            <span class="nav-dropdown-caret" aria-hidden="true"></span>
+                        </button>
+                        <ul class="nav-dropdown-menu" id="products-menu">
+                            <li><a href="https://scoutml.com/" target="_blank" rel="noopener">ScoutML</a></li>
+                        </ul>
+                    </li>
                     <li><a href="../opensource.html">Open Source</a></li>
                     <li><a href="../blog/">Writing</a></li>
                     <li><a href="https://github.com/AlgorithmicResearchGroup" target="_blank" rel="noopener">GitHub</a></li>
@@ -176,16 +185,52 @@
     (function() {
         var toggle = document.querySelector('.nav-toggle');
         var menu = document.querySelector('.nav-menu');
+        var dropdownItem = document.querySelector('.nav-item--has-dropdown');
+        var dropdownToggle = document.querySelector('.nav-dropdown-toggle');
+
+        function closeDropdown() {
+            if (!dropdownItem || !dropdownToggle) {
+                return;
+            }
+
+            dropdownItem.classList.remove('nav-item--open');
+            dropdownToggle.setAttribute('aria-expanded', 'false');
+        }
+
         toggle.addEventListener('click', function() {
             var open = menu.classList.toggle('nav-menu--open');
             toggle.classList.toggle('nav-toggle--open');
             toggle.setAttribute('aria-expanded', open);
+            if (!open) {
+                closeDropdown();
+            }
         });
+
+        if (dropdownItem && dropdownToggle) {
+            dropdownToggle.addEventListener('click', function() {
+                var open = dropdownItem.classList.toggle('nav-item--open');
+                dropdownToggle.setAttribute('aria-expanded', open);
+            });
+
+            document.addEventListener('click', function(e) {
+                if (!dropdownItem.contains(e.target)) {
+                    closeDropdown();
+                }
+            });
+        }
+
         menu.addEventListener('click', function(e) {
             if (e.target.tagName === 'A') {
                 menu.classList.remove('nav-menu--open');
                 toggle.classList.remove('nav-toggle--open');
                 toggle.setAttribute('aria-expanded', 'false');
+                closeDropdown();
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeDropdown();
             }
         });
     })();
