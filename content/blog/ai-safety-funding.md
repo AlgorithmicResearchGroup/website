@@ -1,3 +1,8 @@
+Title: Automating AI Safety Research Requires an Open Ecosystem, Not Bigger Grants
+Date: 2026-04-03
+Tags: ai-safety, funding, research
+Summary: A response to Marius Hobbhahn's ["There should be $100M grants to automate AI safety"](https://www.lesswrong.com/posts/qdhyrN4uKwBAftmQx/there-should-be-usd100m-grants-to-automate-ai-safety)
+
 # Automating AI Safety Research Requires an Open Ecosystem, Not Bigger Grants
 
 *A response to Marius Hobbhahn's ["There should be $100M grants to automate AI safety"](https://www.lesswrong.com/posts/qdhyrN4uKwBAftmQx/there-should-be-usd100m-grants-to-automate-ai-safety)*
