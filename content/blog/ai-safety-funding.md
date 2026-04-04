@@ -49,13 +49,11 @@ Some of this is already happening, and it's worth calling out the work that's po
 
 ## On the Dual-Use Question
 
-I want to address this directly because it is the most common objection I hear.
+Infrastructure for automated safety research could theoretically be repurposed for automated capabilities research. But this framing treats the safety community as if it operates in a vacuum. It does not. The frontier labs have massive internal teams working on automated research. They have more compute, more data, and more engineering resources than the safety community will ever have. The marginal contribution of open safety infrastructure to capabilities acceleration is negligible compared to what is already happening inside these organizations.
 
-Yes, infrastructure for automated safety research could theoretically be repurposed for automated capabilities research. But this framing treats the safety community as if it operates in a vacuum. It does not. The frontier labs have massive internal teams working on automated research. They have more compute, more data, and more engineering resources than the safety community will ever have. The marginal contribution of open safety infrastructure to capabilities acceleration is negligible compared to what is already happening inside these organizations.
+IMHO, on the other hand the cost of keeping safety research infrastructure closed is enormous. It means duplicated effort. It means smaller organizations and independent researchers are locked out. It means the field cannot build on itself. It means we are choosing to handicap the safety side of the race in exchange for a security benefit that does not meaningfully exist.
 
-Meanwhile, the cost of keeping safety research infrastructure closed is enormous. It means duplicated effort. It means smaller organizations and independent researchers are locked out. It means the field cannot build on itself. It means we are choosing to handicap the safety side of the race in exchange for a security benefit that does not meaningfully exist.
-
-The pragmatic position is: build it open, build it collaboratively, and accept that the capabilities externalities are a rounding error compared to the safety benefits of a functioning research ecosystem.
+The pragmatic position is: build it open, build it collaboratively, and accept that the capabilities externalities will be present but slim. 
 
 ## What I'd Like to See
 
