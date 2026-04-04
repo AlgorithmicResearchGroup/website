@@ -1,15 +1,10 @@
-Title: $100M Isn't Enough: Why Automating AI Safety Research Requires an Open Ecosystem, Not Bigger Grants
-Date: 2026-04-03
-Tags: ai-safety, funding, research
-Summary: A response to ["There should be $100M grants to automate AI safety"](https://www.lesswrong.com/posts/qdhyrN4uKwBAftmQx/there-should-be-usd100m-grants-to-automate-ai-safety)
+# Automating AI Safety Research Requires an Open Ecosystem, Not Bigger Grants
 
-# $100M Isn't Enough: Why Automating AI Safety Research Requires an Open Ecosystem, Not Bigger Grants
-
-*A response to ["There should be $100M grants to automate AI safety"](https://www.lesswrong.com/posts/qdhyrN4uKwBAftmQx/there-should-be-usd100m-grants-to-automate-ai-safety)*
+*A response to Marius Hobbhahn's ["There should be $100M grants to automate AI safety"](https://www.lesswrong.com/posts/qdhyrN4uKwBAftmQx/there-should-be-usd100m-grants-to-automate-ai-safety)*
 
 ---
 
-Marius Hobbhahn published a post today arguing that funders should create staged scaling grants for automated AI safety work. The core idea: fund organizations to build safety pipelines, show they scale, then double down with increasingly large grants up to $100M+. I agree with the urgency and most of the technical framing. Where I disagree is the implicit model for how this work should be organized, and the assumption that $100M is the right number.
+Marius Hobbhahn published a post today arguing that funders should create staged scaling grants for automated AI safety work. The core idea: fund organizations to build safety pipelines, show they scale, then double down with increasingly large grants. I agree with the urgency and most of the technical framing. Where I disagree is the implicit model for how this work should be organized.
 
 ## The Problem with Hub-and-Spoke Funding
 
@@ -40,22 +35,6 @@ There have been signals that work like this is already happening within a few sa
 The concern that this work is dual-use, that open infrastructure for automated safety research could be leveraged by labs for capabilities research, is presumably part of the reasoning for keeping it guarded. It should be taken seriously but ultimately shelved as a blocking consideration. That ship has sailed. The frontier labs are already automating their research processes. The capabilities side of automated AI research is happening with or without the safety community's participation. The question is not whether automated research will exist. The question is whether the safety community will have comparable tooling, shared benchmarks, and open infrastructure, or whether it will be perpetually playing catch-up with proprietary tools it can't inspect or build on.
 
 This needs to be bottom-up and community-driven. A grad student at a university, a researcher at a safety nonprofit, and a team at a frontier lab should all be able to contribute to, evaluate against, and build on the same foundation. That is not what happens when you give $100M to three organizations and tell them to show you a scaling plot.
-
-## $100M Is Not Enough
-
-The post frames the budget as potentially reaching $100M+ at the top of the scaling ladder, with the full ecosystem spending $1-50B per year. I think the $100M figure for any single line of effort is too low, and I think the reason it seems sufficient is that the proposal underestimates the infrastructure layer.
-
-The real cost is not compute for running pipelines. Compute is important, but it is a commodity. The real cost is building the ecosystem:
-
-**Benchmarks that resist goodharting.** The post flags goodharting as a concern, and rightly so. Building benchmarks that meaningfully measure progress in automated safety research, rather than measuring an agent's ability to game a metric, is a hard, ongoing, resource-intensive problem. It requires diverse teams, adversarial evaluation, and constant iteration. This is not a one-time fixed cost. It is a standing research program.
-
-**Shared datasets at meaningful scale.** Automated research agents need data to train on, evaluate against, and learn from. Curating, cleaning, and maintaining large-scale research datasets (code, papers, experimental results, methodological knowledge) is expensive and undervalued. Most of this work is currently done by individual researchers as side projects, not funded as core infrastructure.
-
-**Evaluation methodology and meta-research.** How do you know if an automated safety pipeline is actually producing safety-relevant insights versus generating plausible-looking outputs? This requires sustained investment in evaluation science, not just "does the number go up" metrics but genuine assessments of research quality, novelty, and relevance.
-
-**Coordination infrastructure.** Shared task definitions, common APIs, interoperable tooling, standardized reporting. The unglamorous connective tissue that makes collaboration possible across organizations, sectors, and geographies.
-
-None of this is captured by "give an org $5M, let them show a scaling plot, then give them $100M." These are public goods problems. They require ecosystem-level investment, not project-level grants.
 
 ## What This Actually Looks Like
 
@@ -88,6 +67,5 @@ I'd like to see funders take this seriously at the ecosystem level, not just the
 1. Dedicated funding for open research infrastructure (benchmarks, datasets, shared tooling) with multi-year commitments, not one-off project grants.
 2. Explicit preference for collaborative, cross-sector proposals over single-organization pipelines.
 3. Willingness to fund maintenance, not just creation. Benchmarks decay. Datasets need updating. Infrastructure needs upkeep. This is not glamorous work, but without it, everything else falls apart.
-4. A realistic budget. If we're serious about automating AI safety research at a pace that keeps up with capabilities, the total investment needs to be in the billions, not the hundreds of millions. $100M is a good start for a single pipeline. It is not enough for an ecosystem.
 
-I'll have more to say about specific technical directions and how existing open-source work fits into this picture in a follow-up post. For now, I'll just say: the post is right that this is urgent. I think the path forward is more open, more collaborative, and more expensive than what it proposes.
+I'll have more to say about specific technical directions and how existing open-source work fits into this picture in a follow-up post. For now, I'll just say: the post is right that this is urgent. I think the path forward is more open and more collaborative than what it proposes.
