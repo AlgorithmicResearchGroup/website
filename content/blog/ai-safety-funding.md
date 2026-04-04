@@ -45,9 +45,13 @@ The equivalent for automated safety research has three layers:
 
 **Shared compute infrastructure.** There is already precedent here. CAIS runs a [compute cluster](https://safe.ai/work/compute-cluster) that provides free GPU access to safety researchers, currently supporting around 20 research labs. This model works: shared compute lowers the barrier to entry for smaller teams and independents who would otherwise be priced out of meaningful experiments. Scaling this kind of shared resource, and pairing it with the open benchmarks and datasets described above, would go a long way toward enabling the distributed research ecosystem this problem requires.
 
+Some of this is already happening, and it's worth calling out the work that's pointing in the right direction. UK AISI's [Inspect](https://inspect.ai-safety-institute.org.uk/) is an open-source framework for LLM evaluations that anyone can use and extend. [ControlArena](https://github.com/ControlAIWS/ControlArena) provides a shared benchmark for control research. METR's [task standard](https://github.com/METR/task-standard) defines a common format for agent evaluation tasks that other groups can build on. These are exactly the kinds of open, shared infrastructure components that make a distributed research ecosystem possible. The field needs more of this, and it needs sustained funding behind it.
+
 ## On the Dual-Use Question
 
-Infrastructure for automated safety research could theoretically be repurposed for automated capabilities research. But this framing treats the safety community as if it operates in a vacuum. The frontier labs have massive internal teams working on automated research. They have more compute, more data, and more engineering resources than the safety community will ever have. The marginal contribution of open safety infrastructure to capabilities acceleration is negligible compared to what is already happening inside these organizations.
+I want to address this directly because it is the most common objection I hear.
+
+Yes, infrastructure for automated safety research could theoretically be repurposed for automated capabilities research. But this framing treats the safety community as if it operates in a vacuum. It does not. The frontier labs have massive internal teams working on automated research. They have more compute, more data, and more engineering resources than the safety community will ever have. The marginal contribution of open safety infrastructure to capabilities acceleration is negligible compared to what is already happening inside these organizations.
 
 Meanwhile, the cost of keeping safety research infrastructure closed is enormous. It means duplicated effort. It means smaller organizations and independent researchers are locked out. It means the field cannot build on itself. It means we are choosing to handicap the safety side of the race in exchange for a security benefit that does not meaningfully exist.
 
