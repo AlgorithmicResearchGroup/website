@@ -1,0 +1,93 @@
+Title: $100M Isn't Enough: Why Automating AI Safety Research Requires an Open Ecosystem, Not Bigger Grants
+Date: 2026-04-03
+Tags: ai-safety, funding, research
+Summary: A response to ["There should be $100M grants to automate AI safety"](https://www.lesswrong.com/posts/qdhyrN4uKwBAftmQx/there-should-be-usd100m-grants-to-automate-ai-safety)
+
+# $100M Isn't Enough: Why Automating AI Safety Research Requires an Open Ecosystem, Not Bigger Grants
+
+*A response to ["There should be $100M grants to automate AI safety"](https://www.lesswrong.com/posts/qdhyrN4uKwBAftmQx/there-should-be-usd100m-grants-to-automate-ai-safety)*
+
+---
+
+Marius Hobbhahn published a post today arguing that funders should create staged scaling grants for automated AI safety work. The core idea: fund organizations to build safety pipelines, show they scale, then double down with increasingly large grants up to $100M+. I agree with the urgency and most of the technical framing. Where I disagree is the implicit model for how this work should be organized, and the assumption that $100M is the right number.
+
+## The Problem with Hub-and-Spoke Funding
+
+The proposal, at its core, assumes a small number of well-funded organizations will each build their own scaling pipelines, demonstrate results, and receive progressively larger grants. This is a reasonable model for many kinds of research. It is the wrong model for this problem.
+
+Automating AI safety research is not a single pipeline problem. It is an ecosystem problem. You need benchmarks to measure whether agents can actually do research. You need datasets to train and evaluate those agents. You need scaffolding and infrastructure to run experiments at scale. You need evaluation methodology that doesn't immediately get goodharted. And you need all of these things to be interoperable so that results from one group are comparable to and buildable upon by another.
+
+If five organizations each receive $20M and build five independent, incompatible pipelines, you haven't spent $100M on automating AI safety. You've spent $100M on five siloed prototypes that can't talk to each other.
+
+## Compute Is Not the Bottleneck
+
+There's a second issue with the proposal's framing. The post structures the entire grant model around compute scaling plots: x-axis is money spent (mostly compute), y-axis is some safety proxy. Show the line goes up, get more money to make it go up further. This is a capabilities research mental model applied to safety, and I'm not sure it transfers.
+
+The assumption is that compute will dominate the cost structure of automated safety research the way it dominates pretraining or large-scale inference. For some subproblems, particularly the monitoring and control pipelines the post describes, that may be true. But for the broader goal of automating safety research, the actual cost breakdown looks more like: API tokens and inference (significant but not dominant), agent scaffolding and iteration (engineering time, mostly salary), benchmark development and maintenance (almost entirely human judgment and curation), evaluation methodology (salary, domain expertise), and then compute for running pipelines at scale.
+
+Building benchmarks that measure whether an agent is doing good safety research is not a compute problem. It is a design problem, a curation problem, and an adversarial robustness problem. Iterating on agent scaffolding for interpretability or red-teaming tasks is expensive in tokens and engineering hours, not GPU-hours. Evaluating whether an automated pipeline is producing genuine safety-relevant insights or plausible-sounding noise requires human researchers with domain expertise, and that scales with salaries, not FLOPS.
+
+A funding model built around "show us a compute scaling plot" will systematically underfund the parts of this problem that don't fit neatly onto that axis. Benchmark development, evaluation methodology, agent architecture research, and the kind of careful empirical work needed to distinguish real progress from metric gaming — none of these produce clean scaling curves, and all of them are critical.
+
+This matters because it shapes what gets funded. If the grant structure rewards organizations that can show a monotonically increasing line on a compute-versus-proxy plot, it will preferentially fund the subproblems that look like that (automated red-teaming at scale, brute-force feature search) and underfund the subproblems that don't (benchmark design, evaluation science, agent development for fuzzy reasoning tasks). The result is a field that appears to be scaling but may not be making real progress.
+
+## This Needs to Be Open, Collaborative, and Cross-Sector
+
+Where my opinion differs from some in this space is that I think this work should be highly collaborative, moderately open source, and come from a mix of nonprofits, for-profits, and academia.
+
+There have been signals that work like this is already happening within a few safety organizations, and that it's being kept closely guarded. I don't know this for a fact, but the inference seems reasonable given the lack of public output relative to the amount of talent and funding in those orgs. If that is the case, I don't think that approach will get us there, regardless of the amount of funding behind it.
+
+The concern that this work is dual-use, that open infrastructure for automated safety research could be leveraged by labs for capabilities research, is presumably part of the reasoning for keeping it guarded. It should be taken seriously but ultimately shelved as a blocking consideration. That ship has sailed. The frontier labs are already automating their research processes. The capabilities side of automated AI research is happening with or without the safety community's participation. The question is not whether automated research will exist. The question is whether the safety community will have comparable tooling, shared benchmarks, and open infrastructure, or whether it will be perpetually playing catch-up with proprietary tools it can't inspect or build on.
+
+This needs to be bottom-up and community-driven. A grad student at a university, a researcher at a safety nonprofit, and a team at a frontier lab should all be able to contribute to, evaluate against, and build on the same foundation. That is not what happens when you give $100M to three organizations and tell them to show you a scaling plot.
+
+## $100M Is Not Enough
+
+The post frames the budget as potentially reaching $100M+ at the top of the scaling ladder, with the full ecosystem spending $1-50B per year. I think the $100M figure for any single line of effort is too low, and I think the reason it seems sufficient is that the proposal underestimates the infrastructure layer.
+
+The real cost is not compute for running pipelines. Compute is important, but it is a commodity. The real cost is building the ecosystem:
+
+**Benchmarks that resist goodharting.** The post flags goodharting as a concern, and rightly so. Building benchmarks that meaningfully measure progress in automated safety research, rather than measuring an agent's ability to game a metric, is a hard, ongoing, resource-intensive problem. It requires diverse teams, adversarial evaluation, and constant iteration. This is not a one-time fixed cost. It is a standing research program.
+
+**Shared datasets at meaningful scale.** Automated research agents need data to train on, evaluate against, and learn from. Curating, cleaning, and maintaining large-scale research datasets (code, papers, experimental results, methodological knowledge) is expensive and undervalued. Most of this work is currently done by individual researchers as side projects, not funded as core infrastructure.
+
+**Evaluation methodology and meta-research.** How do you know if an automated safety pipeline is actually producing safety-relevant insights versus generating plausible-looking outputs? This requires sustained investment in evaluation science, not just "does the number go up" metrics but genuine assessments of research quality, novelty, and relevance.
+
+**Coordination infrastructure.** Shared task definitions, common APIs, interoperable tooling, standardized reporting. The unglamorous connective tissue that makes collaboration possible across organizations, sectors, and geographies.
+
+None of this is captured by "give an org $5M, let them show a scaling plot, then give them $100M." These are public goods problems. They require ecosystem-level investment, not project-level grants.
+
+## What This Actually Looks Like
+
+The proposed model: one organization builds a safety pipeline, shows it scales on a compute-versus-proxy plot, and receives progressively larger grants to scale it further. The alternative: the pipeline components — benchmarks, datasets, evaluation protocols — are public infrastructure, and many organizations independently build and test agents against that shared layer.
+
+This pattern exists in other fields. Genomics organized itself around publicly funded shared databases (GenBank, BLAST) maintained as infrastructure, with fully independent and competitive research on top. Any lab in the world can query the same databases, submit new data, and publish results. Nobody owns the infrastructure, and the research agenda is set by the researchers, not the database maintainers. The result is a field that moves fast, builds on itself, and doesn't fragment into incompatible silos.
+
+The equivalent for automated safety research has three layers:
+
+**A maintained open benchmark and evaluation layer.** Think SWE-bench but for automated safety research, adversarially maintained, versioned, with clear methodology for reporting results. Multiple benchmarks covering different aspects of the problem: agent research capability, interpretability automation, red-teaming, eval generation. Crucially, the benchmark maintainers should be independent of the groups competing on the benchmarks. Benchmarks get retired and replaced as they saturate or get goodharted. This is a standing research program, not a one-time release.
+
+**Open datasets as a public good.** Parsed papers, code repositories, experimental results, methodological knowledge. The raw material that automated research agents need to work with. Not a one-time data dump but a living, continuously maintained resource. Most of this curation work is currently done by individual researchers as side projects. It should be funded as core infrastructure.
+
+**Distributed agent development with shared evaluation.** Anyone can build agents, scaffolding, pipelines. No central authority decides the "right" approach. Groups publish their methods, share what works, iterate in the open. The benchmarks and datasets provide the common measuring stick. A grad student, an independent lab, a safety nonprofit, and a frontier lab team all evaluate against the same benchmarks and compare results on equal footing. Competition happens at the research layer, not the infrastructure layer.
+
+## On the Dual-Use Question
+
+I want to address this directly because it is the most common objection I hear.
+
+Yes, infrastructure for automated safety research could theoretically be repurposed for automated capabilities research. But this framing treats the safety community as if it operates in a vacuum. It does not. The frontier labs have massive internal teams working on automated research. They have more compute, more data, and more engineering resources than the safety community will ever have. The marginal contribution of open safety infrastructure to capabilities acceleration is negligible compared to what is already happening inside these organizations.
+
+Meanwhile, the cost of keeping safety research infrastructure closed is enormous. It means duplicated effort. It means smaller organizations and independent researchers are locked out. It means the field cannot build on itself. It means we are choosing to handicap the safety side of the race in exchange for a security benefit that does not meaningfully exist.
+
+The pragmatic position is: build it open, build it collaboratively, and accept that the capabilities externalities are a rounding error compared to the safety benefits of a functioning research ecosystem.
+
+## What I'd Like to See
+
+I'd like to see funders take this seriously at the ecosystem level, not just the project level. That means:
+
+1. Dedicated funding for open research infrastructure (benchmarks, datasets, shared tooling) with multi-year commitments, not one-off project grants.
+2. Explicit preference for collaborative, cross-sector proposals over single-organization pipelines.
+3. Willingness to fund maintenance, not just creation. Benchmarks decay. Datasets need updating. Infrastructure needs upkeep. This is not glamorous work, but without it, everything else falls apart.
+4. A realistic budget. If we're serious about automating AI safety research at a pace that keeps up with capabilities, the total investment needs to be in the billions, not the hundreds of millions. $100M is a good start for a single pipeline. It is not enough for an ecosystem.
+
+I'll have more to say about specific technical directions and how existing open-source work fits into this picture in a follow-up post. For now, I'll just say: the post is right that this is urgent. I think the path forward is more open, more collaborative, and more expensive than what it proposes.
