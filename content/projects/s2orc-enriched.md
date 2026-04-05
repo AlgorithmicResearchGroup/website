@@ -6,13 +6,9 @@ Summary: A filtered and LLM-enriched version of Allen AI's S2ORC corpus containi
 Repo: https://huggingface.co/datasets/AlgorithmicResearchGroup/s2orc-cs-enriched
 Featured: true
 
-# S2ORC CS Enriched: 1.1 Million Computer Science Papers with Structured Metadata
-
 [HuggingFace →](https://huggingface.co/datasets/AlgorithmicResearchGroup/s2orc-cs-enriched)
 
 \#datasets \#scientific-papers \#machine-learning
-
-# S2ORC CS Enriched: 1.1 Million Computer Science Papers with Structured Metadata
 
 Allen AI's Semantic Scholar Open Research Corpus (S2ORC) is one of the largest open collections of academic papers, with full text, abstracts, citation graphs, and venue metadata across all fields. It is an extraordinary resource. It is also enormous and undifferentiated. If you want to study computer science specifically, or if you need structured information about what methods a paper uses, what models it trains, what compute it reports, or what its limitations are, you have to extract that yourself from raw text.
 
