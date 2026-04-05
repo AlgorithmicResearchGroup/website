@@ -1,15 +1,43 @@
 {% extends "base.html" %}
-{% block title %}{{ SITENAME }}{% endblock %}
+{% block title %}{{ SITENAME }} — Open infrastructure for AI security research{% endblock %}
 
 {% block body %}
 <main>
     <!-- Hero -->
     <section class="hero">
-        <div class="hero-inner">
-            <h1 class="hero-title">Algorithmic<br>Research Group</h1>
-            {% for page in pages if page.slug == 'bio' %}
-            <p class="hero-tagline">{{ page.summary|striptags }}</p>
-            {% endfor %}
+        <h1 class="hero-statement">A closed lab can't audit itself.</h1>
+        <p class="hero-sub">We build open-source benchmarks, datasets, and infrastructure for evaluating what autonomous AI systems can actually do.</p>
+    </section>
+
+    <!-- The Problem -->
+    <section class="section section--ruled">
+        <div class="section-inner">
+            <p class="section-label">Why Open Source</p>
+            <div class="manifesto-text">
+                <p>Evaluating what AI agents can actually do&thinsp;&mdash;&thinsp;whether they can deceive, collude, self-improve, or game their benchmarks&thinsp;&mdash;&thinsp;is too important to happen behind closed doors. This work needs contributors, not gatekeepers.</p>
+                <p>We build in the open so that anyone can use what we ship, find what we missed, and push the work further than we could alone.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Build -->
+    <section class="section section--ruled">
+        <div class="section-inner">
+            <p class="section-label">What We Build</p>
+            <div class="pillars">
+                <div class="pillar">
+                    <h3 class="pillar-title">Benchmarks</h3>
+                    <p class="pillar-body">Can AI agents do real ML research? Can they deceive, collude, or game evaluations? We build the benchmarks that answer these questions with evidence, not speculation.</p>
+                </div>
+                <div class="pillar">
+                    <h3 class="pillar-title">Datasets</h3>
+                    <p class="pillar-body">1.1M enriched papers. 129K research repositories. 778K code functions. The raw material for studying how AI systems interact with real scientific work.</p>
+                </div>
+                <div class="pillar">
+                    <h3 class="pillar-title">Infrastructure</h3>
+                    <p class="pillar-body">Runtimes for structured agent workloads. Orchestration topologies for recursive improvement loops. The scaffolding to run experiments at scale.</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -19,12 +47,12 @@
         {% if project_articles.append(a) %}{% endif %}
     {% endfor %}
     {% if project_articles %}
-    <section class="section section--surface" id="research">
+    <section class="section section--ruled" id="research">
         <div class="section-inner">
-            <h2 class="section-label">// Research</h2>
+            <p class="section-label">Research</p>
             <div class="research-grid">
                 {% for project in project_articles %}
-                <a href="{{ SITEURL }}/{{ project.url }}" class="research-card{% if project.featured %} research-card--featured{% endif %}">
+                <a href="{{ SITEURL }}/{{ project.url }}" class="research-card">
                     <h3 class="research-card-title">{{ project.title }}</h3>
                     <p class="research-card-summary">{{ project.summary|striptags|truncate(140) }}</p>
                     {% if project.tags %}
@@ -42,10 +70,10 @@
 
     <!-- About -->
     {% for page in pages if page.slug == 'bio' %}
-    <section class="section section--bg" id="about">
+    <section class="section section--ruled section--surface" id="about">
         <div class="section-inner">
-            <h2 class="section-label">// About</h2>
-            <div class="about-content">
+            <p class="section-label">About</p>
+            <div class="manifesto-text">
                 {{ page.content }}
             </div>
         </div>
@@ -58,9 +86,9 @@
         {% if writing_articles.append(a) %}{% endif %}
     {% endfor %}
     {% if writing_articles %}
-    <section class="section section--surface">
+    <section class="section section--ruled">
         <div class="section-inner">
-            <h2 class="section-label">// Writing</h2>
+            <p class="section-label">Writing</p>
             <ul class="writing-list">
             {% for article in writing_articles[:5] %}
                 <li>

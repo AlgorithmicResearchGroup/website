@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Algorithmic Research Group - recursive-improvement tag</title>
-    <meta name="description" content="Algorithmic Research Group — AI safety research lab.">
+    <meta name="description" content="Algorithmic Research Group — open infrastructure for AI security research.">
     <meta name="author" content="Algorithmic Research Group">
     <link rel="canonical" href="../">
 
@@ -12,7 +12,7 @@
     <meta property="og:site_name" content="Algorithmic Research Group">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Algorithmic Research Group - recursive-improvement tag">
-    <meta property="og:description" content="Algorithmic Research Group — AI safety research lab.">
+    <meta property="og:description" content="Algorithmic Research Group — open infrastructure for AI security research.">
     <meta property="og:url" content="..">
 <meta property="og:image" content="../images/og-default.jpg">    <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -21,7 +21,7 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Algorithmic Research Group - recursive-improvement tag">
-    <meta name="twitter:description" content="Algorithmic Research Group — AI safety research lab.">
+    <meta name="twitter:description" content="Algorithmic Research Group — open infrastructure for AI security research.">
 <meta name="twitter:image" content="../images/og-default.jpg">
     <!-- Feeds -->
 
@@ -31,7 +31,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link rel="stylesheet" href="../theme/css/style.css">
@@ -43,7 +43,7 @@
         "@type": "Organization",
         "name": "Algorithmic Research Group",
         "url": "..",
-        "description": "Algorithmic Research Group — AI safety research lab.",
+        "description": "Algorithmic Research Group — open infrastructure for AI security research.",
         "sameAs": [
             "https://github.com/AlgorithmicResearchGroup",
             "https://huggingface.co/AlgorithmicResearchGroup"
@@ -61,7 +61,7 @@
 <body>
     <header class="site-nav">
         <div class="nav-inner">
-            <a href="../" class="nav-logo"><img src="../theme/logo-white.png" alt="ARG" class="nav-logo-img"></a>
+            <a href="../" class="nav-logo"><img src="../theme/logo-original.png" alt="ARG" class="nav-logo-img"></a>
             <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
                 <span class="nav-toggle-bar"></span>
                 <span class="nav-toggle-bar"></span>
@@ -69,20 +69,10 @@
             </button>
             <nav class="nav-menu">
                 <ul class="nav-links">
-                    <li><a href="../#research">Research</a></li>
-                    <li class="nav-item nav-item--has-dropdown">
-                        <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="products-menu">
-                            Products
-                            <span class="nav-dropdown-caret" aria-hidden="true"></span>
-                        </button>
-                        <ul class="nav-dropdown-menu" id="products-menu">
-                            <li><a href="https://scoutml.com/" target="_blank" rel="noopener">ScoutML</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="../projects.html">Research</a></li>
                     <li><a href="../opensource.html">Open Source</a></li>
                     <li><a href="../blog/">Writing</a></li>
                     <li><a href="https://github.com/AlgorithmicResearchGroup" target="_blank" rel="noopener">GitHub</a></li>
-                    <li><a href="https://huggingface.co/AlgorithmicResearchGroup" target="_blank" rel="noopener">HuggingFace</a></li>
                     <li><a href="../contact.html">Contact</a></li>
                 </ul>
             </nav>
@@ -92,18 +82,48 @@
 <main>
     <!-- Hero -->
     <section class="hero">
-        <div class="hero-inner">
-            <h1 class="hero-title">Algorithmic<br>Research Group</h1>
-            <p class="hero-tagline">We study how software and industrial systems recursively improve themselves in real-world settings.</p>
+        <h1 class="hero-statement">A closed lab can't audit itself.</h1>
+        <p class="hero-sub">We build open-source benchmarks, datasets, and infrastructure for evaluating what autonomous AI systems can actually do.</p>
+    </section>
+
+    <!-- The Problem -->
+    <section class="section section--ruled">
+        <div class="section-inner">
+            <p class="section-label">Why Open Source</p>
+            <div class="manifesto-text">
+                <p>Evaluating what AI agents can actually do&thinsp;&mdash;&thinsp;whether they can deceive, collude, self-improve, or game their benchmarks&thinsp;&mdash;&thinsp;is too important to happen behind closed doors. This work needs contributors, not gatekeepers.</p>
+                <p>We build in the open so that anyone can use what we ship, find what we missed, and push the work further than we could alone.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Build -->
+    <section class="section section--ruled">
+        <div class="section-inner">
+            <p class="section-label">What We Build</p>
+            <div class="pillars">
+                <div class="pillar">
+                    <h3 class="pillar-title">Benchmarks</h3>
+                    <p class="pillar-body">Can AI agents do real ML research? Can they deceive, collude, or game evaluations? We build the benchmarks that answer these questions with evidence, not speculation.</p>
+                </div>
+                <div class="pillar">
+                    <h3 class="pillar-title">Datasets</h3>
+                    <p class="pillar-body">1.1M enriched papers. 129K research repositories. 778K code functions. The raw material for studying how AI systems interact with real scientific work.</p>
+                </div>
+                <div class="pillar">
+                    <h3 class="pillar-title">Infrastructure</h3>
+                    <p class="pillar-body">Runtimes for structured agent workloads. Orchestration topologies for recursive improvement loops. The scaffolding to run experiments at scale.</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Research -->
-    <section class="section section--surface" id="research">
+    <section class="section section--ruled" id="research">
         <div class="section-inner">
-            <h2 class="section-label">// Research</h2>
+            <p class="section-label">Research</p>
             <div class="research-grid">
-                <a href="../projects/teaching-models-to-bluff-measuring-deception-belief-and-coordination-in-llm-secret-hitler.html" class="research-card research-card--featured">
+                <a href="../projects/teaching-models-to-bluff-measuring-deception-belief-and-coordination-in-llm-secret-hitler.html" class="research-card">
                     <h3 class="research-card-title">Teaching Models to Bluff: Measuring Deception, Belief, and Coordination in LLM Secret Hitler</h3>
                     <p class="research-card-summary">We implemented five LLM agents playing the social-deduction game Secret Hitler with structured logging to quantify deception, belief...</p>
                     <span class="research-card-tags">ai-research / agi / recursive-improvement</span>
@@ -116,22 +136,20 @@
     </section>
 
     <!-- About -->
-    <section class="section section--bg" id="about">
+    <section class="section section--ruled section--surface" id="about">
         <div class="section-inner">
-            <h2 class="section-label">// About</h2>
-            <div class="about-content">
-                <p>Recursive self-improvement is beginning to shape both software and industry. In software, AI systems are increasingly involved in designing, training, and optimizing other AI systems. Progress compounds through algorithmic advances and improvements in computing hardware.</p>
-<p>In the physical world, similar dynamics are emerging in robotics, manufacturing, and supply chains, where automated systems increasingly optimize the processes that produce, deploy, and refine them.</p>
-<p>Algorithmic Research Group studies recursive systems in practice. We measure progress, develop tools, and analyze how recursive improvement changes the behavior and capabilities of real-world systems.</p>
-<p>Our work focuses on understanding the dynamics, limits, and impacts of self-improving systems across software and industrial domains.</p>
+            <p class="section-label">About</p>
+            <div class="manifesto-text">
+                <p>Algorithmic Research Group builds open-source tools and infrastructure for AI security research. Benchmarks for evaluating autonomous agents. Datasets for studying how models fail. Runtimes for running agent workloads at scale.</p>
+<p>We publish everything we build. The field moves faster when researchers can build on each other's work instead of rebuilding the same tooling behind closed doors.</p>
             </div>
         </div>
     </section>
 
     <!-- Writing -->
-    <section class="section section--surface">
+    <section class="section section--ruled">
         <div class="section-inner">
-            <h2 class="section-label">// Writing</h2>
+            <p class="section-label">Writing</p>
             <ul class="writing-list">
                 <li>
                     <a href="../blog/understanding-recursive-self-improvement-in-ai-systems.html">Understanding Recursive Self-Improvement in AI Systems</a>
@@ -148,8 +166,8 @@
     <footer class="site-footer">
         <div class="footer-mega">
             <div class="footer-brand">
-                <a href="../" class="footer-logo"><img src="../theme/logo-white.png" alt="ARG" class="footer-logo-img"></a>
-                <p class="footer-tagline">Studying how software and industrial systems recursively improve themselves in real-world settings.</p>
+                <a href="../" class="footer-logo"><img src="../theme/logo-original.png" alt="ARG" class="footer-logo-img"></a>
+                <p class="footer-tagline">Open infrastructure for AI security research.</p>
                 <div class="footer-social">
                     <a href="https://github.com/AlgorithmicResearchGroup" target="_blank" rel="noopener" aria-label="GitHub">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
@@ -174,11 +192,10 @@
                     <ul>
                         <li><a href="../blog/">Latest</a></li>
                         <li><a href="../archives.html">Archives</a></li>
-                        <li><a href="../categories.html">Categories</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4 class="footer-col-title">Company</h4>
+                    <h4 class="footer-col-title">Lab</h4>
                     <ul>
                         <li><a href="../#about">About</a></li>
                         <li><a href="../contact.html">Contact</a></li>

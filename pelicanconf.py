@@ -3,7 +3,7 @@
 
 AUTHOR = 'Algorithmic Research Group'
 SITENAME = 'Algorithmic Research Group'
-SITEDESCRIPTION = 'Algorithmic Research Group — AI safety research lab.'
+SITEDESCRIPTION = 'Algorithmic Research Group — open infrastructure for AI security research.'
 SITEURL = ''
 
 PATH = 'content'

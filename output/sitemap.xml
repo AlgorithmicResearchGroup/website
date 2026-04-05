@@ -36,6 +36,12 @@
         <priority>0.4</priority>
     </url>
     <url>
+        <loc>./blog/automating-ai-safety-research-requires-an-open-ecosystem-not-bigger-grants.html</loc>
+        <lastmod>2026-04-03</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
         <loc>./projects/epsilon-infrastructure-for-structured-agent-workloads.html</loc>
         <lastmod>2026-03-30</lastmod>
         <changefreq>monthly</changefreq>
