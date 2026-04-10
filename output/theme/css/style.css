@@ -217,6 +217,22 @@ img {
 
 /* ---------- Hero ---------- */
 
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 64px;
+}
+
+.hero-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.hero-automaton {
+    flex-shrink: 0;
+}
+
 .hero {
     padding: 120px 48px 100px;
     max-width: var(--content-max);
@@ -1208,6 +1224,15 @@ img {
 
     .hero {
         padding: 72px 24px 64px;
+    }
+
+    .hero-content {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .hero-automaton {
+        display: none;
     }
 
     .hero-statement {

@@ -84,8 +84,13 @@
 <main>
     <!-- Hero -->
     <section class="hero">
-        <h1 class="hero-statement">Safety research needs open tools.</h1>
-        <p class="hero-sub">We build open-source benchmarks, datasets, and infrastructure for evaluating what autonomous AI systems can actually do.</p>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-statement">Safety research needs open tools.</h1>
+                <p class="hero-sub">We build open-source benchmarks, datasets, and infrastructure for evaluating what autonomous AI systems can actually do.</p>
+            </div>
+            <canvas class="hero-automaton" id="automaton" aria-hidden="true"></canvas>
+        </div>
     </section>
 
     <!-- The Problem -->
@@ -160,6 +165,83 @@
 
     <!-- Writing -->
 </main>
+<script>
+(function () {
+    var canvas = document.getElementById('automaton');
+    if (!canvas) return;
+    var ctx = canvas.getContext('2d');
+
+    var CELL = 10;
+    var GAP = 2;
+    var COLS = 28;
+    var ROWS = 28;
+    var STEP = CELL + GAP;
+    var SIZE = STEP * COLS - GAP;
+
+    canvas.width = SIZE;
+    canvas.height = SIZE;
+    canvas.style.width = SIZE + 'px';
+    canvas.style.height = SIZE + 'px';
+
+    // R-pentomino centered in 28x28
+    var seed = [
+        [13,14],[13,15],
+        [14,13],[14,14],
+        [15,14]
+    ];
+
+    function makeGrid() {
+        var g = [];
+        for (var r = 0; r < ROWS; r++) {
+            g[r] = [];
+            for (var c = 0; c < COLS; c++) g[r][c] = 0;
+        }
+        return g;
+    }
+
+    var grid = makeGrid();
+    for (var i = 0; i < seed.length; i++) grid[seed[i][0]][seed[i][1]] = 1;
+
+    // Toroidal neighbors (wrapping edges)
+    function neighbors(g, r, c) {
+        var n = 0;
+        for (var dr = -1; dr <= 1; dr++) {
+            for (var dc = -1; dc <= 1; dc++) {
+                if (dr === 0 && dc === 0) continue;
+                n += g[(r + dr + ROWS) % ROWS][(c + dc + COLS) % COLS];
+            }
+        }
+        return n;
+    }
+
+    function step() {
+        var next = makeGrid();
+        for (var r = 0; r < ROWS; r++) {
+            for (var c = 0; c < COLS; c++) {
+                var n = neighbors(grid, r, c);
+                if (grid[r][c]) next[r][c] = (n === 2 || n === 3) ? 1 : 0;
+                else next[r][c] = (n === 3) ? 1 : 0;
+            }
+        }
+        grid = next;
+    }
+
+    function draw() {
+        ctx.clearRect(0, 0, SIZE, SIZE);
+        for (var r = 0; r < ROWS; r++) {
+            for (var c = 0; c < COLS; c++) {
+                if (grid[r][c]) {
+                    ctx.fillStyle = '#0a0a0a';
+                    ctx.fillRect(c * STEP, r * STEP, CELL, CELL);
+                }
+            }
+        }
+    }
+
+    draw();
+    setInterval(function () { step(); draw(); }, 700);
+})();
+</script>
 
     <footer class="site-footer">
         <div class="footer-mega">
