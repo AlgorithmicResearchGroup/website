@@ -17,7 +17,7 @@ The proposal, at its core, assumes a small number of well-funded organizations w
 
 Automating AI safety research requires an ecosystem, not a single pipeline. You need benchmarks to measure whether agents can actually do research. You need datasets to train and evaluate those agents. You need scaffolding and infrastructure to run experiments at scale. You need evaluation methodology that doesn't immediately get goodharted. And you need all of these things to be interoperable so that results from one group are comparable to and buildable upon by another.
 
-If five organizations each receive $20M and build five independent, incompatible pipelines, you've spent $100M on five siloed prototypes that can't talk to each other.
+If five organizations each receive $20M and build five independent, incompatible pipelines, you've spent $100M on five siloed prototypes that can't talk to each other.  
 
 ## This Needs to Be Open, Collaborative, and Cross-Sector
 

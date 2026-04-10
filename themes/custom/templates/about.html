@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block title %}About | {{ SITENAME }}{% endblock %}
+{% block description %}A small, for-profit research lab building open infrastructure for AI security research. Open to sponsorship and partnerships.{% endblock %}
+
+{% block body %}
+<main>
+    <!-- Header -->
+    <section class="about-hero">
+        <h1 class="about-hero-title">About</h1>
+        <p class="about-hero-sub">A small lab doing work that needs to exist.</p>
+    </section>
+
+    <!-- Who We Are -->
+    <section class="section section--ruled">
+        <div class="section-inner">
+            <p class="section-label">Who We Are</p>
+            <div class="manifesto-text">
+                <p>Algorithmic Research Group is a for-profit research lab run by <a href="https://x.com/baykenney" target="_blank" rel="noopener">@baykenney</a> and a rotating cast of contractors. We're small on purpose.</p>
+                <p>We build benchmarks, datasets, and infrastructure for evaluating what autonomous AI systems can actually do. Everything we ship is open source. Safety research that can't be independently verified isn't safety research.</p>
+                <p>We fund the research through consulting work and sponsorships.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How We Work -->
+    <section class="section section--ruled">
+        <div class="section-inner">
+            <p class="section-label">How We Work</p>
+            <div class="about-details">
+                <div class="about-detail">
+                    <h3 class="about-detail-title">Small team, open output</h3>
+                    <p class="about-detail-body">One person full-time. Specialists brought in as projects demand. No permanent headcount for its own sake. Just the people the work actually needs.</p>
+                </div>
+                <div class="about-detail">
+                    <h3 class="about-detail-title">For-profit, public-interest</h3>
+                    <p class="about-detail-body">We're a for-profit company that publishes everything. The structure keeps us lean and self-directed. The open-source commitment keeps the work honest.</p>
+                </div>
+                <div class="about-detail">
+                    <h3 class="about-detail-title">Built to be used</h3>
+                    <p class="about-detail-body">We don't build demos. Our benchmarks, datasets, and tools are designed to be picked up and used by other researchers, auditors, and teams doing real evaluation work.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sponsor Directly -->
+    <section class="section section--ruled section--surface">
+        <div class="section-inner">
+            <p class="section-label">Sponsor Directly</p>
+            <div class="manifesto-text">
+                <p>Sponsorships fund open-source benchmarks, datasets, and tooling for AI security research. Everything we build with sponsor support ships public.</p>
+            </div>
+            <div class="about-cta">
+                <a href="https://buy.stripe.com/eVq00j08yby32Pe8HE6sw02" target="_blank" rel="noopener" class="about-cta-link about-cta-link--primary">Sponsor &rarr;</a>
+                <p class="about-fine-print">Sponsorships are not tax-deductible.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partnerships -->
+    <section class="section section--ruled">
+        <div class="section-inner">
+            <p class="section-label">Partnerships</p>
+            <div class="manifesto-text">
+                <p>For funded research projects, dataset sponsorships, or infrastructure partnerships, get in touch. We're flexible on structure, firm on keeping the output open.</p>
+            </div>
+            <div class="about-cta">
+                <a href="{{ SITEURL }}/contact.html" class="about-cta-link">Get in touch &rarr;</a>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}
