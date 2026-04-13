@@ -3,10 +3,6 @@ Date: 2026-04-03
 Tags: ai-safety, funding, research
 Summary: A response to Marius Hobbhahn's ["There should be $100M grants to automate AI safety"](https://www.lesswrong.com/posts/qdhyrN4uKwBAftmQx/there-should-be-usd100m-grants-to-automate-ai-safety)
 
-# Automating AI Safety Research Requires an Open Ecosystem, Not Bigger Grants
-
-*A response to Marius Hobbhahn's ["There should be $100M grants to automate AI safety"](https://www.lesswrong.com/posts/qdhyrN4uKwBAftmQx/there-should-be-usd100m-grants-to-automate-ai-safety)*
-
 ---
 
 Marius Hobbhahn published a post today arguing that funders should create staged scaling grants for automated AI safety work. The core idea: fund organizations to build safety pipelines, show they scale, then double down with increasingly large grants. I agree with the urgency and most of the technical framing. Where I disagree is the implicit model for how this work should be organized.
