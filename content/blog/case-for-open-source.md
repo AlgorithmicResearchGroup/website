@@ -29,6 +29,14 @@ Independent safety organizations may occasionally produce work that provides a n
 
 The different artifacts also have different risk profiles. A benchmark or evaluation protocol is not the same as an effective autonomous research scaffold or a technique for eliciting dangerous capabilities. Openness should be the default, but there should be exceptions where a concrete threat model shows that releasing something would materially accelerate dangerous capabilities.
 
+## What We Mean by Open
+
+By open, I don't necessarily mean publishing everything publicly on GitHub with no restrictions. I mean making safety work accessible enough that other safety researchers can inspect it, reproduce it, adapt it, and build on it.
+
+Depending on the risk profile, that could mean a public release, gated access for researchers, shared infrastructure across safety orgs, or trusted-sharing agreements. The goal is not maximum disclosure. It is to avoid unnecessary isolation and make collaboration the default.
+
+Some work may need to remain restricted. But that restriction should follow from a specific threat model rather than some general assumption that sharing safety research is dangerous.
+
 ## The Real Cost of Closing Safety Work
 
 The decision to keep safety work closed has concrete consequences for the field.
