@@ -3,72 +3,40 @@ Date: 2026-04-13
 Tags: ai-safety, research
 Summary: Why openness specifically, and why the most common objection to it is wrong.
 
-*A follow-up to ["Automating AI Safety Research Requires an Open Ecosystem, Not Bigger Grants"](https://algorithmicresearchgroup.com/blog/automating-ai-safety-research-requires-an-open-ecosystem-not-bigger-grants.html)*
+# The Position of the Safety Community
 
----
+I think AI safety is important. It is also hard, expensive, and poorly defined. Alignment as a research agenda does not have consensus definitions, consensus metrics, or consensus threat models. Reasonable researchers disagree about what the core problems even are, let alone how to solve them. Imho this puts us at a disadvantage in relation to capabilities research, whose broad objectives are: 1) Make loss go down 2) Make capabilities less spikey
 
-In a previous post, I argued that automating AI safety research requires open, shared infrastructure rather than large grants funneled to a small number of organizations. This post is about the deeper question underneath that argument: why openness specifically, and why the most common objection to it is wrong.
+Another defining feature of the AI safety community’s position is the resource asymmetry between independent safety orgs and the frontier AI labs. I’ll qualify the rest of this post by saying the labs also do awesome, serious safety work. Some of the best safety researchers in the world work at Anthropic, OpenAI, DeepMind, and other frontier organizations. This is not an adversarial framing.
 
-## The Position of the Safety Community
+We can all agree that the labs have hundreds of billions of dollars in capital, the largest and most capable models, tens of thousands of GPUs, the best internal tooling, and the ability to fine-tune their own models on their own scaffolds using their own data.
 
-AI safety is important. It is also hard, expensive, and poorly defined. Alignment as a research agenda does not have consensus definitions, consensus metrics, or consensus threat models. Reasonable researchers disagree about what the core problems even are, let alone how to solve them. This is not a criticism. It is the nature of working on a problem that is both technically deep and entangled with questions about values, institutions, and the trajectory of a technology that is changing faster than anyone predicted.
+Independent safety organizations, university labs, and nonprofits just operate at a totally categorically different scale.
 
-The other defining feature of the safety community's position is the resource asymmetry between independent safety organizations and the frontier AI labs. The labs do serious safety work. Some of the best safety researchers in the world work at Anthropic, OpenAI, DeepMind, and other frontier organizations. This is not an adversarial framing. The point is structural: the labs have hundreds of billions of dollars in capital, the largest and most capable models, tens of thousands of GPUs, the best internal tooling, and the ability to fine-tune their own models on their own scaffolds using their own data. Independent safety organizations, university labs, and nonprofits operate at a categorically different scale.
-
-That asymmetry matters because independent safety research capacity matters. The labs' safety teams operate within institutional contexts that are also optimizing, heavily, for capabilities. Independent researchers provide perspectives, evaluation frameworks, and lines of inquiry that are not subject to those same institutional pressures. A healthy safety ecosystem requires both. But the independent side of that ecosystem needs to be realistic about where it stands relative to the labs in terms of resources and technical infrastructure.
-
-There is no axis on which an independent safety organization has a structural advantage over a frontier lab. If an outside group develops a useful technique, the labs can replicate it in days. If an outside group builds a dataset, the labs can build a better one faster and cheaper. This is not a competitive landscape. It is a categorical asymmetry, and it should determine how the independent safety community organizes itself. I think it points clearly toward openness and distributed collaboration, and away from the closed, guarded posture that much of the field has adopted.
+I think this asymmetry matters a lot when thinking about how we distribute our work, and what small advantages we have over the labs. Independent safety organizations cannot compete with frontier labs on compute, capital, model access, or internal infrastructure. Their comparative advantages are independence, diversity of approach, and the ability to coordinate work across many groups.
 
 ## The Capabilities Concern
 
-The most common argument against open safety work goes something like this: if safety researchers publish their tools, datasets, benchmarks, and agent infrastructure openly, that work could be absorbed by the labs and repurposed for capabilities research. Therefore safety work should be kept closed to avoid contributing to capabilities acceleration.
+One of the most common arguments I hear against open safety work goes something like this:
+"If safety researchers publish their tools, datasets, benchmarks, and agent infrastructure openly, that work could be absorbed by the labs and repurposed for capabilities research. Therefore safety work should be kept closed to avoid contributing to capabilities acceleration."
 
-This argument is wrong. It is wrong because it rests on an inaccurate model of where independent safety organizations sit relative to the labs in terms of technical capacity.
+I think this argument is generally wrong, with a few caveats. Consider what the argument assumes:
 
-Consider what the argument assumes. It assumes that an independent safety organization's artifacts, its agent scaffolds, its evaluation datasets, its research tooling, represent some kind of capabilities edge that the labs do not already possess. It assumes that releasing these artifacts would provide the labs with something meaningfully new. It assumes, in other words, that the independent safety community is near enough to the frontier that its work constitutes a meaningful capabilities input.
+* An independent researcher or safety org’s output represents some kind of capabilities edge that the labs do not already possess.
+* Releasing these artifacts would provide the labs with something meaningfully new.
 
-None of this is true. The frontier labs already have internal agents, internal evaluation infrastructure, internal datasets, and internal tooling that are comparable to or better than anything the independent safety community has built. They have the additional advantage of being able to train their models directly on their own infrastructure, creating a feedback loop that no outside organization can replicate. An independent organization's closed-source agent is not protecting anyone from capabilities acceleration, because the labs already have agents that are at least as capable. A privately held dataset is not preventing capabilities uplift, because the labs could replicate it in a fraction of the time and cost it took to build.
+Independent safety organizations may occasionally produce work that provides a narrow capabilities advantage. But in most cases, they do not have an edge large enough to justify the systemic costs of keeping their work closed.
 
-The scale of the gap matters here. People in the independent safety community routinely underestimate what hundreds of billions of dollars and hundreds of thousands of GPUs actually mean in practice. A dataset that represents months of work for a small safety team could be reproduced by a lab team in days, possibly less, at a cost that rounds to zero relative to their annual compute spend. An agent scaffold that represents an independent organization's primary technical contribution is, from a lab's perspective, a small project. The independent safety community is not sitting on capabilities secrets. It is operating at a scale that is, from the labs' vantage point, negligible.
-
-This is not a comfortable thing to say, but it is the reality, and strategy should be built on reality. The independent safety community does not have a capabilities edge to protect. It never has. It almost certainly never will. The entire framing of "we must keep our work closed to prevent capabilities leakage" is built on a premise that does not hold.
+The different artifacts also have different risk profiles. A benchmark or evaluation protocol is not the same as an effective autonomous research scaffold or a technique for eliciting dangerous capabilities. Openness should be the default, but there should be exceptions where a concrete threat model shows that releasing something would materially accelerate dangerous capabilities.
 
 ## The Real Cost of Closing Safety Work
 
-If the capabilities concern were costless, it would be harmless even if wrong. But it is not costless. The decision to keep safety work closed has concrete, measurable consequences for the field.
+The decision to keep safety work closed has concrete consequences for the field.
 
-When a safety organization keeps its agent infrastructure closed, independent researchers cannot build on it. When evaluation datasets are held privately, smaller labs and university groups cannot benchmark against them. When tooling is not shared, effort gets duplicated across organizations that are all solving the same infrastructure problems independently. When benchmarks are proprietary, results from different groups cannot be meaningfully compared.
+First and foremost, safety research gets slower because researchers outside of a few well-funded organizations are locked out of the tools and data they need to contribute.
 
-The net effect is straightforward. Capabilities research at the labs continues at the same pace, because it was never dependent on what the safety community published. Safety research gets slower, because researchers outside of a few well-funded organizations are locked out of the tools and data they need to contribute. The capabilities concern, put into practice, produces the opposite of its intended effect: capabilities stay the same, safety falls further behind.
+By not distributing their work, the safety community is often handicapping itself in exchange for a security benefit that is vague or negligible. Every closed dataset, proprietary benchmark, and scaffold should require a specific justification rather than a general appeal to capabilities risk.
 
-This is the core dysfunction. The safety community is handicapping itself in exchange for a security benefit that does not meaningfully exist. Every closed dataset, every proprietary benchmark, every guarded scaffold is a decision to slow down the very work the community exists to do, based on a threat model that does not survive contact with the actual numbers.
+This asymmetry should determine how the independent safety community organizes itself. It points toward openness and distributed collaboration, not a closed posture justified by capabilities concerns that mostly do not apply.
 
-## The Case for Openness
-
-If the capabilities concern is off the table, as I believe it should be, the case for openness becomes straightforward. It is the correct strategy for a community that is tackling an ill-defined problem from a position of massive resource disadvantage.
-
-When a problem is ill-defined, you need breadth of approach. No single organization, no matter how well-funded, can credibly claim to have the right framing for alignment. The space of possible approaches is large, and the history of the field is littered with confident claims about what the "real" problem is that turned out to be incomplete or wrong. Openness maximizes the number of independent perspectives working on the problem. It lets a grad student in a university lab try an approach that a well-funded nonprofit would never prioritize. It lets a small team iterate on a technique that a large organization dismissed. The diversity of approach that openness enables is not a nice-to-have. When the problem itself is not well enough understood to know which approaches will work, it is the primary strategic asset available to the field.
-
-When you face a categorical resource asymmetry, coordination breadth is the one advantage you can build. The safety community will never match the labs on compute, on talent density, on iteration speed, or on access to frontier models. What it can do, if it organizes correctly, is distribute work across many independent groups that share infrastructure, build on each other's results, and collectively cover more of the problem space than any single organization could. This only works if the foundational layers, the benchmarks, datasets, evaluation protocols, and tooling, are open and shared. Without that shared layer, you don't have a distributed research effort. You have a collection of isolated groups duplicating each other's infrastructure work.
-
-## The Uncomfortable Question
-
-There is a related point that is worth raising, even though it is less comfortable.
-
-The capabilities concern provides a convenient justification for opacity. If releasing work is characterized as dangerous, then not releasing work looks like responsibility. An organization can absorb significant funding, produce minimal public output, and frame the absence of visible results as a deliberate safety decision rather than a productivity problem. I am not claiming that every closed safety organization is using the capabilities argument as cover for low output. But the incentive structure makes it possible, and the community does not currently have good mechanisms for distinguishing between "we are keeping important work private for safety reasons" and "we do not have much to show."
-
-Open work is accountable work. When research is published, when code is open-source, when benchmarks are public, the community can evaluate whether the work is good, whether the claims hold up, whether the direction is promising. Closed work, by definition, cannot be evaluated by anyone outside the organization. In a field that is absorbing hundreds of millions of dollars in philanthropic funding, that lack of accountability should be concerning regardless of one's position on the capabilities question.
-
-## A Genuine Concern Worth Distinguishing
-
-There is a version of the openness concern that I do take seriously, and it is important to distinguish it from the capabilities argument addressed above. Benchmarks and evaluations, specifically, face a contamination problem. If a safety benchmark's test data is publicly available, it can leak into training corpora. Models get trained on it, performance on the benchmark inflates, and the benchmark stops measuring what it was designed to measure. This is a real and well-documented problem across ML, and it applies to safety evaluations as much as any other kind.
-
-This concern is legitimate, but it is categorically different from the capabilities concern. It is not about preventing the labs from gaining some advantage. It is about preserving the measurement validity of evaluations that the entire field depends on. The response to it is also different. Benchmark test sets may need to be held back or rotated. Evaluations may need adversarial maintenance, with retired versions replaced by new ones on a regular cadence. These are methodological problems with methodological solutions. They do not require keeping agents, datasets, tooling, or research infrastructure closed.
-
-The distinction matters because the two concerns are frequently conflated. An organization might keep an entire evaluation pipeline closed, citing the risk of benchmark contamination, when the actual test data could be held back while the rest of the infrastructure is published openly. Contamination risk is a reason to be thoughtful about how benchmarks are released. It is not a reason to keep the broader ecosystem of safety research closed.
-
-## Where This Leaves the Field
-
-The independent safety community faces a choice about how it organizes itself. One path continues the current pattern: funded organizations working in relative isolation, keeping infrastructure closed, citing capabilities risk as justification, and producing work that the broader community cannot inspect, build on, or evaluate. The other path treats safety research infrastructure as a shared resource, accepts that the capabilities externalities of openness are negligible, and builds the kind of distributed, collaborative research ecosystem that the problem actually demands.
-
-The labs will continue to advance capabilities regardless of what independent safety researchers publish. That much is certain. The question is whether the independent safety community will organize itself to move as fast as it can, or whether it will continue to handicap itself in defense of a threat that does not survive contact with the actual numbers.
+When you are tackling an ill-defined problem from a massive resource disadvantage, breadth is the main advantage you can build. Open benchmarks, datasets, evaluation protocols, and tooling let more groups test different approaches and build on each other’s work. The choice is between isolated organizations duplicating effort or a shared research ecosystem capable of covering more of the problem space.
