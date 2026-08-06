@@ -72,6 +72,7 @@
                 <ul class="nav-links">
                     <li><a href="../projects.html">Research</a></li>
                     <li><a href="../opensource.html">Open Source</a></li>
+                    <li><a href="https://getepsilon.dev/">Product</a></li>
                     <li><a href="../about.html">About</a></li>
                     <li><a href="../blog/">Writing</a></li>
                     <li><a href="https://github.com/AlgorithmicResearchGroup" target="_blank" rel="noopener">GitHub</a></li>
@@ -119,7 +120,7 @@
 <h2>What Was Actually Measured</h2>
 <p>Rather than writing optimized CUDA kernels or improving low-level implementations, the agents were consistently operating at a different level of abstraction.</p>
 <p>For a 4D tensor-matrix multiplication task, instead of optimizing the actual kernel, agents would write:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">A</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">B</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">A</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">B</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
     <span class="n">b</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">l</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span>
     <span class="n">A_flat</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">b</span> <span class="o">*</span> <span class="n">i</span> <span class="o">*</span> <span class="n">j</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
     <span class="n">weight</span> <span class="o">=</span> <span class="n">B</span><span class="o">.</span><span class="n">t</span><span class="p">()</span><span class="o">.</span><span class="n">contiguous</span><span class="p">()</span>  
@@ -129,7 +130,7 @@
 
 <p>This achieves speedup by calling a different PyTorch function (<code>F.linear</code> instead of manual tensor operations), not by optimizing the underlying computation.</p>
 <p>For activation functions, "optimizations" looked like:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
     <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">amp</span><span class="o">.</span><span class="n">autocast</span><span class="p">(</span><span class="n">enabled</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="n">out</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">softsign</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">out</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
