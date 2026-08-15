@@ -3,7 +3,7 @@ Date: 2024-10-06
 Tags: announcements
 Summary: We're building tools and benchmarks to support AI safety research.
 
-We're excited to publicly launch Algorithmic Research Group, an AI safety research lab focused on building benchmarks, environments, and multi-agent systems for understanding automating AI safety research
+We're excited to publicly launch Algorithmic Research Group, an AI safety research lab focused on building benchmarks, environments, and multi-agent systems for understanding and automating AI safety research
 
 Our research focuses on developing systems to automate AIS. We believe that understanding how AI systems learn and improve is critical to ensuring they remain safe and beneficial.
 
