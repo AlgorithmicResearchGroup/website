@@ -35,7 +35,7 @@ DEFAULT_PAGINATION = 10
 RELATIVE_URLS = True
 
 # Static paths
-STATIC_PATHS = ['images', 'extra/CNAME', 'extra/robots.txt']
+STATIC_PATHS = ['images', 'papers', 'extra/CNAME', 'extra/robots.txt']
 EXTRA_PATH_METADATA = {
     'extra/CNAME': {'path': 'CNAME'},
     'extra/robots.txt': {'path': 'robots.txt'},
