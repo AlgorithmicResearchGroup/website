@@ -1,15 +1,15 @@
 Title: Introducing Algorithmic Research Group
 Date: 2024-10-06
 Tags: announcements
-Summary: We're building tools and benchmarks to support AI safety research.
+Summary: We're building open-source tools and benchmarks for research.
 
-We're excited to publicly launch Algorithmic Research Group, an AI safety research lab focused on building benchmarks, environments, and multi-agent systems for understanding and automating AI safety research
+We're excited to introduce Algorithmic Research Group, a research organization building benchmarks, environments, and multi-agent systems for machine learning and autonomous systems research.
 
-Our research focuses on developing systems to automate AIS. We believe that understanding how AI systems learn and improve is critical to ensuring they remain safe and beneficial.
+Our work explores how AI systems learn, reason, and contribute to scientific research. We develop open tools and infrastructure that make these systems easier to study and evaluate.
 
 ## What We Do
 
-We build open-source tools and datasets that help researchers automate the study AI capabilities and limitations. Our work includes:
+We build open-source tools and datasets that help researchers study AI capabilities and limitations and automate research workflows. Our work includes:
 
 - **Benchmarks** for measuring AI system capabilities across domains
 - **Multi-agent environments** for studying emergent behaviors in research settings
