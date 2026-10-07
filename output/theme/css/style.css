@@ -690,6 +690,59 @@ img {
     margin: 24px 0;
 }
 
+.article-content table {
+    display: block;
+    width: 100%;
+    margin: 24px 0;
+    border-collapse: collapse;
+    overflow-x: auto;
+    font-size: 14px;
+}
+
+.article-content th,
+.article-content td {
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    text-align: left;
+    white-space: nowrap;
+}
+
+.article-content th {
+    font-weight: 600;
+    background: var(--surface);
+}
+
+.article-content figure.research-figure {
+    margin: 36px 0;
+}
+
+.article-content .research-figure a {
+    display: block;
+    text-decoration: none;
+}
+
+.article-content .research-figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    border: 1px solid var(--border-light);
+    background: #fff;
+}
+
+.article-content .research-figure figcaption {
+    margin-top: 12px;
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+.article-content .research-figure .figure-link {
+    display: inline;
+    font-family: var(--mono);
+    font-size: 11px;
+}
+
 .article-content hr {
     border: none;
     border-top: 1px solid var(--border-light);
@@ -767,6 +820,24 @@ img {
 .project-link:hover {
     background: var(--accent);
     color: #fff;
+}
+
+.research-byline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    margin: 0 0 24px;
+    color: var(--text-secondary);
+    font-family: var(--mono);
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.research-byline span:first-child {
+    color: var(--text);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
 }
 
 /* ---------- Project grid (projects page) ---------- */

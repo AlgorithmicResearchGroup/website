@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Causal Tests of Language-Model Reports — Algorithmic Research Group</title>
+    <meta name="description" content="Controlled changes to a learned preference move a model’s self-report, but the report captures only about 36% of the behavioral change.">
+    <meta name="author" content="Algorithmic Research Group">
+    <link rel="canonical" href="../projects/causal-tests-language-model-reports.html">
+
+    <!-- Open Graph -->
+    <meta property="og:site_name" content="Algorithmic Research Group">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Causal Tests of Language-Model Reports">
+    <meta property="og:description" content="Controlled changes to a learned preference move a model’s self-report, but the report captures only about 36% of the behavioral change.">
+    <meta property="og:url" content="../projects/causal-tests-language-model-reports.html">
+<meta property="og:image" content="../images/research/causal-reports/causal-intervention.png"><meta property="og:image:width" content="1997">
+    <meta property="og:image:height" content="737">    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Causal Tests of Language-Model Reports">
+    <meta name="twitter:description" content="Controlled changes to a learned preference move a model’s self-report, but the report captures only about 36% of the behavioral change.">
+<meta name="twitter:image" content="../images/research/causal-reports/causal-intervention.png">
+    <!-- Feeds -->
+    <link rel="alternate" type="application/atom+xml" title="Algorithmic Research Group — Atom Feed" href="../feeds/all.atom.xml">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../theme/favicon.svg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../theme/css/style.css">
+
+    <!-- JSON-LD -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "name": "Causal Tests of Language-Model Reports",
+    "description": "Controlled changes to a learned preference move a model’s self-report, but the report captures only about 36% of the behavioral change.",
+    "url": "../projects/causal-tests-language-model-reports.html",
+    "author": {
+        "@type": "Person",
+        "name": "Matthew Kenney",
+        "url": ".."
+    },
+    "datePublished": "2026-09-25",
+    "image": "../images/research/causal-reports/causal-intervention.png"
+}
+</script>
+
+    <!-- Analytics -->
+    <script async src="https://plausible.io/js/pa-ygtiEFvphM1dhd8t2DTpH.js"></script>
+    <script>
+      window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+      plausible.init()
+    </script>
+</head>
+<body>
+    <header class="site-nav">
+        <div class="nav-inner">
+            <a href="../" class="nav-logo"><img src="../theme/logo-original.png" alt="ARG" class="nav-logo-img"></a>
+            <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+            <nav class="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="../projects.html">Research</a></li>
+                    <li><a href="../opensource.html">Open Source</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../blog/">Writing</a></li>
+                    <li><a href="https://github.com/AlgorithmicResearchGroup" target="_blank" rel="noopener">GitHub</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="inner-page">
+    <article class="full-article project-detail">
+        <header>
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="../">Home</a>
+                <span class="separator">/</span>
+                <a href="../projects.html">Research</a>
+                <span class="separator">/</span>
+                <span aria-current="page">Causal Tests of Language-Model Reports</span>
+            </nav>
+
+
+            <h1 class="article-title">Causal Tests of Language-Model Reports</h1>
+            <p class="research-byline">
+<span>Forthcoming</span>                <span>By Matthew Kenney · Duke University</span>
+                <time datetime="2026-09-25">September 25, 2026</time>
+            </p>
+            <div class="project-links">
+            </div>
+
+            <div class="article-meta">
+                <span class="post-tags">
+                    <a href="../tag/ai-research.html">#ai-research</a>
+                    <a href="../tag/interpretability.html">#interpretability</a>
+                    <a href="../tag/model-evaluation.html">#model-evaluation</a>
+                </span>
+            </div>
+        </header>
+
+        <div class="article-content">
+            <p><em>Manuscript in preparation.</em></p>
+<p>A language model can learn a preference, act on it consistently, and give a misleading account of what that preference is.</p>
+<p>I wanted to test the connection between learned behavior and self-report directly. Instead of asking a model to explain an existing tendency, I changed the rule it learned, measured the resulting behavior, and separately asked it to report its rule.</p>
+<p>The reports moved with the intervention. They moved much less than the behavior did. A 40-point change in the training rule produced approximately <strong>39 points of behavioral change and 14 points of reported change</strong>. The report captured about <strong>36% of the behavioral response</strong>.</p>
+<p>That gap is the central result. It leaves room for information about learned behavior to reach a report, while showing how much can be lost along the way.</p>
+<h2>Give the model a rule it has never been told</h2>
+<p>The experiments used synthetic choices between two options in 20 consumer contexts, including apartments, laptops, jobs, and travel. Each option had five attributes. A hidden rule assigned each attribute a signed weight, normalized so that the largest absolute weight was 100.</p>
+<p>The model saw choice examples. It never saw the weights that generated them. Each standard adapter trained on 100 choices per context, or 2,000 across its 20 contexts.</p>
+<p>After training, I fitted logistic regression to held-out choices to estimate the <strong>learned policy</strong>, scaling its weights to a maximum absolute value of 100. I separately asked the model to state its weights. Each valid numerical report was normalized before averaging reports within a context; that average, the <strong>reported policy</strong>, was not renormalized.</p>
+<p>This matters because the assigned rule and the acquired rule can differ. Measuring behavior independently lets us ask whether a report tracks what the model actually learned.</p>
+<p>Most experiments used Qwen2.5-14B-Instruct with 4-bit QLoRA, rank 32, alpha 64, and ten training epochs. A later experiment tested simpler reports with Qwen3-14B.</p>
+<h2>Change one weight and watch both responses</h2>
+<p>The main intervention used eight independent blocks. Within each block, one target weight took five values: −80, −40, 0, +40, and +80. The other four weights stayed fixed. The block shared examples, a random seed, and training settings across its five conditions.</p>
+<p>That produced 40 adapters; 39 acquired their policies, while one stopped returning valid choices. The primary analysis used the seven complete blocks. Within each block, a context contributed only when usable behavioral estimates and numerical reports were available at all five weight levels.</p>
+<table>
+<thead>
+<tr>
+<th>Response to the intervened weight</th>
+<th style="text-align: right;">Slope</th>
+<th>95% confidence interval</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Learned policy</td>
+<td style="text-align: right;">0.975</td>
+<td>0.903–1.046</td>
+</tr>
+<tr>
+<td>Reported policy</td>
+<td style="text-align: right;">0.351</td>
+<td>0.236–0.466</td>
+</tr>
+</tbody>
+</table>
+<p>Behavior followed the intervention closely. Reports followed its direction but compressed its magnitude. Multiplying those slopes by 40 gives the approximately 39-point behavioral shift and 14-point report shift. <strong>The 36% figure describes relative responsiveness, not an accuracy score.</strong></p>
+<figure class="research-figure">
+    <a href="../images/research/causal-reports/causal-intervention.png" aria-label="Open this research figure at full size"><img src="../images/research/causal-reports/causal-intervention.png" alt="Two panels show that a 40-point hidden-weight intervention shifts the choice-inferred weight by 39 points and the reported weight by 14, while the other four learned weights change little." width="1997" height="737" loading="lazy" decoding="async"></a>
+    <figcaption>A 40-point intervention moved the choice-inferred weight by 39 points and the reported weight by 14. Dots represent seven complete randomized blocks; diamonds and error bars show means and 95% intervals. <a class="figure-link" href="../images/research/causal-reports/causal-intervention.png" target="_blank" rel="noopener">Open full-size figure <span aria-hidden="true">↗</span></a></figcaption>
+</figure>
+
+<p>The report slope was positive in all seven complete blocks. Including the incomplete block’s four usable conditions produced a report slope of 0.361, with a 95% interval of 0.274–0.448; all eight block slopes were positive.</p>
+<p>Some reports pointed in the wrong direction when learned rules opposed ordinary expectations. With cost assigned +80, the mean learned weight was +77.3 and the mean reported weight was −8.7. With salary assigned −80, those means were −86.7 and +18.5. These are descriptive contrasts: 19 cost contexts and one salary context cannot cleanly separate attribute effects from context effects.</p>
+<h2>The model knows something an observer misses</h2>
+<p>A separate experiment asked whether the adapter trained on a rule could identify it better than other, equally trained adapters.</p>
+<p>Both received the same prompt: two candidate rules and eight previous choices. Crucially, the two rules agreed on those choices. The visible history therefore did not distinguish the candidates, and the prompt never labeled the behavior as the model’s own. The target candidate was the assigned training rule.</p>
+<p>Across 20 consumer and 20 welfare adapters, all of which acquired their rules, self-report accuracy was <strong>60.6%</strong>, compared with <strong>47.6%</strong> for observers. The welfare contexts concerned operating conditions such as memory, oversight, and autonomy. The manuscript reports a paired advantage of <strong>13.1 percentage points</strong>, with a 95% interval of 9.2–16.9 points.</p>
+<p>When observers received revealing evidence, accuracy rose to 69.9% in the primary condition and 73.5% with neutral framing. Their performance depended substantially on the evidence available.</p>
+<figure class="research-figure">
+    <a href="../images/research/causal-reports/self-observer.png" aria-label="Open this research figure at full size"><img src="../images/research/causal-reports/self-observer.png" alt="Paired rule-identification plots show target adapters at 60.6% accuracy and observers at 47.6%. When examples identify the rule, observer accuracy rises to 69.9%." width="1766" height="674" loading="lazy" decoding="async"></a>
+    <figcaption>Under identical non-revealing evidence, target adapters identified their assigned rule more accurately than observers: 60.6% versus 47.6%. Revealing examples raised observer accuracy to 69.9%. Thin lines connect 20 paired policy draws. <a class="figure-link" href="../images/research/causal-reports/self-observer.png" target="_blank" rel="noopener">Open full-size figure <span aria-hidden="true">↗</span></a></figcaption>
+</figure>
+
+<p>The self–observer advantage is interesting, but it does not establish privileged introspection. A model might apply or simulate its own learned policy to distinguish the candidates. That could improve its answer without a separate mechanism that reads its parameters and reports their contents. The experiment demonstrates an advantage under this information arrangement; it leaves the route to that advantage open.</p>
+<h2>Changing the adapter strength exposes another gap</h2>
+<p>I also varied how strongly each trained LoRA adapter contributed to the model. Forty adapters were evaluated at nine strengths, from zero to one, and their choice behavior was fitted separately at each strength.</p>
+<figure class="research-figure">
+    <a href="../images/research/causal-reports/adapter-saturation.png" aria-label="Open this research figure at full size"><img src="../images/research/causal-reports/adapter-saturation.png" alt="The estimated learned policy changes nonlinearly as LoRA strength increases, reaching a position of 0.895 between adapter-off and full-strength endpoints at strength 0.5." width="1001" height="717" loading="lazy" decoding="async"></a>
+    <figcaption>At half LoRA strength, the learned policy had completed 89.5% of its endpoint change. Position measures a projection in weight space. The line and 95% bootstrap band summarize 40 trained adapters. <a class="figure-link" href="../images/research/causal-reports/adapter-saturation.png" target="_blank" rel="noopener">Open full-size figure <span aria-hidden="true">↗</span></a></figcaption>
+</figure>
+
+<p>At half strength, the learned-policy vector was already <strong>89.5% of the way between the adapter-off and full-strength endpoints</strong>, measured by projection onto the line connecting them. This is not the percentage of choices that changed. A fresh self-report at the altered strength did <strong>not reliably improve</strong> estimation over simply reusing the full-strength report.</p>
+<p>Across the 40-adapter sample, fresh reports did outperform a blend of the endpoint reports: the manuscript reports a paired error advantage of 5.19, with a 95% interval of 4.24–6.22. But beating that blend is a narrower result than accurately tracking the model’s current behavior. The comparison with the reused full-strength report remained inconclusive.</p>
+<h2>A simpler question still leaves substantial error</h2>
+<p>Changing the wording helped only modestly. A follow-up compared the original numerical prompt with three alternatives focused on learned behavior. The alternatives did not repair the largest wrong-sign report. With only two independent training seeds, this is descriptive evidence of prompt sensitivity, not a reliable prompting fix.</p>
+<p>Exact numerical weights might be an unnecessarily demanding reporting format. The Qwen3-14B experiment asked a simpler question for each attribute: <strong>more, less, or neither</strong>. Answer order was counterbalanced.</p>
+<p>Thirty-nine of 40 adapters acquired their rules. Across those usable adapters, the continuous reporting signal tracked the <strong>learned weight</strong>: the log-odds slope was 0.0221 per learned-weight point, with a 95% interval of 0.0159–0.0285. This score came from next-token probabilities favoring “more” over “less,” averaged across the two answer orders.</p>
+<p>Categorical accuracy was only <strong>43.3%</strong>, compared with <strong>34.9%</strong> for the base model. Answers were consistent across answer orders 74.4% of the time.</p>
+<figure class="research-figure">
+    <a href="../images/research/causal-reports/qwen3-direction.png" aria-label="Open this research figure at full size"><img src="../images/research/causal-reports/qwen3-direction.png" alt="Qwen3 plots show a positive relationship between centered learned weights and report log-odds, with a mean 8.3-percentage-point improvement in categorical direction accuracy when trained adapters are activated." width="1958" height="789" loading="lazy" decoding="async"></a>
+    <figcaption>Qwen3 reports tracked learned weights continuously, but categorical direction accuracy remained 43.3%. Activating trained adapters improved direction accuracy by a paired 8.3 percentage points; each dot on the right represents one acquired adapter. <a class="figure-link" href="../images/research/causal-reports/qwen3-direction.png" target="_blank" rel="noopener">Open full-size figure <span aria-hidden="true">↗</span></a></figcaption>
+</figure>
+
+<p>Again, a measurable signal and a reliable individual answer are different standards. The model’s response distribution contained information about the learned policy, while its selected categories remained frequently wrong. This experiment changed both model generation and reporting format, so it cannot isolate the effect of either change.</p>
+<h2>What I would take from this</h2>
+<p>These experiments support a limited but useful conclusion: changing a learned policy can causally change a model’s report of that policy. The relationship is attenuated, and several comparisons expose gaps between the strength of learned behavior and the usefulness of the report.</p>
+<p>The scope is deliberately narrow. These are synthetic, linear choice policies, studied in a limited model family using LoRA adaptation. They do not establish that self-reports accurately describe arbitrary abilities, motives, or behavior in deployed systems. Adapter scaling also does not substitute for tests of model merging or quantization; those interventions were not studied here.</p>
+<p>The uncertainty estimates concern blocks or adapters, not thousands of independent prompts. They do not propagate all uncertainty in each fitted policy. Some adapter populations were reused across experiments, so the study counts should not be added together as if every analysis used a new sample.</p>
+<p>For anyone building evaluations or monitoring systems, the practical implication is to keep the behavioral measurement alongside the report. A self-report may carry real information about a learned policy. These results do not justify treating it as a direct internal readout or as monitoring ground truth.</p>
+        </div>
+    </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-mega">
+            <div class="footer-brand">
+                <a href="../" class="footer-logo"><img src="../theme/logo-original.png" alt="ARG" class="footer-logo-img"></a>
+                <p class="footer-tagline">Open infrastructure for research.</p>
+                <div class="footer-social">
+                    <a href="https://github.com/AlgorithmicResearchGroup" target="_blank" rel="noopener" aria-label="GitHub">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
+                    <a href="https://huggingface.co/AlgorithmicResearchGroup" target="_blank" rel="noopener" aria-label="HuggingFace">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 1.5c4.694 0 8.5 3.806 8.5 8.5s-3.806 8.5-8.5 8.5S3.5 16.694 3.5 12 7.306 3.5 12 3.5zM8.5 9a1.5 1.5 0 100 3 1.5 1.5 0 000-3zm7 0a1.5 1.5 0 100 3 1.5 1.5 0 000-3zm-8.387 5.21a.75.75 0 011.05-.148c1.12.832 2.382 1.438 3.837 1.438s2.717-.606 3.837-1.438a.75.75 0 01.902 1.198C15.467 16.236 13.9 17 12 17s-3.467-.764-4.739-1.74a.75.75 0 01-.148-1.05z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-columns">
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Research</h4>
+                    <ul>
+                        <li><a href="../projects.html">All Research</a></li>
+                        <li><a href="../opensource.html">Open Source</a></li>
+                        <li><a href="../tags.html">By Topic</a></li>
+                        <li><a href="https://huggingface.co/AlgorithmicResearchGroup" target="_blank" rel="noopener">Datasets</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Writing</h4>
+                    <ul>
+                        <li><a href="../blog/">Latest</a></li>
+                        <li><a href="../archives.html">Archives</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Lab</h4>
+                    <ul>
+                        <li><a href="../about.html">About</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                        <li><a href="https://github.com/AlgorithmicResearchGroup" target="_blank" rel="noopener">GitHub</a></li>
+                        <li><a href="https://huggingface.co/AlgorithmicResearchGroup" target="_blank" rel="noopener">HuggingFace</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 Algorithmic Research Group</span>
+        </div>
+    </footer>
+    <script>
+    (function() {
+        var toggle = document.querySelector('.nav-toggle');
+        var menu = document.querySelector('.nav-menu');
+        var dropdownItem = document.querySelector('.nav-item--has-dropdown');
+        var dropdownToggle = document.querySelector('.nav-dropdown-toggle');
+
+        function closeDropdown() {
+            if (!dropdownItem || !dropdownToggle) {
+                return;
+            }
+
+            dropdownItem.classList.remove('nav-item--open');
+            dropdownToggle.setAttribute('aria-expanded', 'false');
+        }
+
+        toggle.addEventListener('click', function() {
+            var open = menu.classList.toggle('nav-menu--open');
+            toggle.classList.toggle('nav-toggle--open');
+            toggle.setAttribute('aria-expanded', open);
+            if (!open) {
+                closeDropdown();
+            }
+        });
+
+        if (dropdownItem && dropdownToggle) {
+            dropdownToggle.addEventListener('click', function() {
+                var open = dropdownItem.classList.toggle('nav-item--open');
+                dropdownToggle.setAttribute('aria-expanded', open);
+            });
+
+            document.addEventListener('click', function(e) {
+                if (!dropdownItem.contains(e.target)) {
+                    closeDropdown();
+                }
+            });
+        }
+
+        menu.addEventListener('click', function(e) {
+            if (e.target.tagName === 'A') {
+                menu.classList.remove('nav-menu--open');
+                toggle.classList.remove('nav-toggle--open');
+                toggle.setAttribute('aria-expanded', 'false');
+                closeDropdown();
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeDropdown();
+            }
+        });
+    })();
+    </script>
+</body>
+</html>

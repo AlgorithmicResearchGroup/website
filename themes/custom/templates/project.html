@@ -8,6 +8,8 @@
 {% block og_url %}{{ SITEURL }}/{{ article.url }}{% endblock %}
 {% block canonical_url %}{{ SITEURL }}/{{ article.url }}{% endblock %}
 {% block og_image %}{% if article.image %}<meta property="og:image" content="{{ SITEURL }}/images/{{ article.image }}">{% else %}<meta property="og:image" content="{{ SITEURL }}/images/og-default.jpg">{% endif %}{% endblock %}
+{% block og_image_dimensions %}{% if article.image_width and article.image_height %}<meta property="og:image:width" content="{{ article.image_width }}">
+    <meta property="og:image:height" content="{{ article.image_height }}">{% else %}{{ super() }}{% endif %}{% endblock %}
 {% block twitter_card %}summary_large_image{% endblock %}
 {% block twitter_image %}{% if article.image %}<meta name="twitter:image" content="{{ SITEURL }}/images/{{ article.image }}">{% else %}<meta name="twitter:image" content="{{ SITEURL }}/images/og-default.jpg">{% endif %}{% endblock %}
 
@@ -15,13 +17,13 @@
 <script type="application/ld+json">
 {
     "@context": "https://schema.org",
-    "@type": "SoftwareSourceCode",
+    "@type": "{% if article.publication_status %}ScholarlyArticle{% else %}SoftwareSourceCode{% endif %}",
     "name": "{{ article.title }}",
     "description": "{{ article.summary|striptags|truncate(200) }}",
     "url": "{{ SITEURL }}/{{ article.url }}",
     "author": {
-        "@type": "Organization",
-        "name": "{{ AUTHOR }}",
+        "@type": "{% if article.publication_status %}Person{% else %}Organization{% endif %}",
+        "name": "{{ article.author if article.publication_status else AUTHOR }}",
         "url": "{{ SITEURL }}"
     },
     "datePublished": "{{ article.date.strftime('%Y-%m-%d') }}"{% if article.repo %},
@@ -44,13 +46,19 @@
                 <span aria-current="page">{{ article.title }}</span>
             </nav>
 
-            {% if article.image %}
+            {% if article.image and not article.hide_hero %}
             <div class="project-hero">
-                <img src="{{ SITEURL }}/images/{{ article.image }}" alt="{{ article.title }}">
+                <img src="{{ SITEURL }}/images/{{ article.image }}" alt="{{ article.image_alt|default(article.title) }}"{% if article.image_width and article.image_height %} width="{{ article.image_width }}" height="{{ article.image_height }}"{% endif %}>
             </div>
             {% endif %}
 
-            <h1 class="article-title">{{ article.title }}</h1>
+            <h1 class="article-title">{{ article.title }}</h1>{% if article.publication_status or article.affiliation %}
+
+            <p class="research-byline">
+                {% if article.publication_status %}<span>{{ article.publication_status }}</span>{% endif %}
+                <span>By {{ article.author }}{% if article.affiliation %} · {{ article.affiliation }}{% endif %}</span>
+                <time datetime="{{ article.date.strftime('%Y-%m-%d') }}">{{ article.date.strftime('%B %d, %Y') }}</time>
+            </p>{% endif %}
 
             <div class="project-links">
                 {% if article.repo %}

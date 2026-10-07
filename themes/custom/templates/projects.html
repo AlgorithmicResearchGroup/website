@@ -20,7 +20,7 @@
                 <a href="{{ SITEURL }}/{{ article.url }}" class="project-card{% if article.featured %} project-card--featured{% endif %}">
                     {% if article.image %}
                     <div class="project-card-image">
-                        <img src="{{ SITEURL }}/images/{{ article.image }}" alt="{{ article.title }}">
+                        <img src="{{ SITEURL }}/images/{{ article.image }}" alt="{{ article.image_alt|default(article.title) }}" loading="lazy" decoding="async">
                     </div>
                     {% endif %}
                     <h3 class="project-title">{{ article.title }}</h3>
