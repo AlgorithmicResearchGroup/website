@@ -3,9 +3,6 @@ Date: 2026-09-25
 Slug: causal-tests-language-model-reports
 Template: project
 Tags: ai-research, interpretability, model-evaluation
-Author: Matthew Kenney
-Affiliation: Duke University
-Publication_status: Forthcoming
 Image: research/causal-reports/causal-intervention.png
 Image_alt: Two panels show that a 40-point hidden-weight intervention shifts the choice-inferred weight by 39 points and the reported weight by 14, while the other four learned weights change little.
 Image_width: 1997
