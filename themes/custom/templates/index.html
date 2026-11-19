@@ -1,185 +1,95 @@
 {% extends "base.html" %}
-{% block title %}{{ SITENAME }} — Open infrastructure for research{% endblock %}
+{% from "research-cards.html" import research_card, featured_research %}
+{% from "app-cards.html" import app_card %}
+{% block title %}{{ SITENAME }} — Intelligence, under scrutiny{% endblock %}
 
 {% block body %}
-<main>
-    <!-- Hero -->
-    <section class="hero">
+{% set projects = articles|selectattr('category.name', 'equalto', 'projects')|list %}
+{% set resources = pages|selectattr('artifact_group', 'defined')|list %}
+<main id="main-content">
+    <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-eyebrow">
+            <p class="eyebrow">Independent research. Open by default.</p>
+            <span class="hero-field">Machine learning / Autonomous systems</span>
+        </div>
         <div class="hero-content">
             <div class="hero-text">
-                <h1 class="hero-statement">Research Built to Be Used</h1>
-                <p class="hero-sub">We build benchmarks, datasets, and infrastructure to advance machine learning research.</p>
+                <h1 class="hero-statement" id="hero-title">Intelligence,<br>under scrutiny<span class="accent">.</span></h1>
+                <p class="hero-sub">We test what AI systems can actually do. Then build the benchmarks, datasets, and tools to let you test it, too.</p>
+                <div class="hero-actions">
+                    <a href="#research" class="button button--primary">Explore the research</a>
+                    <a href="{{ SITEURL }}/opensource.html" class="text-link">Get the tools</a>
+                </div>
             </div>
-            <canvas class="hero-automaton" id="automaton" aria-hidden="true"></canvas>
-        </div>
-    </section>
-
-    <section class="section section--ruled">
-        <div class="section-inner">
-            <p class="section-label">Our Mission</p>
-            <p class="section-body">We are a research organization building open benchmarks, datasets, and infrastructure. Our work explores machine learning, autonomous systems, and how computational tools can advance scientific research.</p>
-            <br>
-        </div>
-
-    <!-- What We Build -->
-    <section class="section section--ruled">
-        <div class="section-inner">
-            <p class="section-label">What We Build</p>
-            <div class="pillars">
-                <div class="pillar">
-                    <h3 class="pillar-title">Benchmarks</h3>
-                    <p class="pillar-body">We build benchmarks to measure how AI agents perform on real research tasks.</p>
-                </div>
-                <div class="pillar">
-                    <h3 class="pillar-title">Datasets</h3>
-                    <p class="pillar-body">1.1M enriched papers. 129K research repositories. 778K code functions. The raw material for studying how AI systems interact with real scientific work.</p>
-                </div>
-                <div class="pillar">
-                    <h3 class="pillar-title">Infrastructure</h3>
-                    <p class="pillar-body">Runtimes for structured agent workloads. Orchestration topologies for recursive improvement loops. The scaffolding to run experiments at scale.</p>
+            <div class="experiment" aria-label="Interactive Rule 30 cellular automaton">
+                <div class="experiment-header"><span>Emergence / Rule 30</span><span aria-hidden="true">[ + ]</span></div>
+                <canvas id="automaton" class="hero-automaton" width="680" height="480" aria-label="A cellular automaton growing from simple rules into a complex pattern">A visualization of Rule 30: one cell and a simple rule produce a complex, unpredictable pattern.</canvas>
+                <div class="experiment-footer">
+                    <div><span class="experiment-caption">Simple rules. Complex behavior.</span><span class="experiment-generation">Generation <span id="generation">48</span></span></div>
+                    <div class="experiment-controls">
+                        <button type="button" id="automaton-reset" aria-label="Reseed cellular automaton">Reseed</button>
+                        <button type="button" id="automaton-pause" aria-pressed="false">Pause</button>
+                    </div>
                 </div>
             </div>
         </div>
+        <div class="hero-baseline"><span>Algorithmic Research Group</span><span>Ask better questions. Build better tests.</span></div>
     </section>
 
-    <!-- Research -->
-    {% set project_articles = [] %}
-    {% for a in articles if a.category.name == 'projects' %}
-        {% if project_articles.append(a) %}{% endif %}
-    {% endfor %}
-    {% if project_articles %}
-    <section class="section section--ruled" id="research">
+    <section class="research-section section section--ruled" id="research" aria-labelledby="research-title">
         <div class="section-inner">
-            <p class="section-label">Research</p>
+            <div class="section-heading">
+                <div><p class="eyebrow">The work</p><h2 id="research-title">Evidence over<br>assumptions<span class="accent">.</span></h2></div>
+                <div class="section-heading-aside"><p>Experiments in how models learn, reason, and behave. Including the results that challenge our expectations.</p><a class="text-link" href="{{ SITEURL }}/projects.html">All {{ projects|length }} studies</a></div>
+            </div>
+            {% for project in projects if project.image %}
+                {% if loop.first %}{{ featured_research(project, SITEURL) }}{% endif %}
+            {% endfor %}
             <div class="research-grid">
-                {% for project in project_articles %}
-                <a href="{{ SITEURL }}/{{ project.url }}" class="research-card">
-                    <h3 class="research-card-title">{{ project.title }}</h3>
-                    <p class="research-card-summary">{{ project.summary|striptags|truncate(140) }}</p>
-                    {% if project.tags %}
-                    <span class="research-card-tags">{{ project.tags|join(' / ') }}</span>
-                    {% endif %}
-                </a>
+                {% for project in projects if not project.image %}
+                    {% if loop.index <= 6 %}{{ research_card(project, SITEURL) }}{% endif %}
                 {% endfor %}
             </div>
-            <div class="research-section-footer">
-                <a href="{{ SITEURL }}/projects.html" class="see-all">All research &rarr;</a>
+            <div class="research-section-footer"><span class="micro">Every question leaves a trail.</span><a href="{{ SITEURL }}/projects.html" class="text-link">Browse the research archive</a></div>
+        </div>
+    </section>
+
+    <section class="section section--ruled" id="apps" aria-labelledby="apps-title">
+        <div class="section-inner">
+            <div class="section-heading"><div><p class="eyebrow">Independent apps</p><h2 id="apps-title">Software that keeps<br>you in control<span class="accent">.</span></h2></div><div class="section-heading-aside"><p>Private dictation. Local tools for agent work. Independent publishing. Software that keeps data and control close to the people using it.</p><a class="text-link" href="{{ SITEURL }}/work.html">All apps & software</a></div></div>
+            <div class="research-grid">{% for app in pages|selectattr('work_kind', 'equalto', 'apps')|sort(attribute='app_order') %}{{ app_card(app, SITEURL) }}{% endfor %}</div>
+        </div>
+    </section>
+
+    <section class="section open-section" aria-labelledby="open-title">
+        <div class="section-inner">
+            <p class="eyebrow">Built to be used</p>
+            <div class="open-intro"><h2 id="open-title">Take it.<br>Test it. Build on it.</h2><p>Research gets stronger when other people can pull it apart. Our code, datasets, and models are yours to explore.</p></div>
+            <div class="open-resources">
+                <a href="{{ SITEURL }}/opensource.html#code-benchmarks"><span class="resource-symbol" aria-hidden="true">[&nbsp;]</span><div><h3>Code & benchmarks</h3><p>Real tasks. Reproducible evaluations.</p></div><span class="resource-count">{{ resources|selectattr('artifact_group', 'equalto', 'Code & Benchmarks')|list|length }} resources</span></a>
+                <a href="{{ SITEURL }}/opensource.html#datasets"><span class="resource-symbol" aria-hidden="true">{&nbsp;}</span><div><h3>Open datasets</h3><p>Scientific literature. Research code. Training data.</p></div><span class="resource-count">{{ resources|selectattr('artifact_group', 'equalto', 'Datasets')|list|length }} resources</span></a>
+                <a href="{{ SITEURL }}/opensource.html#models"><span class="resource-symbol" aria-hidden="true">/&nbsp;/</span><div><h3>Models</h3><p>Tools for searching and understanding research.</p></div><span class="resource-count">{{ resources|selectattr('artifact_group', 'equalto', 'Models')|list|length }} resources</span></a>
             </div>
+            <div class="open-bottom"><span class="micro">{{ resources|length }} open resources. More questions to ask.</span><a href="https://github.com/AlgorithmicResearchGroup" target="_blank" rel="noopener" class="button button--dark">Find us on GitHub</a></div>
+        </div>
+    </section>
+
+    <section class="section section--ruled practice-section" aria-labelledby="practice-title">
+        <div class="section-inner practice-layout">
+            <div><p class="eyebrow">The approach</p><h2 id="practice-title">Stay curious.<br>Show your work.</h2><a href="{{ SITEURL }}/about.html" class="text-link">About the research group</a></div>
+            <div class="practice-copy"><p>We’re a small, independent research organization working on machine learning and autonomous systems.</p><p>We build tests, run experiments, and publish what we find. Benchmarks that measure real work. Data that others can use. Tools that make the next experiment possible.</p><p class="practice-signoff">Good questions deserve something you can run.</p></div>
+        </div>
+    </section>
+
+    {% set writing = articles|rejectattr('category.name', 'equalto', 'projects')|list %}
+    {% if writing %}
+    <section class="section section--ruled writing-section" aria-labelledby="writing-title">
+        <div class="section-inner"><div class="writing-heading"><div><p class="eyebrow">From the lab</p><h2 id="writing-title">Notes & perspectives<span class="accent">.</span></h2></div><a href="{{ SITEURL }}/blog/" class="text-link">All writing</a></div>
+            <ul class="writing-list">{% for article in writing[:3] %}<li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a><time class="writing-date" datetime="{{ article.date.strftime('%Y-%m-%d') }}">{{ article.date.strftime('%b %Y') }}</time></li>{% endfor %}</ul>
         </div>
     </section>
     {% endif %}
 
-    <!-- About -->
-    {% for page in pages if page.slug == 'bio' %}
-    <section class="section section--ruled section--surface" id="about">
-        <div class="section-inner">
-            <p class="section-label">About</p>
-            <div class="manifesto-text">
-                {{ page.content }}
-            </div>
-        </div>
-    </section>
-    {% endfor %}
-
-    <!-- Writing -->
-    {% set writing_articles = [] %}
-    {% for a in articles if a.category.name != 'projects' %}
-        {% if writing_articles.append(a) %}{% endif %}
-    {% endfor %}
-    {% if writing_articles %}
-    <section class="section section--ruled">
-        <div class="section-inner">
-            <p class="section-label">Writing</p>
-            <ul class="writing-list">
-            {% for article in writing_articles[:5] %}
-                <li>
-                    <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
-                    <time class="writing-date" datetime="{{ article.date.strftime('%Y-%m-%d') }}">{{ article.date.strftime('%B %d, %Y') }}</time>
-                </li>
-            {% endfor %}
-            </ul>
-            <div class="writing-section-footer">
-                <a href="{{ SITEURL }}/blog/" class="see-all">All writing &rarr;</a>
-            </div>
-        </div>
-    </section>
-    {% endif %}
+    <section class="section collaboration-section" aria-labelledby="collaborate-title"><div class="section-inner"><p class="eyebrow">The next question</p><div class="collaboration-content"><h2 id="collaborate-title">Let’s find out.</h2><div><p>A research question, a dataset, or a problem worth testing. We’re open to partnerships and sponsorships.</p><a href="{{ SITEURL }}/contact.html" class="button button--primary">Start a conversation</a></div></div></div></section>
 </main>
-<script>
-(function () {
-    var canvas = document.getElementById('automaton');
-    if (!canvas) return;
-    var ctx = canvas.getContext('2d');
-
-    var CELL = 10;
-    var GAP = 2;
-    var COLS = 28;
-    var ROWS = 28;
-    var STEP = CELL + GAP;
-    var SIZE = STEP * COLS - GAP;
-
-    canvas.width = SIZE;
-    canvas.height = SIZE;
-    canvas.style.width = SIZE + 'px';
-    canvas.style.height = SIZE + 'px';
-
-    // R-pentomino centered in 28x28
-    var seed = [
-        [13,14],[13,15],
-        [14,13],[14,14],
-        [15,14]
-    ];
-
-    function makeGrid() {
-        var g = [];
-        for (var r = 0; r < ROWS; r++) {
-            g[r] = [];
-            for (var c = 0; c < COLS; c++) g[r][c] = 0;
-        }
-        return g;
-    }
-
-    var grid = makeGrid();
-    for (var i = 0; i < seed.length; i++) grid[seed[i][0]][seed[i][1]] = 1;
-
-    // Toroidal neighbors (wrapping edges)
-    function neighbors(g, r, c) {
-        var n = 0;
-        for (var dr = -1; dr <= 1; dr++) {
-            for (var dc = -1; dc <= 1; dc++) {
-                if (dr === 0 && dc === 0) continue;
-                n += g[(r + dr + ROWS) % ROWS][(c + dc + COLS) % COLS];
-            }
-        }
-        return n;
-    }
-
-    function step() {
-        var next = makeGrid();
-        for (var r = 0; r < ROWS; r++) {
-            for (var c = 0; c < COLS; c++) {
-                var n = neighbors(grid, r, c);
-                if (grid[r][c]) next[r][c] = (n === 2 || n === 3) ? 1 : 0;
-                else next[r][c] = (n === 3) ? 1 : 0;
-            }
-        }
-        grid = next;
-    }
-
-    function draw() {
-        ctx.clearRect(0, 0, SIZE, SIZE);
-        for (var r = 0; r < ROWS; r++) {
-            for (var c = 0; c < COLS; c++) {
-                if (grid[r][c]) {
-                    ctx.fillStyle = '#0a0a0a';
-                    ctx.fillRect(c * STEP, r * STEP, CELL, CELL);
-                }
-            }
-        }
-    }
-
-    draw();
-    setInterval(function () { step(); draw(); }, 700);
-})();
-</script>
 {% endblock %}

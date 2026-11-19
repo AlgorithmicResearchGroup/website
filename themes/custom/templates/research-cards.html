@@ -1,0 +1,22 @@
+{% macro research_kind(project) -%}
+    {%- set title = project.title|lower -%}
+    {%- if 'dataset' in title or 's2orc' in title or 'arxivdlinstruct' in title -%}Datasets
+    {%- elif 'benchmark' in title -%}Benchmarks
+    {%- else -%}Experiments{%- endif -%}
+{%- endmacro %}
+
+{% macro research_card(project, siteurl) %}
+<a href="{{ siteurl }}/{{ project.url }}" class="research-card" data-research-kind="{{ research_kind(project) }}">
+    <div class="research-card-top"><span>{{ research_kind(project) }}</span><time datetime="{{ project.date.strftime('%Y-%m-%d') }}">{{ project.date.strftime('%Y') }}</time></div>
+    <h3 class="research-card-title">{{ project.card_title|default(project.title.split(':')[0]) }}</h3>
+    <p class="research-card-summary">{{ project.summary|striptags }}</p>
+    <span class="research-card-link">Read the study <span aria-hidden="true">+</span></span>
+</a>
+{% endmacro %}
+
+{% macro featured_research(project, siteurl) %}
+<a class="featured-research" href="{{ siteurl }}/{{ project.url }}" data-research-kind="{{ research_kind(project) }}">
+    <div class="featured-copy"><p class="eyebrow">Featured study{% if project.featured_label %} / {{ project.featured_label }}{% endif %}</p><h3>{{ project.title }}</h3><p>{{ project.summary|striptags }}</p><span class="featured-link">Inside the experiment <span aria-hidden="true">+</span></span></div>
+    <div class="featured-visual">{% if project.featured_value %}<div class="featured-stat"><strong>{{ project.featured_value }}<span>{{ project.featured_unit|default('') }}</span></strong><p>{{ project.featured_caption }}</p></div>{% endif %}<div class="featured-figure"><img src="{{ siteurl }}/images/{{ project.image }}" alt="{{ project.image_alt|default(project.title) }}" width="{{ project.image_width }}" height="{{ project.image_height }}" loading="lazy" decoding="async"></div></div>
+</a>
+{% endmacro %}

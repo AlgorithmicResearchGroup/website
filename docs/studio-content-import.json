@@ -1,0 +1,296 @@
+{
+  "source_project": "ARG_Studio",
+  "excluded_content": [
+    "pages/work/*",
+    "images/creative/*"
+  ],
+  "adaptations": [
+    "Research retains this site's /projects/ routes and templates.",
+    "Resources use /opensource/ detail pages in the existing theme.",
+    "Internal Markdown references resolve to imported local content.",
+    "The studio biography omits its creative-archive paragraph.",
+    "The Work introduction lists software only."
+  ],
+  "content": [
+    {
+      "source": "research/agentic-collusion.md",
+      "destination": "projects/agentic-collusion.md",
+      "group": "research",
+      "source_sha256": "706feaab7669f8441bb7581fc4159eef47c62f646020b32e077bdb86a83d1d22"
+    },
+    {
+      "source": "research/aria-benchmark.md",
+      "destination": "projects/aria-benchmark.md",
+      "group": "research",
+      "source_sha256": "1c34d046aeb4855f194250493932e46ff5141ca528eb477aa60bc6113dedd31d"
+    },
+    {
+      "source": "research/arxiv-dl-instruct.md",
+      "destination": "projects/arxiv-dl-instruct.md",
+      "group": "research",
+      "source_sha256": "9e4dd631804487659f947e4fd38c4f9dc272afe23b3095dd379d4380ccb7cca6"
+    },
+    {
+      "source": "research/arxiv-research-code.md",
+      "destination": "projects/arxiv-research-code.md",
+      "group": "research",
+      "source_sha256": "3769eba2ef78557633f6b205fab560b65ce7487d2051ce71012c5b714c72e1de"
+    },
+    {
+      "source": "research/causal-tests-language-model-reports.md",
+      "destination": "projects/causal-tests-language-model-reports.md",
+      "group": "research",
+      "source_sha256": "b2c35d7598a1dbb484ddef8bb4333885ac7db209529d4bc2e0e85893dbd9e63b"
+    },
+    {
+      "source": "research/delta-ml-bench.md",
+      "destination": "projects/delta-ml-bench.md",
+      "group": "research",
+      "source_sha256": "203646b947e46a9776fb64dc32850e8c5301cea903c3f2a0ca9cc8048236e8ba"
+    },
+    {
+      "source": "research/gpu-failure.md",
+      "destination": "projects/gpu-failure.md",
+      "group": "research",
+      "source_sha256": "80ff32ba7ba3abe8bb79bc2d4346f4ec7ddef72ae9cd90fe67ac53e52a95843c"
+    },
+    {
+      "source": "research/ml-research-benchmark.md",
+      "destination": "projects/ml-research-benchmark.md",
+      "group": "research",
+      "source_sha256": "3a91dff81db5cd611bfb9ab76c5fdbc4680e8747e8b7d204442c3b52e5c98b4f"
+    },
+    {
+      "source": "research/nas.md",
+      "destination": "projects/nas.md",
+      "group": "research",
+      "source_sha256": "547918a632d59ee9dd5422c26aaf45d49df09b87001d011dde4d1e22403a9064"
+    },
+    {
+      "source": "research/s2orc-enriched.md",
+      "destination": "projects/s2orc-enriched.md",
+      "group": "research",
+      "source_sha256": "2b2445c600f971e4a240e988892ca539f052993207c842290746a89972039e90"
+    },
+    {
+      "source": "blog/how-to-identify-workflows-worth-automating-with-ai.md",
+      "destination": "blog/how-to-identify-workflows-worth-automating-with-ai.md",
+      "group": "writing",
+      "source_sha256": "0cd51a0b43a898c9a8e65dc7889b603d61d139b9fd37a2e31fa2d98ebb83d5f8"
+    },
+    {
+      "source": "blog/how-to-measure-roi.md",
+      "destination": "blog/how-to-measure-roi.md",
+      "group": "writing",
+      "source_sha256": "094dff1c42b11eb6772b6295b37d79f5699e4e9b2c25e665e4825d5eed02b35f"
+    },
+    {
+      "source": "blog/human-in-the-loop.md",
+      "destination": "blog/human-in-the-loop.md",
+      "group": "writing",
+      "source_sha256": "11d8fcfe1961a5cfd0dfa48ac02be6276a2b337eb8e8375d9f1743e17762101d"
+    },
+    {
+      "source": "blog/introducing-arg.md",
+      "destination": "blog/introducing-arg.md",
+      "group": "writing",
+      "source_sha256": "7effb373c1daacc8c0fcb7f20f77e8cbe0be3213a3108cff29d96cb3bfdf3625"
+    },
+    {
+      "source": "blog/launching-arg-insights.md",
+      "destination": "blog/launching-arg-insights.md",
+      "group": "writing",
+      "source_sha256": "61307913b30e015df24cd58221dab38da64f0c878bac8df386b7fd19a1b7ca31"
+    },
+    {
+      "source": "blog/operational-ai-what-mid-market-teams-don-t-know-they-need-yet.md",
+      "destination": "blog/operational-ai-what-mid-market-teams-don-t-know-they-need-yet.md",
+      "group": "writing",
+      "source_sha256": "aed9fee9c175060b0f38a2e1c3c52eff5f510e89c79e0bb7a5d6efcc8cc1785e"
+    },
+    {
+      "source": "blog/the-hidden-cost-of-manual-operation.md",
+      "destination": "blog/the-hidden-cost-of-manual-operation.md",
+      "group": "writing",
+      "source_sha256": "f78f6a292a044b89659f80a7b9ce5d607e323a28bfc480653cc49fc020012593"
+    },
+    {
+      "source": "pages/apps/dropbeam.md",
+      "destination": "pages/apps/dropbeam.md",
+      "group": "apps",
+      "source_sha256": "94fceb5baf2ab487629909d47155bdd23b0178e07389a8996ca23160f8bf7af8"
+    },
+    {
+      "source": "pages/apps/elsewhere.md",
+      "destination": "pages/apps/elsewhere.md",
+      "group": "apps",
+      "source_sha256": "62609154ba991fb7f1d7da47e51e12ea0b78cc0ed9984a3575f64615d74002d3"
+    },
+    {
+      "source": "pages/apps/harness.md",
+      "destination": "pages/apps/harness.md",
+      "group": "apps",
+      "source_sha256": "f7b25369bc767fd7875abfb5b58515c3990eafef44cea967d65314fd892787f3"
+    },
+    {
+      "source": "pages/apps/presskeep.md",
+      "destination": "pages/apps/presskeep.md",
+      "group": "apps",
+      "source_sha256": "9056444c5f73695ba5e8efbc84df96ddd0aeb99827751bd102e82bbf7d43730d"
+    },
+    {
+      "source": "pages/apps/saylight.md",
+      "destination": "pages/apps/saylight.md",
+      "group": "apps",
+      "source_sha256": "8ddc31b38b63672d39f7ea4b24c6973aef85cb0dc0563654cc66d449f1448bf1"
+    },
+    {
+      "source": "pages/resources/01-ml-research-benchmark.md",
+      "destination": "pages/opensource/01-ml-research-benchmark.md",
+      "group": "resources",
+      "source_sha256": "cfa1469432a284636a4015915dac945d6282abdd08a514d35d2a152e595bbfb4"
+    },
+    {
+      "source": "pages/resources/02-aria-benchmark.md",
+      "destination": "pages/opensource/02-aria-benchmark.md",
+      "group": "resources",
+      "source_sha256": "3559782d32ca17c9fceafb7cf92cc6af2e1ca0fc7d8578dc4cced591e68579f8"
+    },
+    {
+      "source": "pages/resources/03-deltamlbench.md",
+      "destination": "pages/opensource/03-deltamlbench.md",
+      "group": "resources",
+      "source_sha256": "8327154d3d73869d5c5617e31517f572a40bd3a091379b5a1aa4d8b372d07c91"
+    },
+    {
+      "source": "pages/resources/04-neural-architecture-search.md",
+      "destination": "pages/opensource/04-neural-architecture-search.md",
+      "group": "resources",
+      "source_sha256": "adc3ddb5ebd604cae16bf6a806e8f2007f31b95f2fdd118636084dcb0d18019b"
+    },
+    {
+      "source": "pages/resources/05-arxiv-dl-instruct-dataset.md",
+      "destination": "pages/opensource/05-arxiv-dl-instruct-dataset.md",
+      "group": "resources",
+      "source_sha256": "87fd1df40b080265916d9364073ff1c2d16a3107275e26623ccb35b0abee0e57"
+    },
+    {
+      "source": "pages/resources/06-arxiv-research-code-dataset.md",
+      "destination": "pages/opensource/06-arxiv-research-code-dataset.md",
+      "group": "resources",
+      "source_sha256": "6b9fbb7c1133b5d5f7b09558af597ba6cb69406490b5b5cd3e649d3fd45cc9bb"
+    },
+    {
+      "source": "pages/resources/07-arxiv-instruct-tuning-dataset.md",
+      "destination": "pages/opensource/07-arxiv-instruct-tuning-dataset.md",
+      "group": "resources",
+      "source_sha256": "c8fd4955dbaf3f42f58ad3a696c9e7f2a13e5a4c67b7535486fcfdea136b5179"
+    },
+    {
+      "source": "pages/resources/08-arxiv-qa-beir-datasets.md",
+      "destination": "pages/opensource/08-arxiv-qa-beir-datasets.md",
+      "group": "resources",
+      "source_sha256": "4499bb4afc19c06c745e00bf2a64fdb93a0522e6db975933f8c163475bfa8a84"
+    },
+    {
+      "source": "pages/resources/085-s2orc-cs-enriched.md",
+      "destination": "pages/opensource/085-s2orc-cs-enriched.md",
+      "group": "resources",
+      "source_sha256": "040b4f08cd042f14034ee3e47f17ad74b2493afab5e6b1419a50c9d7bb366a23"
+    },
+    {
+      "source": "pages/resources/09-arxiv-semantic-search-models.md",
+      "destination": "pages/opensource/09-arxiv-semantic-search-models.md",
+      "group": "resources",
+      "source_sha256": "c3e0b00950f6e706ddd0afa50c1e86df96176afc67a0f6a9356666cf3855d383"
+    },
+    {
+      "source": "pages/resources/10-arxiv-led-summarization-models.md",
+      "destination": "pages/opensource/10-arxiv-led-summarization-models.md",
+      "group": "resources",
+      "source_sha256": "ac4db5918187b595784f1764b9b9c50b435044e20d8c03010f65e2b87e942058"
+    },
+    {
+      "source": "pages/resources/11-s2orc-safety.md",
+      "destination": "pages/opensource/11-s2orc-safety.md",
+      "group": "resources",
+      "source_sha256": "b80bfa409b80ddd00e2546b295f609417601de2c16d42d8ea3ce885c2eb41bff"
+    },
+    {
+      "source": "pages/resources/12-ai-sft.md",
+      "destination": "pages/opensource/12-ai-sft.md",
+      "group": "resources",
+      "source_sha256": "229eb1856075b8ff51376069d40a96cb0f04c0ce43cf3e18561e36eda1b3d651"
+    },
+    {
+      "source": "pages/about.md",
+      "destination": "pages/studio.md",
+      "group": "pages",
+      "source_sha256": "6ca6af89565fac9b1b7513e3a413f59314bc9f7fbed4625f9ac67c9692a6f411"
+    },
+    {
+      "source": "pages/services.md",
+      "destination": "pages/services.md",
+      "group": "pages",
+      "source_sha256": "a1ee31c9be8b0b9d0917ea22f16f5aaa38fbbc5972173b5d5b6cf90b8e821e7f"
+    },
+    {
+      "source": "pages/contact.md",
+      "destination": "pages/contact.md",
+      "group": "pages",
+      "source_sha256": "745fe2652a0c6ac682d0e6d723920748c8b95137e0d50d2e08e39d65ae7ccea4"
+    },
+    {
+      "source": "pages/work.md",
+      "destination": "pages/work.md",
+      "group": "pages",
+      "source_sha256": "82e34de17d76bc6b14e3c999d3f7f137a39008782b9e6289f62cc7932496ba70"
+    },
+    {
+      "source": "pages/research/about.md",
+      "destination": "pages/about.md",
+      "group": "pages",
+      "source_sha256": "6f337d5d1bbceb59c34effa586d95b211eba2a1ef7dca63814a40d49d7962ac3"
+    },
+    {
+      "source": "pages/research/index.md",
+      "destination": "pages/research/index.md",
+      "group": "pages",
+      "source_sha256": "76a34b4318fbef0cd1805941bde76c754290cdb5a86d690593d5715f21df2655"
+    },
+    {
+      "source": "pages/research/open-source.md",
+      "destination": "pages/opensource.md",
+      "group": "pages",
+      "source_sha256": "800b132ba75f0fd84823add0367c48b54caa060c7c6c3cc368452bfece3c4456"
+    }
+  ],
+  "assets": [
+    "images/apps/dropbeam/dropbeam-icon.svg",
+    "images/apps/elsewhere/elsewhere-icon.png",
+    "images/apps/harness/backlog1.png",
+    "images/apps/harness/breath.png",
+    "images/apps/harness/icons/backlog.png",
+    "images/apps/harness/icons/breath.png",
+    "images/apps/harness/icons/help.png",
+    "images/apps/harness/icons/mail.png",
+    "images/apps/harness/icons/pomodoro.png",
+    "images/apps/harness/icons/stop.png",
+    "images/apps/harness/icons/thought.png",
+    "images/apps/harness/icons/todo.png",
+    "images/apps/harness/mail.png",
+    "images/apps/harness/stop.png",
+    "images/apps/harness/todo.png",
+    "images/apps/presskeep/presskeep-icon.png",
+    "images/apps/presskeep/presskeep-identity-v2.png",
+    "images/apps/presskeep/presskeep-identity.png",
+    "images/apps/saylight/saylight-icon.png",
+    "images/apps/saylight/saylight-identity.png",
+    "images/apps/saylight/saylight-watercolor.jpg",
+    "images/research/causal-reports/adapter-saturation.png",
+    "images/research/causal-reports/causal-intervention.png",
+    "images/research/causal-reports/qwen3-direction.png",
+    "images/research/causal-reports/self-observer.png",
+    "papers/deltaml-bench.pdf"
+  ]
+}

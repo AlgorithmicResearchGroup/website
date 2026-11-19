@@ -5,8 +5,16 @@ Summary: A collection of 4.7 million code files from 129K research repositories 
 Template: project
 Repo: https://github.com/AlgorithmicResearchGroup/ArXivResearchCode
 Featured: true
+Slug: arxiv-research-code-dataset-129k-research-repositories
+Category: projects
+Url: projects/arxiv-research-code-dataset-129k-research-repositories.html
+Save_as: projects/arxiv-research-code-dataset-129k-research-repositories.html
+Research_kind: Datasets
+Card_title: ArXiv Research Code
+Author: Algorithmic Research Group
+Origin: Algorithmic Research Group
 
-# The ArXiv Research Code Dataset: 4.7 Million Files from 129K Research Repositories
+## The ArXiv Research Code Dataset: 4.7 Million Files from 129K Research Repositories
 
 Most code datasets are built from the general population of open-source software: web apps, CLI tools, infrastructure code. These are useful for training general-purpose code models, but they do not capture how researchers actually write code. Research code has its own conventions, its own library ecosystem, and its own structural patterns. Training models that understand and generate research code requires training data drawn from research repositories.
 

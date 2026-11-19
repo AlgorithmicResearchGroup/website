@@ -5,7 +5,19 @@ Tags: agent-evaluation, benchmarks, python
 Summary: A 48-task benchmark for evaluating autonomous ML experimentation in real research repositories.
 Template: project
 Repo: https://github.com/AlgorithmicResearchGroup/deltaml-bench-public
+Paper: papers/deltaml-bench.pdf
 Featured: true
+Category: projects
+Url: projects/deltamlbench-can-ai-agents-improve-on-published-ml-research.html
+Save_as: projects/deltamlbench-can-ai-agents-improve-on-published-ml-research.html
+Research_kind: Benchmarks
+Card_title: DeltaML-Bench
+Author: Algorithmic Research Group
+Origin: Algorithmic Research Group
+Home_order: 06
+Home_label: Research note
+Home_title: Can an agent improve a published result?
+Home_summary: DeltaML-Bench puts autonomous experimentation inside 48 tasks drawn from real research repositories.
 
 Our earlier [ML Research Benchmark](https://arxiv.org/abs/2410.22553) evaluated whether AI agents could follow complex ML research instructions and iterate beyond initial baselines. DeltaML-Bench asks a related question under more realistic repository conditions: what happens when agents are given existing research code and asked to improve a published result?
 

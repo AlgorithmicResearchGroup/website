@@ -1,0 +1,9 @@
+{% macro app_card(app, siteurl) %}
+<a href="{{ siteurl }}/{{ app.url }}" class="research-card app-card">
+    <div class="research-card-top"><span>{{ app.discipline.split(' / ')[0] }}</span><img class="app-card-icon" src="{{ siteurl }}/{{ app.icon }}" alt="" width="52" height="52" loading="lazy"></div>
+    <h3 class="research-card-title">{{ app.title }}</h3>
+    <p class="research-card-summary">{{ app.summary|striptags }}</p>
+    <p class="app-card-platform">{{ app.platform }}</p>
+    <span class="research-card-link">Explore {{ app.title }} <span aria-hidden="true">+</span></span>
+</a>
+{% endmacro %}

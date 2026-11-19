@@ -1,36 +1,26 @@
 {% extends "base.html" %}
+{% from "research-cards.html" import research_card, featured_research %}
 {% block title %}Research — {{ SITENAME }}{% endblock %}
-{% block description %}Research projects from Algorithmic Research Group — benchmarks, datasets, and tools for machine learning and autonomous systems research.{% endblock %}
+{% block description %}Experiments, benchmarks, and open datasets from Algorithmic Research Group. Explore how AI systems learn, reason, and behave.{% endblock %}
 {% block canonical_url %}{{ SITEURL }}/projects.html{% endblock %}
 
 {% block body %}
-<main>
-    <section class="section">
+{% set projects = articles|selectattr('category.name', 'equalto', 'projects')|list %}
+<main id="main-content">
+    <section class="section research-archive">
         <div class="section-inner">
-            <div class="page-header">
-                <nav class="page-nav" aria-label="Site navigation">
-                    <a href="{{ SITEURL }}/">&larr; Home</a>
-                </nav>
-                <h1 class="page-title">Research</h1>
+            <div class="section-heading"><div><p class="eyebrow">The research collection</p><h1 class="page-title">Questions worth<br>putting to the test<span class="accent">.</span></h1></div><div class="section-heading-aside"><p>What AI systems know. How they behave. Where the measurements break down.</p><span class="micro">{{ projects|length }} studies. Open to explore.</span></div></div>
+            {% for introduction in pages if introduction.slug == 'research' %}<div class="research-introduction article-content">{{ introduction.content }}</div>{% endfor %}
+            <div class="research-filters" role="group" aria-label="Filter research" hidden>
+                <button type="button" data-filter="all" aria-pressed="true">All research</button>
+                <button type="button" data-filter="Benchmarks" aria-pressed="false">Benchmarks</button>
+                <button type="button" data-filter="Datasets" aria-pressed="false">Datasets</button>
+                <button type="button" data-filter="Experiments" aria-pressed="false">Experiments</button>
+                <span class="filter-count" id="filter-count" role="status" aria-live="polite">{{ projects|length }} studies</span>
             </div>
-
-            <div class="project-grid">
-                {% for article in articles|sort(attribute='date', reverse=true) %}
-                {% if article.category.name == 'projects' %}
-                <a href="{{ SITEURL }}/{{ article.url }}" class="project-card{% if article.featured %} project-card--featured{% endif %}">
-                    {% if article.image %}
-                    <div class="project-card-image">
-                        <img src="{{ SITEURL }}/images/{{ article.image }}" alt="{{ article.image_alt|default(article.title) }}" loading="lazy" decoding="async">
-                    </div>
-                    {% endif %}
-                    <h3 class="project-title">{{ article.title }}</h3>
-                    <p class="project-desc">{{ article.summary|striptags|truncate(160) }}</p>
-                    {% if article.tags %}
-                    <span class="project-meta">{{ article.tags|join(' / ') }}</span>
-                    {% endif %}
-                </a>
-                {% endif %}
-                {% endfor %}
+            <div id="research-results">
+                {% for project in projects if project.image %}{% if loop.first %}{{ featured_research(project, SITEURL) }}{% endif %}{% endfor %}
+                <div class="research-grid">{% for project in projects if not project.image %}{{ research_card(project, SITEURL) }}{% endfor %}</div>
             </div>
         </div>
     </section>

@@ -62,16 +62,16 @@
 
             <div class="project-links">
                 {% if article.repo %}
-                <a href="{{ article.repo }}" target="_blank" rel="noopener" class="project-link">GitHub &rarr;</a>
+                <a href="{{ article.repo }}" target="_blank" rel="noopener" class="project-link">GitHub</a>
                 {% endif %}
                 {% if article.demo %}
-                <a href="{{ article.demo }}" target="_blank" rel="noopener" class="project-link">Demo &rarr;</a>
+                <a href="{{ article.demo }}" target="_blank" rel="noopener" class="project-link">Demo</a>
                 {% endif %}
                 {% if article.paper %}
-                <a href="{{ article.paper }}" target="_blank" rel="noopener" class="project-link">Paper &rarr;</a>
+                <a href="{% if article.paper.startswith('papers/') %}{{ SITEURL }}/{% endif %}{{ article.paper }}" target="_blank" rel="noopener" class="project-link">Paper</a>
                 {% endif %}
                 {% if article.huggingface %}
-                <a href="{{ article.huggingface }}" target="_blank" rel="noopener" class="project-link">HuggingFace &rarr;</a>
+                <a href="{{ article.huggingface }}" target="_blank" rel="noopener" class="project-link">HuggingFace</a>
                 {% endif %}
             </div>
 

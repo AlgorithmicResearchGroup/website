@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software for the Work Between Systems — Algorithmic Research Group</title>
+    <meta name="description" content="The space between an inbox, a document, and a system of record is full of work. Building there starts with understanding the handoffs.">
+    <meta name="author" content="Algorithmic Research Group">
+    <meta name="theme-color" content="#101110">
+    <link rel="canonical" href="../blog/operational-ai-what-mid-market-teams-dont-know-they-need-yet.html">
+
+    <!-- Open Graph -->
+    <meta property="og:site_name" content="Algorithmic Research Group">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Software for the Work Between Systems">
+    <meta property="og:description" content="The space between an inbox, a document, and a system of record is full of work. Building there starts with understanding the handoffs.">
+    <meta property="og:url" content="../blog/operational-ai-what-mid-market-teams-dont-know-they-need-yet.html">
+<meta property="og:image" content="../images/og-default.jpg">    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Software for the Work Between Systems">
+    <meta name="twitter:description" content="The space between an inbox, a document, and a system of record is full of work. Building there starts with understanding the handoffs.">
+<meta name="twitter:image" content="../images/og-default.jpg">
+    <!-- Feeds -->
+    <link rel="alternate" type="application/atom+xml" title="Algorithmic Research Group — Atom Feed" href="../feeds/all.atom.xml">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../theme/favicon.svg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../theme/css/style.css">
+    <link rel="stylesheet" href="../theme/css/content.css">
+
+    <!-- JSON-LD -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Software for the Work Between Systems",
+    "description": "The space between an inbox, a document, and a system of record is full of work. Building there starts with understanding the handoffs.",
+    "url": "../blog/operational-ai-what-mid-market-teams-dont-know-they-need-yet.html",
+    "author": {
+        "@type": "Organization",
+        "name": "Algorithmic Research Group",
+        "url": ".."
+    },
+    "datePublished": "2026-05-28",
+    "dateModified": "2026-05-28",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Algorithmic Research Group",
+        "url": ".."
+    }}
+</script>
+
+    <!-- Analytics -->
+    <script async src="https://plausible.io/js/pa-ygtiEFvphM1dhd8t2DTpH.js"></script>
+    <script>
+      window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+      plausible.init()
+    </script>
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-nav">
+        <div class="nav-inner">
+            <a href="../" class="nav-logo" aria-label="Algorithmic Research Group home"><img src="../theme/logo-white.png" alt="ARG" class="nav-logo-img" width="154" height="46"><span class="nav-brand-name">Algorithmic<br>Research Group</span></a>
+            <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="main-navigation"><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span></button>
+            <nav class="nav-menu" id="main-navigation" aria-label="Main navigation">
+                <ul class="nav-links">
+                    <li><a href="../projects.html">Research</a></li>
+                    <li><a href="../work.html">Apps</a></li>
+                    <li><a href="../opensource.html">Open source</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../blog/">Writing</a></li>
+                    <li><a href="../contact.html" class="nav-contact">Let’s talk</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="inner-page" id="main-content">
+    <article class="full-article">
+        <header>
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="../">Home</a>
+                <span class="separator">/</span>
+                <a href="../blog/">Writing</a>
+                <span class="separator">/</span>
+                <span aria-current="page">Software for the Work Between Systems</span>
+            </nav>
+            <h1 class="article-title">Software for the Work Between Systems</h1>
+            <div class="article-meta">
+                <time class="post-date" datetime="2026-05-28">May 28, 2026</time>
+                <span class="post-tags">
+                    <a href="../tag/consulting.html">#consulting</a>
+                    <a href="../tag/operations.html">#operations</a>
+                    <a href="../tag/automation.html">#automation</a>
+                </span>
+            </div>
+        </header>
+
+        <div class="article-content">
+            <p>An organization can have plenty of software and still depend on someone reading an email, finding an attachment, copying a number, and deciding where the result belongs. The systems each cover part of the job. People carry the context between them.</p>
+<p>That work is an interesting place to build. It combines interfaces, document handling, decision rules, and the practical problem of getting a case to the next person in a usable state. AI can help with parts of that process, particularly where the input arrives as language or a document instead of a tidy record.</p>
+<p>I use “operational AI” to describe software built around those recurring tasks: reading, extracting, classifying, summarizing, and routing work inside an organization.</p>
+<h2>Start where information changes shape</h2>
+<p>Consider a hypothetical vendor intake process. A submission arrives by email. Its details are spread across a message, a form, and several attachments. Someone checks for missing material, copies fields into a tracker, and sends the packet to a reviewer.</p>
+<p>There are several distinct jobs here. Reading the varied documents is one. Checking required fields is another. Creating a record, assigning an owner, and tracking its status are others. Treating them separately makes the system easier to design and evaluate.</p>
+<p>A model might propose extracted fields and identify relevant passages. Explicit checks can test whether required information is present. A reviewer can resolve contradictions. An integration can write the approved record and attach its sources.</p>
+<p>Each step has an output the next step can inspect. That makes failures easier to locate.</p>
+<h2>Give the workflow an interface</h2>
+<p>A background process still needs an interface for the person responsible for it. They need to see what arrived, what finished, what is waiting, and what needs a decision.</p>
+<p>For the intake example, a useful screen could show the original submission beside the proposed record. Missing items would be named. Conflicting values would carry their source passages. A correction would update the case without requiring another round of copying.</p>
+<p>This design work matters as much as extraction quality. A technically accurate result can still be awkward to use if the reviewer cannot find it, trust its source, or send it onward.</p>
+<p>The same pattern appears in support routing, quality incident summaries, audit evidence collection, onboarding checks, shipment discrepancies, and reports assembled from spreadsheets. The details differ; the need for visible state and clear handoffs recurs.</p>
+<h2>Work with the existing environment</h2>
+<p>A bounded project can often connect to tools the team already uses: email, shared folders, a CRM, a ticketing system, an ERP, or an internal database. The existing documents and messages may provide enough material to define and test the first version.</p>
+<p>That does not eliminate integration work. Permissions, document formats, inconsistent identifiers, and the destination system's rules still determine what can be built. Investigate them early. A prototype running on exported files has only tested part of the eventual workflow.</p>
+<p>For a mid-sized team, a useful starting scope may be one incoming channel, one document type, and one destination. A pilot can fit into weeks when access and decisions are ready. Expanding it to more departments and systems is additional work that should be planned separately.</p>
+<h2>Keep the first release observable</h2>
+<p>Choose a result that can be measured against the current process. Track handling time, elapsed time, errors, and the work left for review. Keep enough history to explain how a particular record was produced.</p>
+<p>A limited release might prepare drafts for people to approve. Later, a well-tested subset might proceed automatically. Retain a clear escalation path for cases that lack information or fall outside the supported scope.</p>
+<p>The operational question is what changes for the team. Can specialists spend more time resolving a quality problem? Does a customer request reach its owner sooner? Can the same group handle a growing queue without accumulating a second backlog of corrections? Those outcomes need evidence after launch.</p>
+<h2>Let the next project emerge from use</h2>
+<p>A working system will reveal adjacent work. Reviewers may repeatedly request the same missing field. A summary may expose a useful routing distinction. A downstream team may need a different format.</p>
+<p>Use those observations to choose the next change. The result can grow into a coherent piece of software, shaped by the people and systems around it.</p>
+<p>There is plenty of room for invention here: in the review screen, the integration, the evaluation, and the way information moves. Ordinary work deserves that level of attention.</p>
+        </div>
+
+        <nav class="article-footer" aria-label="Article navigation">
+            <div class="prev"></div>
+        </nav>
+    </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-mega">
+            <div class="footer-brand">
+                <a href="../" class="footer-logo" aria-label="Algorithmic Research Group home"><img src="../theme/logo-white.png" alt="ARG" class="footer-logo-img" width="154" height="46"></a>
+                <p class="footer-tagline">Independent questions.<br>Open research.</p>
+                <a href="../studio.html" class="footer-studio">About the person and practice.</a>
+            </div>
+            <div class="footer-columns">
+                <div class="footer-col"><h2 class="footer-col-title">Explore</h2><ul>
+                    <li><a href="../projects.html">Research</a></li>
+                    <li><a href="../work.html">Apps & software</a></li>
+                    <li><a href="../opensource.html">Open source</a></li>
+                    <li><a href="../blog/">Writing</a></li>
+                    <li><a href="../tags.html">By topic</a></li>
+                </ul></div>
+                <div class="footer-col"><h2 class="footer-col-title">Connect</h2><ul>
+                    <li><a href="../about.html">About the group</a></li>
+                    <li><a href="../services.html">Work with us</a></li>
+                    <li><a href="../contact.html">Get in touch</a></li>
+                    <li><a href="https://github.com/AlgorithmicResearchGroup" target="_blank" rel="noopener">GitHub</a></li>
+                    <li><a href="https://huggingface.co/AlgorithmicResearchGroup" target="_blank" rel="noopener">Hugging Face</a></li>
+                </ul></div>
+            </div>
+        </div>
+        <div class="footer-bottom"><span>&copy; 2026 Algorithmic Research Group</span><span>Built on curiosity. Shared in the open.</span></div>
+    </footer>
+    <script src="../theme/js/site.js" defer></script>
+</body>
+</html>

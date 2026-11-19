@@ -5,8 +5,16 @@ Summary: A suite of five closed-book benchmarks probing the ML knowledge that fr
 Template: project
 Repo: https://github.com/AlgorithmicResearchGroup/aria-public
 Featured: true
+Slug: aria-benchmark-how-much-machine-learning-do-ai-models-actually-know
+Category: projects
+Url: projects/aria-benchmark-how-much-machine-learning-do-ai-models-actually-know.html
+Save_as: projects/aria-benchmark-how-much-machine-learning-do-ai-models-actually-know.html
+Research_kind: Benchmarks
+Card_title: ARIA Benchmark
+Author: Algorithmic Research Group
+Origin: Algorithmic Research Group
 
-# ARIA Benchmarks: How Much Machine Learning Do AI Models Actually Know?
+## ARIA Benchmarks: How Much Machine Learning Do AI Models Actually Know?
 
 Large language models are trained on vast amounts of text, including a substantial body of machine learning research. The question of how much of that knowledge they actually retain is worth investigating directly. Can they recall which modality a dataset belongs to, identify which evaluation metrics were used in a specific paper, or detect the odd model out in a list of architectures?
 

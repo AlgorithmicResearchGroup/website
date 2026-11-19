@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeltaMLBench — Algorithmic Research Group</title>
+    <meta name="description" content="A benchmark for testing whether agents can improve published machine learning work. The Inspect release includes 35 task families, feedback-visible and feedback-hidden...">
+    <meta name="author" content="Algorithmic Research Group">
+    <meta name="theme-color" content="#101110">
+    <link rel="canonical" href="../opensource/deltamlbench.html">
+
+    <!-- Open Graph -->
+    <meta property="og:site_name" content="Algorithmic Research Group">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="DeltaMLBench">
+    <meta property="og:description" content="A benchmark for testing whether agents can improve published machine learning work. The Inspect release includes 35 task families, feedback-visible and feedback-hidden...">
+    <meta property="og:url" content="../opensource/deltamlbench.html">
+<meta property="og:image" content="../images/og-default.jpg">    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="DeltaMLBench">
+    <meta name="twitter:description" content="A benchmark for testing whether agents can improve published machine learning work. The Inspect release includes 35 task families, feedback-visible and feedback-hidden...">
+<meta name="twitter:image" content="../images/og-default.jpg">
+    <!-- Feeds -->
+    <link rel="alternate" type="application/atom+xml" title="Algorithmic Research Group — Atom Feed" href="../feeds/all.atom.xml">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../theme/favicon.svg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../theme/css/style.css">
+    <link rel="stylesheet" href="../theme/css/content.css">
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Algorithmic Research Group",
+        "url": "..",
+        "description": "Independent AI research, open benchmarks and datasets, private apps, and practical software. Research and tools from Algorithmic Research Group.",
+        "sameAs": [
+            "https://github.com/AlgorithmicResearchGroup",
+            "https://huggingface.co/AlgorithmicResearchGroup"
+        ]
+    }
+    </script>
+
+    <!-- Analytics -->
+    <script async src="https://plausible.io/js/pa-ygtiEFvphM1dhd8t2DTpH.js"></script>
+    <script>
+      window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+      plausible.init()
+    </script>
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-nav">
+        <div class="nav-inner">
+            <a href="../" class="nav-logo" aria-label="Algorithmic Research Group home"><img src="../theme/logo-white.png" alt="ARG" class="nav-logo-img" width="154" height="46"><span class="nav-brand-name">Algorithmic<br>Research Group</span></a>
+            <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="main-navigation"><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span></button>
+            <nav class="nav-menu" id="main-navigation" aria-label="Main navigation">
+                <ul class="nav-links">
+                    <li><a href="../projects.html">Research</a></li>
+                    <li><a href="../work.html">Apps</a></li>
+                    <li><a href="../opensource.html">Open source</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../blog/">Writing</a></li>
+                    <li><a href="../contact.html" class="nav-contact">Let’s talk</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="inner-page" id="main-content">
+<article class="full-article resource-detail">
+    <header class="page-header">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../">Home</a><span class="separator">/</span><a href="../opensource.html">Open source</a></nav>
+        <p class="eyebrow">Code & Benchmarks</p>
+        <h1 class="page-title">DeltaMLBench</h1>
+        <p class="page-subtitle">A benchmark for testing whether agents can improve published machine learning work. The Inspect release includes 35 task families, feedback-visible and feedback-hidden variants, paper baselines, and an audit of submitted code and reported metrics.</p>
+        <a class="text-link" href="#get-resource">Get the resource</a>
+    </header>
+<div class="article-content">
+
+<p>DeltaMLBench starts with an existing research result and asks an agent to improve it. Each task connects a paper, a codebase, data, and a performance target. The experiment is about the additional progress an agent can make from that starting point.</p>
+<p>The current public release runs through <strong>Inspect AI</strong>. It supports <strong>35 active task families derived from Papers with Code</strong>, each exposed in two forms, for 70 task variants. This page describes that supported release; the accompanying paper provides the broader research context.</p>
+<h2>Feedback as an experimental variable</h2>
+<p>Each family has a <code>main</code> variant that exposes a scoring tool and a <code>hidden_score</code> variant that withholds intermediate scoring feedback. Both use the same scorer. “Hidden” describes the feedback available to the agent; it does not mean a separate hidden-label dataset.</p>
+<p>That pairing makes it possible to investigate how access to evaluation feedback changes an agent's research process while holding the underlying task and scoring procedure fixed.</p>
+<h2>How an improvement is scored</h2>
+<p>An agent submits code whose <code>solution.evaluate()</code> function reports the task metrics, together with execution evidence. The runtime checks the report against the submitted code and declared logs, then sends a redacted code-and-trajectory bundle to an integrity judge. Accepted metrics are compared with the checked-in paper baseline and task-specific constraints.</p>
+<p>The <a href="https://github.com/AlgorithmicResearchGroup/deltaml-bench-inspect/blob/master/docs/SCORER_PROTOCOL.md">scoring protocol</a> makes an important boundary explicit: this process audits agent-reported measurements; it does not independently rerun the model on a second hidden dataset. It also documents how code hashes, metric consistency checks, and judge decisions enter the result.</p>
+<h2>What the release provides</h2>
+<p>The repository includes task manifests, setup and scoring code, Docker sandbox configuration, Inspect task wrappers, and the <code>modular-public</code> agent integration. Papers, repository snapshots, and datasets are fetched from ARG's public Hugging Face storage bucket. The supplied <code>doctor</code> command checks the objects required by active task manifests before a run.</p>
+<p>Begin with the README's no-model smoke test to check installation, sandboxing, and scoring. Full research runs require task-appropriate compute and may need GPUs. The supported Inspect suite excludes archived tasks and the legacy <code>ai_rd_*</code> families; use the current task listing when designing comparisons.</p>
+<p><a href="../projects/deltamlbench-can-ai-agents-improve-on-published-ml-research.html">Read the DeltaMLBench research article</a> for the study behind the benchmark.</p></div>    <section class="resource-download-panel" id="get-resource" aria-labelledby="resource-download-title"><h2 id="resource-download-title">Get the resource</h2><div class="article-content resource-links"><ul>
+<li><a href="https://github.com/AlgorithmicResearchGroup/deltaml-bench-inspect">AlgorithmicResearchGroup/DeltaMLBench</a></li>
+<li><a href="../papers/deltaml-bench.pdf">Paper (PDF)</a></li>
+<li><a href="https://huggingface.co/buckets/AlgorithmicResearchGroup/dmlb">Task papers, code snapshots, and datasets</a></li>
+</ul>
+</div></section>
+    <div class="about-reading-footer"><a class="text-link" href="../opensource.html">All open resources</a><a class="text-link" href="../projects.html">Read the research</a></div>
+</article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-mega">
+            <div class="footer-brand">
+                <a href="../" class="footer-logo" aria-label="Algorithmic Research Group home"><img src="../theme/logo-white.png" alt="ARG" class="footer-logo-img" width="154" height="46"></a>
+                <p class="footer-tagline">Independent questions.<br>Open research.</p>
+                <a href="../studio.html" class="footer-studio">About the person and practice.</a>
+            </div>
+            <div class="footer-columns">
+                <div class="footer-col"><h2 class="footer-col-title">Explore</h2><ul>
+                    <li><a href="../projects.html">Research</a></li>
+                    <li><a href="../work.html">Apps & software</a></li>
+                    <li><a href="../opensource.html">Open source</a></li>
+                    <li><a href="../blog/">Writing</a></li>
+                    <li><a href="../tags.html">By topic</a></li>
+                </ul></div>
+                <div class="footer-col"><h2 class="footer-col-title">Connect</h2><ul>
+                    <li><a href="../about.html">About the group</a></li>
+                    <li><a href="../services.html">Work with us</a></li>
+                    <li><a href="../contact.html">Get in touch</a></li>
+                    <li><a href="https://github.com/AlgorithmicResearchGroup" target="_blank" rel="noopener">GitHub</a></li>
+                    <li><a href="https://huggingface.co/AlgorithmicResearchGroup" target="_blank" rel="noopener">Hugging Face</a></li>
+                </ul></div>
+            </div>
+        </div>
+        <div class="footer-bottom"><span>&copy; 2026 Algorithmic Research Group</span><span>Built on curiosity. Shared in the open.</span></div>
+    </footer>
+    <script src="../theme/js/site.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{% extends "page.html" %}
+{% block content %}
+{% set sections = page.content.split('<!-- resource-details -->', 1) %}
+<article class="full-article resource-detail">
+    <header class="page-header">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="{{ SITEURL }}/">Home</a><span class="separator">/</span><a href="{{ SITEURL }}/opensource.html">Open source</a></nav>
+        <p class="eyebrow">{{ page.artifact_group }}</p>
+        <h1 class="page-title">{{ page.title }}</h1>
+        <p class="page-subtitle">{{ page.summary|striptags }}</p>
+        <a class="text-link" href="#get-resource">Get the resource</a>
+    </header>
+    {% if sections|length > 1 %}<div class="article-content">{{ sections[1] }}</div>{% endif %}
+    <section class="resource-download-panel" id="get-resource" aria-labelledby="resource-download-title"><h2 id="resource-download-title">Get the resource</h2><div class="article-content resource-links">{{ sections[0] }}</div></section>
+    <div class="about-reading-footer"><a class="text-link" href="{{ SITEURL }}/opensource.html">All open resources</a><a class="text-link" href="{{ SITEURL }}/projects.html">Read the research</a></div>
+</article>
+{% endblock %}

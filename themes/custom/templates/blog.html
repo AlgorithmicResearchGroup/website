@@ -6,7 +6,7 @@
     <div class="page-header">
         <h1 class="page-title">Writing</h1>
         <nav class="page-nav" aria-label="Site navigation">
-            <a href="{{ SITEURL }}/">&larr; Home</a>
+            <a href="{{ SITEURL }}/">Home</a>
         </nav>
     </div>
 
@@ -25,9 +25,9 @@
                 {% endif %}
             </div>
             {% if article.summary %}
-            <p class="post-summary">{{ article.summary }}</p>
+            <div class="post-summary">{{ article.summary }}</div>
             {% endif %}
-            <a href="{{ SITEURL }}/{{ article.url }}" class="read-more">Read more &rarr;</a>
+            <a href="{{ SITEURL }}/{{ article.url }}" class="read-more">Read more</a>
         </article>
         {% endfor %}
     </div>

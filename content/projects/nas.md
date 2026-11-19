@@ -5,8 +5,21 @@ Template: project
 Summary: A tiny recursive reasoning model trained to rank architectures by predicted performance achieves 8-10x sample efficiency over random search and transfers zero-shot across datasets with minimal loss in ranking quality.
 Repo: https://github.com/AlgorithmicResearchGroup/nas-public
 Featured: true
+Slug: learning-to-rank-architectures-a-small-model-that-guides-neural-architecture-search
+Category: projects
+Url: projects/learning-to-rank-architectures-a-small-model-that-guides-neural-architecture-search.html
+Save_as: projects/learning-to-rank-architectures-a-small-model-that-guides-neural-architecture-search.html
+Research_kind: Experiments
+Card_title: Neural Architecture Search
+Author: Algorithmic Research Group
+Origin: Algorithmic Research Group
+Home_order: 01
+Home_label: Research note
+Home_title: Neural Architecture Search
+Home_summary: Can a small model learn which neural networks are worth training? An experiment in ranking architectures, saving evaluations, and seeing what transfers.
+In_notes: yes
 
-# Learning to Rank Architectures: A Small Model That Guides Neural Architecture Search
+## Learning to Rank Architectures: A Small Model That Guides Neural Architecture Search
 
 Most neural architecture search methods are expensive. The typical approach defines a search space, evaluates thousands of architectures by training each to convergence, and hopes the best one justifies the compute cost. The core inefficiency is clear: the vast majority of those evaluations are wasted on architectures that were never going to be competitive.
 

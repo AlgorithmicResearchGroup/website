@@ -1,49 +1,5 @@
-{% extends "base.html" %}
-{% block title %}About | {{ SITENAME }}{% endblock %}
-{% block description %}A small, for-profit research organization building open benchmarks, datasets, and infrastructure. Open to sponsorship and partnerships.{% endblock %}
-
-{% block body %}
-<main>
-    <!-- Header -->
-    <section class="about-hero">
-        <h1 class="about-hero-title">About</h1>
-    </section>
-
-    <!-- Who We Are -->
-    <section class="section section--ruled">
-        <div class="section-inner">
-            <p class="section-label">Who We Are</p>
-            <div class="manifesto-text">
-                <p>We build benchmarks, datasets, and infrastructure for machine learning and autonomous systems research. Everything we ship is open source, so other researchers can reproduce and build on our work.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sponsor Directly -->
-    <section class="section section--ruled section--surface">
-        <div class="section-inner">
-            <p class="section-label">Sponsor Directly</p>
-            <div class="manifesto-text">
-                <p>Sponsorships fund open-source benchmarks, datasets, and research tools. Everything we build with sponsor support ships public.</p>
-            </div>
-            <div class="about-cta">
-                <a href="https://buy.stripe.com/eVq00j08yby32Pe8HE6sw02" target="_blank" rel="noopener" class="about-cta-link about-cta-link--primary">Sponsor &rarr;</a>
-                <p class="about-fine-print">Sponsorships are not tax-deductible.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Partnerships -->
-    <section class="section section--ruled">
-        <div class="section-inner">
-            <p class="section-label">Partnerships</p>
-            <div class="manifesto-text">
-                <p>For funded research projects, dataset sponsorships, or infrastructure partnerships, get in touch. We're flexible on structure, firm on keeping the output open.</p>
-            </div>
-            <div class="about-cta">
-                <a href="{{ SITEURL }}/contact.html" class="about-cta-link">Get in touch &rarr;</a>
-            </div>
-        </div>
-    </section>
-</main>
+{% extends "page.html" %}
+{% block content %}
+{{ super() }}
+<div class="about-reading-footer"><a class="text-link" href="{{ SITEURL }}/studio.html">More about the person and practice</a><a class="text-link" href="{{ SITEURL }}/services.html">Work with us</a></div>
 {% endblock %}

@@ -5,8 +5,16 @@ Summary: A dataset of 778,152 functions extracted from arXiv-linked research cod
 Template: project
 Repo: https://github.com/AlgorithmicResearchGroup/ArXivDLInstruct
 Featured: true
+Slug: arxivdlinstruct-778k-research-code-functions-for-instruction-tuning
+Category: projects
+Url: projects/arxivdlinstruct-778k-research-code-functions-for-instruction-tuning.html
+Save_as: projects/arxivdlinstruct-778k-research-code-functions-for-instruction-tuning.html
+Research_kind: Datasets
+Card_title: ArXivDLInstruct
+Author: Algorithmic Research Group
+Origin: Algorithmic Research Group
 
-# ArXivDLInstruct: 778K Research Code Functions for Instruction Tuning
+## ArXivDLInstruct: 778K Research Code Functions for Instruction Tuning
 
 High-quality, deep learning-specific datasets for training language models on code generation remain scarce. General code datasets like The Stack are massive but dilute: most functions have no relationship to ML research. Training a model that can write PyTorch training loops, implement custom loss functions, or build neural network architectures requires data concentrated in that domain.
 

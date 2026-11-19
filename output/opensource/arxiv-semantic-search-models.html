@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArXiv Semantic Search Models — Algorithmic Research Group</title>
+    <meta name="description" content="DistilBERT and DistilRoBERTa encoders trained on generated arXiv question–abstract pairs, producing 768-dimensional embeddings for scientific search and similarity.">
+    <meta name="author" content="Algorithmic Research Group">
+    <meta name="theme-color" content="#101110">
+    <link rel="canonical" href="../opensource/arxiv-semantic-search-models.html">
+
+    <!-- Open Graph -->
+    <meta property="og:site_name" content="Algorithmic Research Group">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ArXiv Semantic Search Models">
+    <meta property="og:description" content="DistilBERT and DistilRoBERTa encoders trained on generated arXiv question–abstract pairs, producing 768-dimensional embeddings for scientific search and similarity.">
+    <meta property="og:url" content="../opensource/arxiv-semantic-search-models.html">
+<meta property="og:image" content="../images/og-default.jpg">    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ArXiv Semantic Search Models">
+    <meta name="twitter:description" content="DistilBERT and DistilRoBERTa encoders trained on generated arXiv question–abstract pairs, producing 768-dimensional embeddings for scientific search and similarity.">
+<meta name="twitter:image" content="../images/og-default.jpg">
+    <!-- Feeds -->
+    <link rel="alternate" type="application/atom+xml" title="Algorithmic Research Group — Atom Feed" href="../feeds/all.atom.xml">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../theme/favicon.svg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../theme/css/style.css">
+    <link rel="stylesheet" href="../theme/css/content.css">
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Algorithmic Research Group",
+        "url": "..",
+        "description": "Independent AI research, open benchmarks and datasets, private apps, and practical software. Research and tools from Algorithmic Research Group.",
+        "sameAs": [
+            "https://github.com/AlgorithmicResearchGroup",
+            "https://huggingface.co/AlgorithmicResearchGroup"
+        ]
+    }
+    </script>
+
+    <!-- Analytics -->
+    <script async src="https://plausible.io/js/pa-ygtiEFvphM1dhd8t2DTpH.js"></script>
+    <script>
+      window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+      plausible.init()
+    </script>
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-nav">
+        <div class="nav-inner">
+            <a href="../" class="nav-logo" aria-label="Algorithmic Research Group home"><img src="../theme/logo-white.png" alt="ARG" class="nav-logo-img" width="154" height="46"><span class="nav-brand-name">Algorithmic<br>Research Group</span></a>
+            <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="main-navigation"><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span></button>
+            <nav class="nav-menu" id="main-navigation" aria-label="Main navigation">
+                <ul class="nav-links">
+                    <li><a href="../projects.html">Research</a></li>
+                    <li><a href="../work.html">Apps</a></li>
+                    <li><a href="../opensource.html">Open source</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../blog/">Writing</a></li>
+                    <li><a href="../contact.html" class="nav-contact">Let’s talk</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="inner-page" id="main-content">
+<article class="full-article resource-detail">
+    <header class="page-header">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../">Home</a><span class="separator">/</span><a href="../opensource.html">Open source</a></nav>
+        <p class="eyebrow">Models</p>
+        <h1 class="page-title">ArXiv Semantic Search Models</h1>
+        <p class="page-subtitle">DistilBERT and DistilRoBERTa encoders trained on generated arXiv question–abstract pairs, producing 768-dimensional embeddings for scientific search and similarity.</p>
+        <a class="text-link" href="#get-resource">Get the resource</a>
+    </header>
+<div class="article-content">
+
+<h2>Finding papers by meaning</h2>
+<p>These two models turn scientific sentences and paragraphs into 768-dimensional vectors. Encode a question and a collection of abstracts, then compare their embeddings to rank candidate papers by semantic similarity. Each input produces a vector that can be stored in a search index; the models do not generate an answer or a summary.</p>
+<p>The releases share a Sentence Transformers interface and mean pooling over token representations. Their backbones differ: the <a href="https://huggingface.co/AlgorithmicResearchGroup/arxiv-distilbert-base-v3-GenQ/blob/main/config.json">DistilBERT configuration</a> identifies <code>distilbert-base-uncased</code>, while the <a href="https://huggingface.co/AlgorithmicResearchGroup/arxiv-distilroberta-base-GenQ/blob/main/config.json">DistilRoBERTa configuration</a> identifies <code>distilroberta-base</code>. Both have six transformer layers, twelve attention heads, and a hidden dimension of 768.</p>
+<h2>Training on generated questions</h2>
+<p>The <a href="https://huggingface.co/AlgorithmicResearchGroup/arxiv-distilbert-base-v3-GenQ">DistilBERT model card</a> and <a href="https://huggingface.co/AlgorithmicResearchGroup/arxiv-distilroberta-base-GenQ">DistilRoBERTa model card</a> describe training on question–abstract pairs from the <a href="https://huggingface.co/datasets/AlgorithmicResearchGroup/arxiv-beir-500k-generated-queries">arXiv generated-query corpus</a>. Both record one training epoch, batches of 64, and <code>MultipleNegativesRankingLoss</code> with cosine similarity and a scale of 20. The optimizer was AdamW at a learning rate of <code>2e-5</code>, with linear warmup and weight decay of <code>0.01</code>.</p>
+<p>The cards credit Matthew Kenney, 2023, and retain the original ArtifactAI names in their examples. The download links point to the current AlgorithmicResearchGroup repositories. Both model releases specify Apache 2.0 licensing.</p>
+<h2>Working with the embeddings</h2>
+<p>Load either repository with <code>SentenceTransformer</code> and call <code>encode()</code> on a list of strings. A direct Transformers implementation needs the tokenizer, the encoder, and attention-mask-aware mean pooling; the cards include that alternative. Padding tokens should not contribute to the average.</p>
+<p>Both saved Sentence Transformers configurations limit an input to <strong>350 tokens</strong>, even though the underlying encoders support longer sequences. Full papers therefore need an explicit passage-splitting or truncation strategy. Keep the same model and preprocessing for queries and indexed passages.</p>
+<p>The cards document training settings but do not publish numerical retrieval scores or a controlled comparison between the two variants. They provide a starting point for scientific search, with retrieval quality to be measured against the queries and relevance judgments of the intended collection.</p></div>    <section class="resource-download-panel" id="get-resource" aria-labelledby="resource-download-title"><h2 id="resource-download-title">Get the resource</h2><div class="article-content resource-links"><ul>
+<li><a href="https://huggingface.co/AlgorithmicResearchGroup/arxiv-distilbert-base-v3-GenQ">AlgorithmicResearchGroup/arxiv-distilbert-base-v3-GenQ</a></li>
+<li><a href="https://huggingface.co/AlgorithmicResearchGroup/arxiv-distilroberta-base-GenQ">AlgorithmicResearchGroup/arxiv-distilroberta-base-GenQ</a></li>
+</ul>
+</div></section>
+    <div class="about-reading-footer"><a class="text-link" href="../opensource.html">All open resources</a><a class="text-link" href="../projects.html">Read the research</a></div>
+</article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-mega">
+            <div class="footer-brand">
+                <a href="../" class="footer-logo" aria-label="Algorithmic Research Group home"><img src="../theme/logo-white.png" alt="ARG" class="footer-logo-img" width="154" height="46"></a>
+                <p class="footer-tagline">Independent questions.<br>Open research.</p>
+                <a href="../studio.html" class="footer-studio">About the person and practice.</a>
+            </div>
+            <div class="footer-columns">
+                <div class="footer-col"><h2 class="footer-col-title">Explore</h2><ul>
+                    <li><a href="../projects.html">Research</a></li>
+                    <li><a href="../work.html">Apps & software</a></li>
+                    <li><a href="../opensource.html">Open source</a></li>
+                    <li><a href="../blog/">Writing</a></li>
+                    <li><a href="../tags.html">By topic</a></li>
+                </ul></div>
+                <div class="footer-col"><h2 class="footer-col-title">Connect</h2><ul>
+                    <li><a href="../about.html">About the group</a></li>
+                    <li><a href="../services.html">Work with us</a></li>
+                    <li><a href="../contact.html">Get in touch</a></li>
+                    <li><a href="https://github.com/AlgorithmicResearchGroup" target="_blank" rel="noopener">GitHub</a></li>
+                    <li><a href="https://huggingface.co/AlgorithmicResearchGroup" target="_blank" rel="noopener">Hugging Face</a></li>
+                </ul></div>
+            </div>
+        </div>
+        <div class="footer-bottom"><span>&copy; 2026 Algorithmic Research Group</span><span>Built on curiosity. Shared in the open.</span></div>
+    </footer>
+    <script src="../theme/js/site.js" defer></script>
+</body>
+</html>

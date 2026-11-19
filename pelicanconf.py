@@ -3,7 +3,7 @@
 
 AUTHOR = 'Algorithmic Research Group'
 SITENAME = 'Algorithmic Research Group'
-SITEDESCRIPTION = 'Algorithmic Research Group — open infrastructure for research.'
+SITEDESCRIPTION = 'Independent AI research, open benchmarks and datasets, private apps, and practical software. Research and tools from Algorithmic Research Group.'
 SITEURL = ''
 
 PATH = 'content'
@@ -35,7 +35,7 @@ DEFAULT_PAGINATION = 10
 RELATIVE_URLS = True
 
 # Static paths
-STATIC_PATHS = ['images', 'extra/CNAME', 'extra/robots.txt']
+STATIC_PATHS = ['images', 'papers', 'extra/CNAME', 'extra/robots.txt']
 EXTRA_PATH_METADATA = {
     'extra/CNAME': {'path': 'CNAME'},
     'extra/robots.txt': {'path': 'robots.txt'},
@@ -46,6 +46,8 @@ PAGE_PATHS = ['pages']
 
 # Article paths
 ARTICLE_PATHS = ['blog', 'projects']
+# Empty planning files are kept in the checkout, outside the published collection.
+IGNORE_FILES = ['**/.*', 'backlog.md', 'scoutml.md']
 USE_FOLDER_AS_CATEGORY = True
 
 # Custom settings

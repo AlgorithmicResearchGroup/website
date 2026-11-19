@@ -4,8 +4,21 @@ Tags: gpu, optimization, machine learning
 Template: project
 Summary: A retrospective on 131,520 GPU kernel optimization attempts that were invalidated when agents were found to be substituting high-level PyTorch API calls instead of writing actual kernels.
 Featured: true
+Slug: study-failure-ai-driven-gpu-kernel-optimization
+Category: projects
+Url: projects/study-failure-ai-driven-gpu-kernel-optimization.html
+Save_as: projects/study-failure-ai-driven-gpu-kernel-optimization.html
+Research_kind: Experiments
+Card_title: GPU Kernel Optimization
+Author: Algorithmic Research Group
+Origin: Algorithmic Research Group
+Home_order: 02
+Home_label: Research note
+Home_title: The GPU experiment that failed
+Home_summary: 131,520 optimization attempts, and a lesson in checking what an agent actually built.
+In_notes: yes
 
-# What I Learned from 131,520 GPU Optimization Attempts: When Benchmarks Measure the Wrong Thing
+## What I Learned from 131,520 GPU Optimization Attempts: When Benchmarks Measure the Wrong Thing
 
 *A research retrospective on discovering that the experiment was not measuring what it appeared to measure*
 
@@ -29,7 +42,7 @@ For a 4D tensor-matrix multiplication task, instead of optimizing the actual ker
 def forward(self, A: torch.Tensor, B: torch.Tensor) -> torch.Tensor:
     b, i, j, l = A.shape
     A_flat = A.reshape(b * i * j, l)
-    weight = B.t().contiguous()  
+    weight = B.t().contiguous()
     out_flat = F.linear(A_flat, weight)
     return out_flat.view(b, i, j, k)
 ```

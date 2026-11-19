@@ -3,8 +3,22 @@ Date: 2026-03-01
 Tags: ai-research, agi, recursive-improvement
 Summary: We implemented five LLM agents playing the social-deduction game Secret Hitler with structured logging to quantify deception, belief accuracy, and coalition dynamics.
 Featured: true
+Slug: teaching-models-to-bluff-measuring-deception-belief-and-coordination-in-llm-secret-hitler
+Category: projects
+Template: project
+Url: projects/teaching-models-to-bluff-measuring-deception-belief-and-coordination-in-llm-secret-hitler.html
+Save_as: projects/teaching-models-to-bluff-measuring-deception-belief-and-coordination-in-llm-secret-hitler.html
+Research_kind: Experiments
+Card_title: Teaching Models to Bluff
+Author: Algorithmic Research Group
+Origin: Algorithmic Research Group
+Home_order: 04
+Home_label: Research note
+Home_title: Teaching Models to Bluff
+Home_summary: Five language models sit down to play Secret Hitler. Deception, belief, and coordination become things we can measure.
+In_notes: yes
 
-# Teaching Models to Bluff: Measuring Deception, Belief, and Coordination in LLM Secret Hitler
+## Teaching Models to Bluff: Measuring Deception, Belief, and Coordination in LLM Secret Hitler
 
 **TL;DR** We implemented five LLM agents playing the social-deduction game Secret Hitler with structured logging. Each round captures votes, public claims, private beliefs, and ground truth (the actual deck). From this data we compute claim honesty, cross-claim consistency, belief accuracy, coalition entropy, and communication load. Early runs (seeded for reproducibility) show: (1) claim honesty of approximately 60% across checks; (2) president-chancellor claim consistency of approximately 75%; (3) belief accuracy in the 50-75% range (often near chance); and (4) substantial amounts of process-oriented meta-talk ("freeze this pair," "post exact order," "no slow-rolls"). The result is a behavioral testbed for agentic deception and theory of mind.
 

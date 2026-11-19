@@ -1,42 +1,23 @@
-{% extends "base.html" %}
-{% block title %}Open Source — {{ SITENAME }}{% endblock %}
-
+{% extends "page.html" %}
 {% block body %}
-<main>
+<main id="main-content">
     {% set section_groups = ['Code & Benchmarks', 'Datasets', 'Models'] %}
-    <!-- Hero -->
     <section class="os-hero">
-        <div class="section-inner">
-            <h1 class="os-hero-title">{{ page.title }}</h1>
-            <p class="os-hero-desc">{{ page.summary|striptags }}</p>
-            {% if page.content %}
-            <div class="os-hero-copy">{{ page.content }}</div>
-            {% endif %}
-        </div>
+        <div class="section-inner"><p class="eyebrow">Built to be used</p><h1 class="os-hero-title">{{ page.title }}</h1><p class="os-hero-desc">{{ page.summary|striptags }}</p><div class="os-hero-copy article-content">{{ page.content }}</div></div>
     </section>
-
-    <!-- Artifacts -->
     <section class="section section--bg">
         <div class="section-inner">
             {% for group_name in section_groups %}
-            {% set section_artifacts = pages
-                |selectattr('artifact_group', 'defined')
-                |selectattr('artifact_group', 'equalto', group_name)
-                |sort(attribute='artifact_order') %}
-            {% if section_artifacts %}
-            <h2 class="section-label{% if not loop.first %} section-label--spaced{% endif %}">// {{ group_name }}</h2>
+            {% set resources = pages|selectattr('artifact_group', 'defined')|selectattr('artifact_group', 'equalto', group_name)|sort(attribute='resource_order')|list %}
+            {% if resources %}
+            <h2 id="{{ 'code-benchmarks' if loop.first else group_name|lower }}" class="section-label{% if not loop.first %} section-label--spaced{% endif %}">{{ group_name }} / {{ resources|length }} resources</h2>
             <div class="artifact-grid">
-                {% for artifact in section_artifacts %}
+                {% for resource in resources %}
                 <article class="artifact-card">
-                    <h3 class="artifact-title">{{ artifact.title }}</h3>
-                    {% if artifact.summary %}
-                    <p class="artifact-desc">{{ artifact.summary|striptags }}</p>
-                    {% endif %}
-                    {% if artifact.content %}
-                    <div class="artifact-card-body">
-                        {{ artifact.content }}
-                    </div>
-                    {% endif %}
+                    <h3 class="artifact-title"><a href="{{ SITEURL }}/{{ resource.url }}">{{ resource.title }}</a></h3>
+                    <p class="artifact-desc">{{ resource.summary|striptags }}</p>
+                    <div class="artifact-card-body">{{ resource.content.split('<!-- resource-details -->', 1)[0] }}</div>
+                    <a class="text-link resource-detail-link" href="{{ SITEURL }}/{{ resource.url }}">About this resource</a>
                 </article>
                 {% endfor %}
             </div>

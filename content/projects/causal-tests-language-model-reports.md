@@ -1,15 +1,38 @@
 Title: Causal Tests of Language-Model Reports
 Date: 2026-09-25
 Slug: causal-tests-language-model-reports
+Category: projects
+Url: projects/causal-tests-language-model-reports.html
+Save_as: projects/causal-tests-language-model-reports.html
 Template: project
-Tags: ai-research, interpretability, model-evaluation
+Research_kind: Introspection
+Card_title: Causal Tests of Language-Model Reports
+Author: Matthew Kenney
+Author_type: Person
+Affiliation: Duke University
+Publication_status: Forthcoming
+Research_featured: yes
+Feature_image: images/research/causal-reports/causal-intervention.png
+Feature_image_alt: Two panels show that a 40-point hidden-weight intervention shifts the choice-inferred weight by 39 points and the reported weight by 14, while the other four learned weights change little.
+Feature_image_width: 1997
+Feature_image_height: 737
+Feature_image_caption: A 40-point intervention moved the choice-inferred weight by 39 points and the reported weight by 14. Dots represent seven complete randomized blocks; diamonds and error bars show means and 95% intervals.
+In_notes: yes
+Home_order: 00
+Home_label: New research
+Home_title: Can language models report what they learned?
+Home_summary: Changing a learned preference moves the model’s self-report. But the report captures only about 36% of the behavioral change.
+Research_order: 00
+Summary: Controlled changes to a learned preference move a model’s self-report, but the report captures only about 36% of the behavioral change.
 Image: research/causal-reports/causal-intervention.png
 Image_alt: Two panels show that a 40-point hidden-weight intervention shifts the choice-inferred weight by 39 points and the reported weight by 14, while the other four learned weights change little.
 Image_width: 1997
 Image_height: 737
 Hide_hero: true
-Featured: true
-Summary: Controlled changes to a learned preference move a model’s self-report, but the report captures only about 36% of the behavioral change.
+Featured_value: 36
+Featured_unit: %
+Featured_caption: of the behavioral change captured by self-report
+Featured_label: Forthcoming
 
 *Manuscript in preparation.*
 

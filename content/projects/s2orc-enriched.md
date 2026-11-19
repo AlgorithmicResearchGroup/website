@@ -5,6 +5,14 @@ Template: project
 Summary: A filtered and LLM-enriched version of Allen AI's S2ORC corpus containing 1.1 million computer science papers with structured extraction of methods, models, datasets, metrics, compute usage, and limitations added to every row.
 Repo: https://huggingface.co/datasets/AlgorithmicResearchGroup/s2orc-cs-enriched
 Featured: true
+Slug: s2orc-cs-enriched-11-million-computer-science-papers-with-structured-metadata
+Category: projects
+Url: projects/s2orc-cs-enriched-11-million-computer-science-papers-with-structured-metadata.html
+Save_as: projects/s2orc-cs-enriched-11-million-computer-science-papers-with-structured-metadata.html
+Research_kind: Datasets
+Card_title: S2ORC CS Enriched
+Author: Algorithmic Research Group
+Origin: Algorithmic Research Group
 
 [HuggingFace →](https://huggingface.co/datasets/AlgorithmicResearchGroup/s2orc-cs-enriched)
 

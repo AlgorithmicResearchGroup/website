@@ -5,8 +5,16 @@ Summary: A benchmark suite of 7 competition-level ML challenges for evaluating w
 Template: project
 Repo: https://github.com/AlgorithmicResearchGroup/mlrb-agent-public
 Featured: true
+Slug: ml-research-benchmark-can-ai-agents-do-real-ml-research
+Category: projects
+Url: projects/ml-research-benchmark-can-ai-agents-do-real-ml-research.html
+Save_as: projects/ml-research-benchmark-can-ai-agents-do-real-ml-research.html
+Research_kind: Benchmarks
+Card_title: ML Research Benchmark
+Author: Algorithmic Research Group
+Origin: Algorithmic Research Group
 
-# Can AI Agents Do Real ML Research? We Built a Benchmark to Find Out
+## Can AI Agents Do Real ML Research? We Built a Benchmark to Find Out
 
 AI agents have become remarkably capable at writing code, browsing the web, and completing complex tasks. Whether they can do something more difficult remains an open question: can they actually perform machine learning research? This means not just running a training script, but making the kinds of decisions a researcher makes: choosing architectures, tuning hyperparameters, iterating on failed experiments, and pushing toward state-of-the-art results.
 

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArXiv LED Summarization Models — Algorithmic Research Group</title>
+    <meta name="description" content="Base and large Longformer Encoder–Decoder checkpoints for arXiv summarization, with 16,384-token input capacity and published test-set ROUGE results.">
+    <meta name="author" content="Algorithmic Research Group">
+    <meta name="theme-color" content="#101110">
+    <link rel="canonical" href="../opensource/arxiv-led-summarization-models.html">
+
+    <!-- Open Graph -->
+    <meta property="og:site_name" content="Algorithmic Research Group">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ArXiv LED Summarization Models">
+    <meta property="og:description" content="Base and large Longformer Encoder–Decoder checkpoints for arXiv summarization, with 16,384-token input capacity and published test-set ROUGE results.">
+    <meta property="og:url" content="../opensource/arxiv-led-summarization-models.html">
+<meta property="og:image" content="../images/og-default.jpg">    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ArXiv LED Summarization Models">
+    <meta name="twitter:description" content="Base and large Longformer Encoder–Decoder checkpoints for arXiv summarization, with 16,384-token input capacity and published test-set ROUGE results.">
+<meta name="twitter:image" content="../images/og-default.jpg">
+    <!-- Feeds -->
+    <link rel="alternate" type="application/atom+xml" title="Algorithmic Research Group — Atom Feed" href="../feeds/all.atom.xml">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../theme/favicon.svg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../theme/css/style.css">
+    <link rel="stylesheet" href="../theme/css/content.css">
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Algorithmic Research Group",
+        "url": "..",
+        "description": "Independent AI research, open benchmarks and datasets, private apps, and practical software. Research and tools from Algorithmic Research Group.",
+        "sameAs": [
+            "https://github.com/AlgorithmicResearchGroup",
+            "https://huggingface.co/AlgorithmicResearchGroup"
+        ]
+    }
+    </script>
+
+    <!-- Analytics -->
+    <script async src="https://plausible.io/js/pa-ygtiEFvphM1dhd8t2DTpH.js"></script>
+    <script>
+      window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+      plausible.init()
+    </script>
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-nav">
+        <div class="nav-inner">
+            <a href="../" class="nav-logo" aria-label="Algorithmic Research Group home"><img src="../theme/logo-white.png" alt="ARG" class="nav-logo-img" width="154" height="46"><span class="nav-brand-name">Algorithmic<br>Research Group</span></a>
+            <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="main-navigation"><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span></button>
+            <nav class="nav-menu" id="main-navigation" aria-label="Main navigation">
+                <ul class="nav-links">
+                    <li><a href="../projects.html">Research</a></li>
+                    <li><a href="../work.html">Apps</a></li>
+                    <li><a href="../opensource.html">Open source</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../blog/">Writing</a></li>
+                    <li><a href="../contact.html" class="nav-contact">Let’s talk</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="inner-page" id="main-content">
+<article class="full-article resource-detail">
+    <header class="page-header">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../">Home</a><span class="separator">/</span><a href="../opensource.html">Open source</a></nav>
+        <p class="eyebrow">Models</p>
+        <h1 class="page-title">ArXiv LED Summarization Models</h1>
+        <p class="page-subtitle">Base and large Longformer Encoder–Decoder checkpoints for arXiv summarization, with 16,384-token input capacity and published test-set ROUGE results.</p>
+        <a class="text-link" href="#get-resource">Get the resource</a>
+    </header>
+<div class="article-content">
+
+<h2>A longer view of the paper</h2>
+<p>These English-language checkpoints use Allen Institute for AI's Longformer Encoder–Decoder architecture to generate summaries of scientific papers. The release cards describe abstracts and full document text as inputs, with a text summary as the output. Both support an encoder input of up to <strong>16,384 tokens</strong>; this is a token budget, rather than a guarantee that every paper will fit.</p>
+<p>The <a href="https://huggingface.co/AlgorithmicResearchGroup/led_base_16384_arxiv_summarization/blob/main/config.json">base configuration</a> has six encoder layers, six decoder layers, and a hidden dimension of 768. The <a href="https://huggingface.co/AlgorithmicResearchGroup/led_large_16384_arxiv_summarization/blob/main/config.json">large configuration</a> doubles the layer counts to twelve each and increases the hidden dimension to 1,024. Both use <code>LEDForConditionalGeneration</code>, with a 1,024-token encoder attention window and a 1,024-position decoder.</p>
+<h2>Training provenance and recorded results</h2>
+<p>The checkpoints identify <code>allenai/led-base-16384</code> and <code>allenai/led-large-16384</code> as their respective source models. The cards associate the releases with <code>arxiv-summarization</code>, but do not provide a complete fine-tuning recipe: epoch counts, optimizer settings, and exact training subsets are not documented there. The underlying architecture comes from <em>Longformer: The Long-Document Transformer</em> by Iz Beltagy, Matthew E. Peters, and Arman Cohan.</p>
+<p>Hugging Face's recorded evaluation metadata reports the following scores on the <strong><code>section</code> configuration, <code>test</code> split</strong> of <code>ccdv/arxiv-summarization</code>. These are the published evaluation results, not a new benchmark run. Sources: <a href="https://huggingface.co/AlgorithmicResearchGroup/led_base_16384_arxiv_summarization">base model card</a> and <a href="https://huggingface.co/AlgorithmicResearchGroup/led_large_16384_arxiv_summarization">large model card</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Checkpoint</th>
+<th style="text-align: right;">ROUGE-1</th>
+<th style="text-align: right;">ROUGE-2</th>
+<th style="text-align: right;">ROUGE-L</th>
+<th style="text-align: right;">ROUGE-LSUM</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LED base</td>
+<td style="text-align: right;">37.3255</td>
+<td style="text-align: right;">10.8948</td>
+<td style="text-align: right;">20.3875</td>
+<td style="text-align: right;">33.3014</td>
+</tr>
+<tr>
+<td>LED large</td>
+<td style="text-align: right;">37.9472</td>
+<td style="text-align: right;">11.3138</td>
+<td style="text-align: right;">20.5557</td>
+<td style="text-align: right;">33.8336</td>
+</tr>
+</tbody>
+</table>
+<h2>Generating a summary</h2>
+<p>Load the selected checkpoint with <code>AutoTokenizer</code> and <code>AutoModelForSeq2SeqLM</code>, tokenize the paper text, generate a sequence, and decode it. The <a href="https://huggingface.co/docs/transformers/en/model_doc/led">Transformers LED documentation</a> recommends global attention on the first input token for summarization and padding inputs on the right.</p>
+<p>The saved configurations specify four-beam generation, a minimum length of 100, a maximum length of 512, and a three-token repetition constraint. These are generation settings, separate from the encoder's 16,384-token capacity. Set input truncation and output length deliberately when adapting the models to a collection. Extract text from PDFs before tokenization; document images and page layout are not model inputs.</p>
+<p>Both releases specify Apache 2.0 licensing. Their published scores describe this arXiv evaluation setting; the cards do not establish performance across other scientific domains or languages.</p></div>    <section class="resource-download-panel" id="get-resource" aria-labelledby="resource-download-title"><h2 id="resource-download-title">Get the resource</h2><div class="article-content resource-links"><ul>
+<li><a href="https://huggingface.co/AlgorithmicResearchGroup/led_large_16384_arxiv_summarization">AlgorithmicResearchGroup/led_large_16384_arxiv_summarization</a></li>
+<li><a href="https://huggingface.co/AlgorithmicResearchGroup/led_base_16384_arxiv_summarization">AlgorithmicResearchGroup/led_base_16384_arxiv_summarization</a></li>
+</ul>
+</div></section>
+    <div class="about-reading-footer"><a class="text-link" href="../opensource.html">All open resources</a><a class="text-link" href="../projects.html">Read the research</a></div>
+</article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-mega">
+            <div class="footer-brand">
+                <a href="../" class="footer-logo" aria-label="Algorithmic Research Group home"><img src="../theme/logo-white.png" alt="ARG" class="footer-logo-img" width="154" height="46"></a>
+                <p class="footer-tagline">Independent questions.<br>Open research.</p>
+                <a href="../studio.html" class="footer-studio">About the person and practice.</a>
+            </div>
+            <div class="footer-columns">
+                <div class="footer-col"><h2 class="footer-col-title">Explore</h2><ul>
+                    <li><a href="../projects.html">Research</a></li>
+                    <li><a href="../work.html">Apps & software</a></li>
+                    <li><a href="../opensource.html">Open source</a></li>
+                    <li><a href="../blog/">Writing</a></li>
+                    <li><a href="../tags.html">By topic</a></li>
+                </ul></div>
+                <div class="footer-col"><h2 class="footer-col-title">Connect</h2><ul>
+                    <li><a href="../about.html">About the group</a></li>
+                    <li><a href="../services.html">Work with us</a></li>
+                    <li><a href="../contact.html">Get in touch</a></li>
+                    <li><a href="https://github.com/AlgorithmicResearchGroup" target="_blank" rel="noopener">GitHub</a></li>
+                    <li><a href="https://huggingface.co/AlgorithmicResearchGroup" target="_blank" rel="noopener">Hugging Face</a></li>
+                </ul></div>
+            </div>
+        </div>
+        <div class="footer-bottom"><span>&copy; 2026 Algorithmic Research Group</span><span>Built on curiosity. Shared in the open.</span></div>
+    </footer>
+    <script src="../theme/js/site.js" defer></script>
+</body>
+</html>
