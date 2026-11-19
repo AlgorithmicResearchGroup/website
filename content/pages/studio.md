@@ -23,7 +23,7 @@ Different subjects, shared instincts: keep data and control close to the person 
 
 ## The person behind it
 
-I teach AI at Duke, with courses in applied AI, AI products, and software development. Previously, I was a Senior ML Engineer at Apple and worked at several startups, building software that had to hold up in everyday use.
+I teach AI, with courses in applied AI, AI products, and software development. Previously, I was a Senior ML Engineer at Apple and worked at several startups, building software that had to hold up in everyday use.
 
 My research focuses on AI systems and agents. I've raised over $1.5 million in research grants and presented at NeurIPS and ICML. Research informs how I build; building gives me better questions to research.
 

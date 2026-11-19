@@ -2,6 +2,7 @@
 """Check generated HTML, local links, assets, anchors, and imported content."""
 
 import json
+import re
 from collections import Counter
 from html.parser import HTMLParser
 from pathlib import Path
@@ -10,6 +11,7 @@ from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "output"
+PERSONAL_ATTRIBUTION = re.compile(r"\b(?:matt(?:hew)?\s+kenney|duke(?:\s+university)?)\b", re.I)
 
 
 class Page(HTMLParser):
@@ -90,6 +92,15 @@ def main():
             issues.append(f"Missing imported asset: {asset}")
     if (ROOT / "content/images/creative").exists() or (ROOT / "content/pages/work").exists():
         issues.append("Unexpected creative content directory")
+    for path in (ROOT / "content").rglob("*.md"):
+        if PERSONAL_ATTRIBUTION.search(path.read_text()):
+            issues.append(f"Personal attribution remains in {path.relative_to(ROOT)}")
+    for path in OUTPUT.rglob("*"):
+        if path.is_file() and path.suffix in {".html", ".xml", ".json", ".txt", ".svg"}:
+            if PERSONAL_ATTRIBUTION.search(path.read_text()):
+                issues.append(f"Personal attribution remains in {path.relative_to(ROOT)}")
+    if (OUTPUT / "papers/deltaml-bench.pdf").exists():
+        issues.append("Original paper must be linked externally rather than republished locally")
     print(f"Checked {len(pages)} HTML pages, their local links/assets/anchors, and JSON-LD.")
     print("Imported content:", dict(groups))
     for issue in issues:

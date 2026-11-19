@@ -25,7 +25,7 @@ The releases share a Sentence Transformers interface and mean pooling over token
 
 The [DistilBERT model card](https://huggingface.co/AlgorithmicResearchGroup/arxiv-distilbert-base-v3-GenQ) and [DistilRoBERTa model card](https://huggingface.co/AlgorithmicResearchGroup/arxiv-distilroberta-base-GenQ) describe training on question–abstract pairs from the [arXiv generated-query corpus](https://huggingface.co/datasets/AlgorithmicResearchGroup/arxiv-beir-500k-generated-queries). Both record one training epoch, batches of 64, and `MultipleNegativesRankingLoss` with cosine similarity and a scale of 20. The optimizer was AdamW at a learning rate of `2e-5`, with linear warmup and weight decay of `0.01`.
 
-The cards credit Matthew Kenney, 2023, and retain the original ArtifactAI names in their examples. The download links point to the current AlgorithmicResearchGroup repositories. Both model releases specify Apache 2.0 licensing.
+The cards date to 2023 and retain the original ArtifactAI names in their examples. The download links point to the current AlgorithmicResearchGroup repositories. Both model releases specify Apache 2.0 licensing.
 
 ## Working with the embeddings
 

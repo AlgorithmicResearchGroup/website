@@ -11,7 +11,7 @@ Origin: Algorithmic Research Group
 Resource_order: 030
 
 - [AlgorithmicResearchGroup/DeltaMLBench](https://github.com/AlgorithmicResearchGroup/deltaml-bench-inspect)
-- [Paper (PDF)]({static}/papers/deltaml-bench.pdf)
+- [Paper (PDF)](https://arg.studio/papers/deltaml-bench.pdf)
 - [Task papers, code snapshots, and datasets](https://huggingface.co/buckets/AlgorithmicResearchGroup/dmlb)
 
 <!-- resource-details -->

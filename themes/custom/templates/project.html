@@ -22,7 +22,7 @@
     "description": "{{ article.summary|striptags|truncate(200) }}",
     "url": "{{ SITEURL }}/{{ article.url }}",
     "author": {
-        "@type": "{% if article.publication_status %}Person{% else %}Organization{% endif %}",
+        "@type": "{{ article.author_type|default('Organization') }}",
         "name": "{{ article.author if article.publication_status else AUTHOR }}",
         "url": "{{ SITEURL }}"
     },

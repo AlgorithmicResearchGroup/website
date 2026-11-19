@@ -7,9 +7,8 @@ Save_as: projects/causal-tests-language-model-reports.html
 Template: project
 Research_kind: Introspection
 Card_title: Causal Tests of Language-Model Reports
-Author: Matthew Kenney
-Author_type: Person
-Affiliation: Duke University
+Author: Algorithmic Research Group
+Author_type: Organization
 Publication_status: Forthcoming
 Research_featured: yes
 Feature_image: images/research/causal-reports/causal-intervention.png

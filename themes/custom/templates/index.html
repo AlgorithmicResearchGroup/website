@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% from "research-cards.html" import research_card, featured_research %}
 {% from "app-cards.html" import app_card %}
-{% block title %}{{ SITENAME }} — Intelligence, under scrutiny{% endblock %}
+{% block title %}{{ SITENAME }} — Research, tools & independent software{% endblock %}
 
 {% block body %}
 {% set projects = articles|selectattr('category.name', 'equalto', 'projects')|list %}
@@ -9,13 +9,13 @@
 <main id="main-content">
     <section class="hero" aria-labelledby="hero-title">
         <div class="hero-eyebrow">
-            <p class="eyebrow">Independent research. Open by default.</p>
-            <span class="hero-field">Machine learning / Autonomous systems</span>
+            <p class="eyebrow">Independent thinking. Practical work.</p>
+            <span class="hero-field">Research / Tools / Independent apps</span>
         </div>
         <div class="hero-content">
             <div class="hero-text">
-                <h1 class="hero-statement" id="hero-title">Intelligence,<br>under scrutiny<span class="accent">.</span></h1>
-                <p class="hero-sub">We test what AI systems can actually do. Then build the benchmarks, datasets, and tools to let you test it, too.</p>
+                <h1 class="hero-statement hero-statement--wide" id="hero-title">Ideas worth testing<span class="accent">.</span><br>Things worth building<span class="accent">.</span></h1>
+                <p class="hero-sub">We turn good questions into open research, practical tools, and independent apps. Exploring how AI works. Building software that keeps people in control.</p>
                 <div class="hero-actions">
                     <a href="#research" class="button button--primary">Explore the research</a>
                     <a href="{{ SITEURL }}/opensource.html" class="text-link">Get the tools</a>

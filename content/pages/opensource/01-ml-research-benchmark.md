@@ -18,7 +18,7 @@ Resource_order: 010
 
 ML Research Benchmark puts an agent inside the work of machine learning research: writing code, training models, testing ideas, and producing an artifact that can be evaluated. The question is how far an agent can take an experiment once it has tools and a concrete research objective.
 
-Introduced by Matthew Kenney in the [ML Research Benchmark paper](https://arxiv.org/abs/2410.22553), the suite draws seven competition-level tasks from machine learning conference tracks. It gives researchers a way to compare the model, tools, and workflow that make up an agent against the same practical challenges.
+Introduced in the [ML Research Benchmark paper](https://arxiv.org/abs/2410.22553), the suite draws seven competition-level tasks from machine learning conference tracks. It gives researchers a way to compare the model, tools, and workflow that make up an agent against the same practical challenges.
 
 ## Seven kinds of research work
 

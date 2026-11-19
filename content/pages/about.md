@@ -12,7 +12,7 @@ Algorithmic Research Group builds tools and infrastructure for AI safety researc
 
 ## Small team, open output
 
-The lab is run by [Matthew Kenney](https://x.com/baykenney) and a rotating cast of contractors. One person works full-time, with specialists brought in as projects demand.
+The lab works with a rotating cast of contractors. One person works full-time, with specialists brought in as projects demand.
 
 We build benchmarks, datasets, and infrastructure for evaluating what autonomous AI systems can actually do. The research output is open source so other researchers, auditors, and teams can inspect and use it.
 

@@ -9,7 +9,9 @@
     "Resources use /opensource/ detail pages in the existing theme.",
     "Internal Markdown references resolve to imported local content.",
     "The studio biography omits its creative-archive paragraph.",
-    "The Work introduction lists software only."
+    "The Work introduction lists software only.",
+    "Personal names and university attribution are omitted from site content and metadata.",
+    "The original research paper is linked externally with its authorship intact."
   ],
   "content": [
     {
@@ -290,7 +292,6 @@
     "images/research/causal-reports/adapter-saturation.png",
     "images/research/causal-reports/causal-intervention.png",
     "images/research/causal-reports/qwen3-direction.png",
-    "images/research/causal-reports/self-observer.png",
-    "papers/deltaml-bench.pdf"
+    "images/research/causal-reports/self-observer.png"
   ]
 }

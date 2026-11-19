@@ -10,6 +10,27 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
+PERSONAL_ATTRIBUTION = re.compile(r"\b(?:matt(?:hew)?\s+kenney|duke(?:\s+university)?)\b", re.I)
+ORIGINAL_PAPER_URL = "https://arg.studio/papers/deltaml-bench.pdf"
+
+
+def remove_personal_attribution(metadata, body):
+    """Keep organization-level attribution without republishing personal details."""
+    if PERSONAL_ATTRIBUTION.search(metadata.get("author", "")):
+        metadata["author"] = "Algorithmic Research Group"
+        metadata["author_type"] = "Organization"
+    if PERSONAL_ATTRIBUTION.search(metadata.get("affiliation", "")):
+        metadata.pop("affiliation")
+    body = re.sub(
+        r"The lab is run by \[[^\]]+\]\(https://x\.com/baykenney\) and a rotating cast of contractors\.",
+        "The lab works with a rotating cast of contractors.", body,
+    )
+    body = re.sub(r"Introduced by matt(?:hew)?\s+kenney in the", "Introduced in the", body, flags=re.I)
+    body = re.sub(r"The cards credit matt(?:hew)?\s+kenney, 2023, and retain", "The cards date to 2023 and retain", body, flags=re.I)
+    body = re.sub(r"I teach AI at duke(?: university)?,", "I teach AI,", body, flags=re.I)
+    if any(PERSONAL_ATTRIBUTION.search(value) for value in metadata.values()) or PERSONAL_ATTRIBUTION.search(body):
+        raise ValueError("Unreviewed personal attribution remains in imported content")
+    return body
 
 
 def read_markdown(path):
@@ -125,7 +146,11 @@ def main():
             return "{filename}/" + mappings[linked_source] + (separator + fragment if separator else "")
 
         body = re.sub(r"\{filename\}([^\s)\"<>]+)", rewrite_link, body)
-        body = body.replace("](papers/deltaml-bench.pdf)", "]({static}/papers/deltaml-bench.pdf)")
+        body = body.replace("{static}/papers/deltaml-bench.pdf", ORIGINAL_PAPER_URL)
+        body = body.replace("](papers/deltaml-bench.pdf)", "](" + ORIGINAL_PAPER_URL + ")")
+        if metadata.get("paper") == "papers/deltaml-bench.pdf":
+            metadata["paper"] = ORIGINAL_PAPER_URL
+        body = remove_personal_attribution(metadata, body)
         header = "\n".join(f"{key.capitalize()}: {value}" for key, value in metadata.items())
         target_path.parent.mkdir(parents=True, exist_ok=True)
         target_path.write_text(header + "\n\n" + body, encoding="utf-8")
@@ -137,7 +162,7 @@ def main():
         })
 
     assets = []
-    for folder in ["images/apps", "images/research", "papers"]:
+    for folder in ["images/apps", "images/research"]:
         for asset in sorted((source / folder).rglob("*")):
             if not asset.is_file() or asset.name.startswith("."):
                 continue
@@ -155,6 +180,8 @@ def main():
             "Internal Markdown references resolve to imported local content.",
             "The studio biography omits its creative-archive paragraph.",
             "The Work introduction lists software only.",
+            "Personal names and university attribution are omitted from site content and metadata.",
+            "The original research paper is linked externally with its authorship intact.",
         ],
         "content": records,
         "assets": assets,
