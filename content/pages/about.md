@@ -10,9 +10,7 @@ Summary: The people, principles, and support behind Algorithmic Research Group, 
 
 Algorithmic Research Group builds tools and infrastructure for AI safety research. Benchmarks for evaluating autonomous agents. Datasets for studying how models fail. Runtimes for running agent workloads at scale.
 
-## Small team, open output
-
-The lab works with a rotating cast of contractors. One person works full-time, with specialists brought in as projects demand.
+## Open output
 
 We build benchmarks, datasets, and infrastructure for evaluating what autonomous AI systems can actually do. The research output is open source so other researchers, auditors, and teams can inspect and use it.
 

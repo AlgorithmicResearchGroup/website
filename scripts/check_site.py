@@ -12,6 +12,7 @@ from urllib.parse import unquote, urlsplit
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "output"
 PERSONAL_ATTRIBUTION = re.compile(r"\b(?:matt(?:hew)?\s+kenney|duke(?:\s+university)?)\b", re.I)
+PERSONAL_BIO = re.compile(r"\b(?:the person behind it|about the person and practice|I teach AI|Senior ML Engineer at Apple|I['’]ve raised over|One person works full-time|rotating cast of contractors)\b", re.I)
 
 
 class Page(HTMLParser):
@@ -95,10 +96,14 @@ def main():
     for path in (ROOT / "content").rglob("*.md"):
         if PERSONAL_ATTRIBUTION.search(path.read_text()):
             issues.append(f"Personal attribution remains in {path.relative_to(ROOT)}")
+        if PERSONAL_BIO.search(path.read_text()):
+            issues.append(f"Personal biography remains in {path.relative_to(ROOT)}")
     for path in OUTPUT.rglob("*"):
         if path.is_file() and path.suffix in {".html", ".xml", ".json", ".txt", ".svg"}:
             if PERSONAL_ATTRIBUTION.search(path.read_text()):
                 issues.append(f"Personal attribution remains in {path.relative_to(ROOT)}")
+            if PERSONAL_BIO.search(path.read_text()):
+                issues.append(f"Personal biography remains in {path.relative_to(ROOT)}")
     if (OUTPUT / "papers/deltaml-bench.pdf").exists():
         issues.append("Original paper must be linked externally rather than republished locally")
     print(f"Checked {len(pages)} HTML pages, their local links/assets/anchors, and JSON-LD.")

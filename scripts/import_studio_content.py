@@ -121,10 +121,17 @@ def main():
                 )
         elif relative == "pages/about.md":
             metadata.update(slug="studio", url="studio.html", save_as="studio.html", template="page")
-            # Exclude the creative archive paragraph, retaining the studio biography.
+            # Keep the practice overview without the creative archive or biography.
             body = "\n\n".join(paragraph for paragraph in body.split("\n\n") if "[creative archive]" not in paragraph)
+            body = re.sub(r"^## The person behind it\n.*?(?=^## |\Z)", "", body, flags=re.M | re.S)
+            body = body.replace(
+                "ARG Studio is where I make independent software, explore new ideas, and work with people on things worth building.",
+                "ARG Studio develops independent software, practical tools, and open research.",
+            )
+            body = re.sub(r"^## Small on purpose\n.*?(?=^\[Work with the studio|\Z)", "", body, flags=re.M | re.S)
         elif relative == "pages/research/about.md":
             metadata.update(slug="about", url="about.html", save_as="about.html", template="about")
+            body = re.sub(r"^## Small team, open output\n\n.*?\n\n", "## Open output\n\n", body, flags=re.M | re.S)
         elif relative == "pages/services.md":
             metadata["template"] = "page"
         elif relative == "pages/contact.md":
@@ -178,7 +185,7 @@ def main():
             "Research retains this site's /projects/ routes and templates.",
             "Resources use /opensource/ detail pages in the existing theme.",
             "Internal Markdown references resolve to imported local content.",
-            "The studio biography omits its creative-archive paragraph.",
+            "The practice overview omits creative projects, personal biography, and staffing details.",
             "The Work introduction lists software only.",
             "Personal names and university attribution are omitted from site content and metadata.",
             "The original research paper is linked externally with its authorship intact.",
