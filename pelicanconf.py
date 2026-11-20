@@ -3,7 +3,7 @@
 
 AUTHOR = 'Algorithmic Research Group'
 SITENAME = 'Algorithmic Research Group'
-SITEDESCRIPTION = 'Independent AI research, open benchmarks and datasets, and practical tools. Research and infrastructure from Algorithmic Research Group.'
+SITEDESCRIPTION = 'Independent research into how AI systems learn, reason, and behave. Experiments, benchmarks, and open datasets from Algorithmic Research Group.'
 SITEURL = ''
 
 PATH = 'content'

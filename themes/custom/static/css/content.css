@@ -1,5 +1,4 @@
 /* Imported content uses the existing ARG typography, colors, and layout. */
-.hero-statement.hero-statement--wide { font-size: clamp(2.75rem, 4.6vw, 4.75rem); }
 .page-subtitle { font-size: 1.125rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 28px; }
 .page-detail .page-title { font-size: clamp(2.5rem, 4.4vw, 4.25rem); }
 .page-detail .article-content > p:last-child { margin-bottom: 0; }
@@ -16,7 +15,6 @@
 .artifact-title a:hover { color: var(--accent); }
 .os-hero-copy.article-content p:last-child { margin-bottom: 0; }
 @media (max-width: 640px) {
-    .hero-statement.hero-statement--wide { font-size: clamp(1.75rem, 7.3vw, 3rem); }
     .page-detail .page-title { font-size: clamp(2.3rem, 9vw, 3.5rem); }
     .resource-download-panel { padding: 24px; }
 }
