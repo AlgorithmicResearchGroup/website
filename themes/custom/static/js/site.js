@@ -33,7 +33,7 @@
         desktop.addEventListener('change', event => { if (event.matches) closeMenu(); });
         menu.querySelectorAll('a').forEach(link => {
             const path = new URL(link.href, window.location.href).pathname;
-            if (path === window.location.pathname || (path.endsWith('/projects.html') && (window.location.pathname.includes('/projects/') || window.location.pathname.endsWith('/research/'))) || (path.endsWith('/work.html') && window.location.pathname.includes('/work/')) || (path.endsWith('/opensource.html') && window.location.pathname.includes('/opensource/')) || (path.endsWith('/blog/') && window.location.pathname.includes('/blog/'))) {
+            if (path === window.location.pathname || (path.endsWith('/projects.html') && (window.location.pathname.includes('/projects/') || window.location.pathname.endsWith('/research/'))) || (path.endsWith('/opensource.html') && window.location.pathname.includes('/opensource/')) || (path.endsWith('/blog/') && window.location.pathname.includes('/blog/'))) {
                 link.setAttribute('aria-current', 'page');
             }
         });

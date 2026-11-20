@@ -93,6 +93,11 @@ def main():
             issues.append(f"Missing imported asset: {asset}")
     if (ROOT / "content/images/creative").exists() or (ROOT / "content/pages/work").exists():
         issues.append("Unexpected creative content directory")
+    for relative in ["work.html", "work", "images/apps"]:
+        if (OUTPUT / relative).exists():
+            issues.append(f"Removed app content is still published: {relative}")
+    if groups.get("apps"):
+        issues.append("App pages must remain excluded from the content import")
     for path in (ROOT / "content").rglob("*.md"):
         if PERSONAL_ATTRIBUTION.search(path.read_text()):
             issues.append(f"Personal attribution remains in {path.relative_to(ROOT)}")

@@ -208,32 +208,7 @@
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>./work/dropbeam.html</loc>
-        <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
-    </url>
-    <url>
-        <loc>./work/elsewhere.html</loc>
-        <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
-    </url>
-    <url>
-        <loc>./work/harness.html</loc>
-        <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
-    </url>
-    <url>
         <loc>./research/</loc>
-        <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
-    </url>
-    <url>
-        <loc>./work/presskeep.html</loc>
-        <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
-    </url>
-    <url>
-        <loc>./work/saylight.html</loc>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>
@@ -244,11 +219,6 @@
     </url>
     <url>
         <loc>./studio.html</loc>
-        <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
-    </url>
-    <url>
-        <loc>./work.html</loc>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>

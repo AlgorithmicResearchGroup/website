@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Import ARG Studio's non-creative Markdown into this site's existing theme."""
+"""Import ARG Studio content, excluding apps, creative work, and personal profiles."""
 
 import argparse
 import hashlib
@@ -53,7 +53,6 @@ def main():
     for folder, target, group in [
         ("research", "projects", "research"),
         ("blog", "blog", "writing"),
-        ("pages/apps", "pages/apps", "apps"),
         ("pages/resources", "pages/opensource", "resources"),
     ]:
         for path in sorted((source / folder).glob("*.md")):
@@ -64,7 +63,6 @@ def main():
         "pages/about.md": "pages/studio.md",
         "pages/services.md": "pages/services.md",
         "pages/contact.md": "pages/contact.md",
-        "pages/work.md": "pages/work.md",
         "pages/research/about.md": "pages/about.md",
         "pages/research/index.md": "pages/research/index.md",
         "pages/research/open-source.md": "pages/opensource.md",
@@ -109,20 +107,13 @@ def main():
             metadata.setdefault("category", "blog")
             metadata["url"] = f"blog/{metadata['slug']}.html"
             metadata["save_as"] = metadata["url"]
-        elif group == "apps":
-            order = ["saylight", "harness", "presskeep", "elsewhere", "dropbeam"]
-            metadata["app_order"] = f"{order.index(metadata['app_key']):02}"
-            if metadata["app_key"] == "harness":
-                metadata.update(
-                    app_image="images/apps/harness/backlog1.png",
-                    app_image_alt="Backlog's shared project board, with tasks in Backlog, Active, Review, and Done and visible dependencies.",
-                    app_image_width="2934",
-                    app_image_height="1904",
-                )
         elif relative == "pages/about.md":
             metadata.update(slug="studio", url="studio.html", save_as="studio.html", template="page")
-            # Keep the practice overview without the creative archive or biography.
-            body = "\n\n".join(paragraph for paragraph in body.split("\n\n") if "[creative archive]" not in paragraph)
+            metadata["summary"] = "ARG Studio develops practical tools, AI systems, and open research."
+            # Keep the practice overview without app promotion or personal biography.
+            body = "\n\n".join(paragraph for paragraph in body.split("\n\n") if "[creative archive]" not in paragraph and not re.search(r"\{filename\}(?:/pages/)?apps/", paragraph))
+            body = body.replace("## A few things in orbit", "## Research & tools")
+            body = body.replace("Sometimes that means a small, opinionated app. ", "")
             body = re.sub(r"^## The person behind it\n.*?(?=^## |\Z)", "", body, flags=re.M | re.S)
             body = body.replace(
                 "ARG Studio is where I make independent software, explore new ideas, and work with people on things worth building.",
@@ -136,10 +127,6 @@ def main():
             metadata["template"] = "page"
         elif relative == "pages/contact.md":
             metadata["template"] = "contact"
-        elif relative == "pages/work.md":
-            metadata.update(title="Apps & software", url="work.html", save_as="work.html")
-            metadata["summary"] = "Private, local-first apps, tools for working with AI agents, and independent publishing."
-            body = "Software that keeps data and control with the people using it. Explore five independent apps and the questions behind them.\n"
         elif relative == "pages/research/open-source.md":
             metadata.update(slug="opensource", url="opensource.html", save_as="opensource.html", template="opensource")
 
@@ -169,7 +156,7 @@ def main():
         })
 
     assets = []
-    for folder in ["images/apps", "images/research"]:
+    for folder in ["images/research"]:
         for asset in sorted((source / folder).rglob("*")):
             if not asset.is_file() or asset.name.startswith("."):
                 continue
@@ -180,13 +167,12 @@ def main():
 
     manifest = {
         "source_project": "ARG_Studio",
-        "excluded_content": ["pages/work/*", "images/creative/*"],
+        "excluded_content": ["pages/apps/*", "pages/work.md", "pages/work/*", "images/apps/*", "images/creative/*"],
         "adaptations": [
             "Research retains this site's /projects/ routes and templates.",
             "Resources use /opensource/ detail pages in the existing theme.",
             "Internal Markdown references resolve to imported local content.",
-            "The practice overview omits creative projects, personal biography, and staffing details.",
-            "The Work introduction lists software only.",
+            "The practice overview omits app promotion, creative projects, personal biography, and staffing details.",
             "Personal names and university attribution are omitted from site content and metadata.",
             "The original research paper is linked externally with its authorship intact.",
         ],
@@ -197,7 +183,7 @@ def main():
     manifest_path.parent.mkdir(parents=True, exist_ok=True)
     manifest_path.write_text(json.dumps(manifest, indent=2) + "\n")
     print(f"Imported {len(records)} Markdown files and {len(assets)} assets.")
-    print("Excluded all nine creative projects and their assets.")
+    print("Excluded app pages, creative projects, and their assets.")
 
 
 if __name__ == "__main__":

@@ -1,15 +1,17 @@
 {
   "source_project": "ARG_Studio",
   "excluded_content": [
+    "pages/apps/*",
+    "pages/work.md",
     "pages/work/*",
+    "images/apps/*",
     "images/creative/*"
   ],
   "adaptations": [
     "Research retains this site's /projects/ routes and templates.",
     "Resources use /opensource/ detail pages in the existing theme.",
     "Internal Markdown references resolve to imported local content.",
-    "The practice overview omits creative projects, personal biography, and staffing details.",
-    "The Work introduction lists software only.",
+    "The practice overview omits app promotion, creative projects, personal biography, and staffing details.",
     "Personal names and university attribution are omitted from site content and metadata.",
     "The original research paper is linked externally with its authorship intact."
   ],
@@ -117,36 +119,6 @@
       "source_sha256": "f78f6a292a044b89659f80a7b9ce5d607e323a28bfc480653cc49fc020012593"
     },
     {
-      "source": "pages/apps/dropbeam.md",
-      "destination": "pages/apps/dropbeam.md",
-      "group": "apps",
-      "source_sha256": "94fceb5baf2ab487629909d47155bdd23b0178e07389a8996ca23160f8bf7af8"
-    },
-    {
-      "source": "pages/apps/elsewhere.md",
-      "destination": "pages/apps/elsewhere.md",
-      "group": "apps",
-      "source_sha256": "62609154ba991fb7f1d7da47e51e12ea0b78cc0ed9984a3575f64615d74002d3"
-    },
-    {
-      "source": "pages/apps/harness.md",
-      "destination": "pages/apps/harness.md",
-      "group": "apps",
-      "source_sha256": "f7b25369bc767fd7875abfb5b58515c3990eafef44cea967d65314fd892787f3"
-    },
-    {
-      "source": "pages/apps/presskeep.md",
-      "destination": "pages/apps/presskeep.md",
-      "group": "apps",
-      "source_sha256": "9056444c5f73695ba5e8efbc84df96ddd0aeb99827751bd102e82bbf7d43730d"
-    },
-    {
-      "source": "pages/apps/saylight.md",
-      "destination": "pages/apps/saylight.md",
-      "group": "apps",
-      "source_sha256": "8ddc31b38b63672d39f7ea4b24c6973aef85cb0dc0563654cc66d449f1448bf1"
-    },
-    {
       "source": "pages/resources/01-ml-research-benchmark.md",
       "destination": "pages/opensource/01-ml-research-benchmark.md",
       "group": "resources",
@@ -243,12 +215,6 @@
       "source_sha256": "745fe2652a0c6ac682d0e6d723920748c8b95137e0d50d2e08e39d65ae7ccea4"
     },
     {
-      "source": "pages/work.md",
-      "destination": "pages/work.md",
-      "group": "pages",
-      "source_sha256": "82e34de17d76bc6b14e3c999d3f7f137a39008782b9e6289f62cc7932496ba70"
-    },
-    {
       "source": "pages/research/about.md",
       "destination": "pages/about.md",
       "group": "pages",
@@ -268,27 +234,6 @@
     }
   ],
   "assets": [
-    "images/apps/dropbeam/dropbeam-icon.svg",
-    "images/apps/elsewhere/elsewhere-icon.png",
-    "images/apps/harness/backlog1.png",
-    "images/apps/harness/breath.png",
-    "images/apps/harness/icons/backlog.png",
-    "images/apps/harness/icons/breath.png",
-    "images/apps/harness/icons/help.png",
-    "images/apps/harness/icons/mail.png",
-    "images/apps/harness/icons/pomodoro.png",
-    "images/apps/harness/icons/stop.png",
-    "images/apps/harness/icons/thought.png",
-    "images/apps/harness/icons/todo.png",
-    "images/apps/harness/mail.png",
-    "images/apps/harness/stop.png",
-    "images/apps/harness/todo.png",
-    "images/apps/presskeep/presskeep-icon.png",
-    "images/apps/presskeep/presskeep-identity-v2.png",
-    "images/apps/presskeep/presskeep-identity.png",
-    "images/apps/saylight/saylight-icon.png",
-    "images/apps/saylight/saylight-identity.png",
-    "images/apps/saylight/saylight-watercolor.jpg",
     "images/research/causal-reports/adapter-saturation.png",
     "images/research/causal-reports/causal-intervention.png",
     "images/research/causal-reports/qwen3-direction.png",
